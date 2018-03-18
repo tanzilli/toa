@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<style>
+		body { 
+			background-color: black;
+		}
+		
+		#display { 
+			position: absolute;
+			top: 110px;
+			left: 160px;
+		}
+	</style>
+
+	<script src="js/mqttws31.min.js"     type="text/javascript"></script>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/common.js"           type="text/javascript"></script>	
+	<script src="js/excanvas.js"         type="text/javascript"></script>	
+	<script src="js/segment-display.js"  type="text/javascript"></script>	
+
+	<script>
+		var display;
+		var mqtt_counter=0;
+
+		mqtt_client = new Paho.MQTT.Client(mqtt_broker, Number(mqtt_port), "/ws",randomString(20));
+		mqtt_client.onMessageArrived = onMessageArrived;
+		
+		mqtt_client.connect({
+			onSuccess:onConnect
+		});
+
+		function onConnect() {
+			mqtt_client.subscribe("primopiano/luci/#");
+		}	
+	
+		function  onMessageArrived(mqtt_message) {
+			mqtt_counter++;
+			display.setValue(mqtt_counter.toString());
+		}
+
+		$(document).ready(function() {
+			display = new SegmentDisplay("display");
+
+			display.pattern         = "######";
+			display.displayAngle    = 6.5;
+			display.digitHeight     = 32;
+			display.digitWidth      = 17.5;
+			display.digitDistance   = 3.1;
+			display.segmentWidth    = 2.8;
+			display.segmentDistance = 0.4;
+			display.segmentCount    = 7;
+			display.cornerType      = 3;
+			display.colorOn         = "#ff330f";
+			display.colorOff        = "#4b1e05";
+
+			display.setValue(mqtt_counter.toString());
+		});
+
+	</script>
+	
+	<title>Acme Counter</title>
+</head>
+
+<body>
+	<canvas id="display" width="460" height="240">
+	  Your browser is unfortunately not supported.
+	</canvas>
+</body>
+</html>

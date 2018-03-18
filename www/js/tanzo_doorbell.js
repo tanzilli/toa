@@ -1,0 +1,83 @@
+// Gestione degli switch
+class tanzoDoorbell {
+	constructor(caption,address,domElementId) {
+		this.domElementId = domElementId;
+		this.address = address;
+		this.state = 0;
+
+		$("#" + this.domElementId).click(this.click_handler.bind(this));
+		
+		$("#" + this.domElementId).html(`
+			<div style="
+				border: 2px solid black; 
+				background-color: grey; 
+				background-color:rgba(0, 0, 0, 0.5); 
+				border-color: light-grey; 
+				width: 800px; 
+				height: 480px; 
+				padding-top: 2px;
+				padding-bottom: 0px;
+				margin-bottom: 20px;
+				font-family: arial;
+			">
+				<img src="images/doorbell.png" id=` + address + `>
+				
+				<span>Acme Systems srl</span>
+			</div>
+		`);
+		//*****************************************************************************
+		// Connessione al broker MQTT
+		// https://www.eclipse.org/paho/clients/js/
+		//*****************************************************************************
+	
+		this.mqtt_client = new Paho.MQTT.Client(mqtt_broker, Number(mqtt_port), "/ws",randomString(20));
+		this.mqtt_client.onMessageArrived = this.onMessageArrived.bind(this);
+		
+		this.mqtt_client.connect({
+			onSuccess:this.onConnect.bind(this)
+		});
+	}
+
+	onConnect() {
+		this.mqtt_client.subscribe("primopiano/luci/"+ this.address + "/currentval");
+		this.mqtt_client.subscribe("primopiano/luci/"+ this.address + "/setval");
+
+		var message;
+		message = new Paho.MQTT.Message("x");
+		message.destinationName = "primopiano/luci/"+ this.address + "/getval";
+		this.mqtt_client.send(message);
+	}	
+
+	onMessageArrived(mqtt_message) {
+		if (mqtt_message.payloadString=="0") {
+			this.state_off();
+		} else {
+			this.state_on();
+		}
+	}
+	
+	click_handler() {
+		var message;
+		
+		if (this.state===0) {
+			message = new Paho.MQTT.Message("255");
+		} else {
+			message = new Paho.MQTT.Message("0");
+		}	
+		message.destinationName = "primopiano/luci/"+ this.address + "/setval";
+		this.mqtt_client.send(message);
+	}
+
+	state_off() {
+		//$("#" +  this.address).attr("src","images/off.png");
+		this.state=0;
+	}
+
+	state_on() {
+		//$("#" +  this.address).attr("src","images/on.png");
+		this.state=1;
+	}
+}
+
+// Note: Uso della funzione bind() 
+// https://stackoverflow.com/questions/42233090/access-class-properties-outside-of-mqtt-callback-scope
