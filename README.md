@@ -4,7 +4,7 @@
 ## Messaggi MQTT
 
 	toa/light
-		id/setval (0,255)	Set the brightness value
+		id/setval			Set the brightness value (0,255)
 		id/getval			Get the brightness value
 		id/currentval		Send the brightness current value
 		
@@ -12,7 +12,7 @@
 		{"cmd":pageload","value":"page.html"}	Change the CM3-panel web page
 		{"cmd":videoload","value":"video.mp4"}	Load a background video
 		{"cmd":clock_off"}						Hide clock
-		{"cmd":clock_on"}					    Show clock
+		{"cmd":clock_on"}						Show clock
 		{"cmd":"message","value":"text"}		Send a message
 
 ## Software to install on the CM3-Panel
