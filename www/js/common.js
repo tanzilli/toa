@@ -58,7 +58,7 @@ function onMessageArrived(message) {
 
 	// Refresh della pagina
 	if (json_data.cmd=="loadpage") {
-		document.location.href = "/www/panel/" + json_data.value + ".html";
+		document.location.href = "/" + json_data.value + ".html";
 	}	
 
 	// Message
