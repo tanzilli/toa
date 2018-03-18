@@ -13,17 +13,17 @@ from datetime import datetime
 import StringIO
 import select
 
-serial_enabled=False
+serial_enabled=True
 
 if serial_enabled:
 	import RPi.GPIO as GPIO
 	import serial
 
-stato_luci=[1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+stato_luci=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-broker="www.tanzolab.it"
+broker="localhost"
 port=1883
-topic="primopiano"
+topic="toa"
 
 if serial_enabled:
 	ser = serial.Serial(
@@ -37,20 +37,12 @@ if serial_enabled:
 	ser.flushOutput()
 	ser.flushInput()
 
-#Return the interface MAC address
-def getmac(interface):
-	try:
-		mac = open('/sys/class/net/'+interface+'/address').readline()
-	except:
-		mac = "00:00:00:00:00:00"
-	return mac[0:17]
-
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
 	global topic
 	print("Connected with result code "+str(rc))
-	client.subscribe(topic + "/luci/+/setval")
-	client.subscribe(topic + "/luci/+/getval")
+	client.subscribe(topic + "/light/+/setval")
+	client.subscribe(topic + "/light/+/getval")
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
@@ -62,7 +54,20 @@ def on_message(client, userdata, msg):
 	i=int(a[2])
 	if (a[3]=="setval"):
 		stato_luci[i]=int(msg.payload)
-	client.publish(topic + "/luci/%d/currentval" % i,"%d" % stato_luci[i])
+		
+		rele=i+1
+		if stato_luci[i]==0:
+			stato=0
+		else:	
+			stato=1
+
+		print "rele=%d stato=%d" % (rele,stato)
+		sample = "%c%c%c\r" % (0xFF,i+1,stato)
+
+		if serial_enabled:
+			ser.write(sample)
+		
+	client.publish(topic + "/light/%d/currentval" % i,"%d" % stato_luci[i])
 
 client = mqtt.Client()
 client.on_connect = on_connect
@@ -75,7 +80,7 @@ client.loop_start()
 
 #Invio lo stato corrente delle luci
 for i in range(len(stato_luci)):
-	client.publish(topic + "/luci/%d/currentval" % i,"%d" % stato_luci[i])
+	client.publish(topic + "/light/%d/currentval" % i,"%d" % stato_luci[i])
 
 while True:
 	time.sleep(10)

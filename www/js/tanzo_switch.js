@@ -45,12 +45,12 @@ class tanzoSwitch {
 	}
 
 	onConnect() {
-		this.mqtt_client.subscribe("primopiano/luci/"+ this.address + "/currentval");
-		this.mqtt_client.subscribe("primopiano/luci/"+ this.address + "/setval");
+		this.mqtt_client.subscribe("toa/light/"+ this.address + "/currentval");
+		this.mqtt_client.subscribe("toa/light/"+ this.address + "/setval");
 
 		var message;
 		message = new Paho.MQTT.Message("x");
-		message.destinationName = "primopiano/luci/"+ this.address + "/getval";
+		message.destinationName = "toa/light/"+ this.address + "/getval";
 		this.mqtt_client.send(message);
 	}	
 
@@ -70,7 +70,7 @@ class tanzoSwitch {
 		} else {
 			message = new Paho.MQTT.Message("0");
 		}	
-		message.destinationName = "primopiano/luci/"+ this.address + "/setval";
+		message.destinationName = "toa/light/"+ this.address + "/setval";
 		this.mqtt_client.send(message);
 	}
 

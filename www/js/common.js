@@ -1,5 +1,8 @@
-var mqtt_broker="www.tanzolab.it";
-var mqtt_port=1884;
+//var mqtt_broker="www.tanzolab.it";
+//var mqtt_port=1884;
+
+var mqtt_broker="cm3home.local";
+var mqtt_port=9001;
 var mqtt_mainpage_client;
 var message_line;
 
@@ -45,7 +48,7 @@ var randomString = function(length) {
 }
 
 function onConnect() {
-	mqtt_mainpage_client.subscribe("primopiano/cm3panel");
+	mqtt_mainpage_client.subscribe("toa/cm3panel");
 }	
 
 function onMessageArrived(message) {
