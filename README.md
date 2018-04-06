@@ -36,4 +36,3 @@ Create the systemd file __/lib/systemd/system/startx.service__
 	[Install]
 	WantedBy=multi-user.target
 	
-	prova
