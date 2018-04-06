@@ -1,7 +1,7 @@
 //var mqtt_broker="www.tanzolab.it";
 //var mqtt_port=1884;
 
-var mqtt_broker="cm3home.local";
+var mqtt_broker="toa.local";
 var mqtt_port=9001;
 var mqtt_mainpage_client;
 var message_line;

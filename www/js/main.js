@@ -39,7 +39,7 @@ function sendMessage(topic,message_text) {
 $(document).ready(function() {
 	//client = new Paho.MQTT.Client("iot.eclipse.org", Number(443), "/ws",randomString(20));
 	//client = new Paho.MQTT.Client("www.tanzolab.it", Number(1884), "/ws",randomString(20));
-	client = new Paho.MQTT.Client("cm3home.local", Number(9001), "/ws",randomString(20));
+	client = new Paho.MQTT.Client("toa.local", Number(9001), "/ws",randomString(20));
 	topic="toa/"
 	
 	client.onConnectionLost = onConnectionLost;
@@ -75,19 +75,11 @@ $(document).ready(function() {
 		sendMessage($("#publisher_topic").val(),'{"cmd":"clock_off"}');
 	});
 
-	$("#panel_1").click(function() {
+	// Cambio pagina html
+	$(".htmlpanel").click(function() {
+		newpage=$(this).text();
 		$("#publisher_topic").val(topic+"cm3panel")
-		sendMessage($("#publisher_topic").val(),'{"cmd":"loadpage","value":"cm3panel"}');
-	});
-
-	$("#panel_2").click(function() {
-		$("#publisher_topic").val(topic+"cm3panel")
-		sendMessage($("#publisher_topic").val(),'{"cmd":"loadpage","value":"key9"}');
-	});
-
-	$("#panel_3").click(function() {
-		$("#publisher_topic").val(topic+"cm3panel")
-		sendMessage($("#publisher_topic").val(),'{"cmd":"loadpage","value":"flipclock"}');
+		sendMessage($("#publisher_topic").val(),'{"cmd":"loadpage","value":"' + newpage + '"}');
 	});
 
 	$("#video_apple").click(function() {
