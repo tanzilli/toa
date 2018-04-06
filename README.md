@@ -36,3 +36,11 @@ Create the systemd file __/lib/systemd/system/startx.service__
 	[Install]
 	WantedBy=multi-user.target
 	
+
+## Software to install on the CM3-Home
+
+NodeJS
+
+```
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+```
