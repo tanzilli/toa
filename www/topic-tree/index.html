@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="topic-tree.css">
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="topic-tree.js"></script>
+  </head>
+  <body>
+    <div id=status>Disconnected</div>
+    <div style="overflow: auto">
+      <div id="body" style="height: 90%">
+    	
+      </div>
+    </div>
+    <script type="text/javascript">
+
+var options = {
+  host: "toa.local",
+  port: parseInt(9001),
+  clientID: "web" + new Date().getTime(),
+  connectOpts: {
+    // userName: '',
+    // password: '',
+    // useSSL: true,
+    keepAliveInterval: 30,
+    timeout: 10,
+    cleanSession: false,
+    onSuccess: onConnect,
+    onFailure: onFailure
+  }
+}
+
+setup("body");
+
+var client = new Paho.MQTT.Client(options.host,options.port,options.clientID);
+client.onMessageArrived = onMessage;
+client.onconnectionlost = onDisconnect;
+
+function onConnect(){
+	client.subscribe('#',onMessage);
+  	document.getElementById('status').innerHTML= "";
+	console.log("mqtt connected");
+}
+
+function onFailure() {
+  document.getElementById('status').innerHTML = "failed to connect";
+  reconnect();
+}
+
+client.connect(options.connectOpts);
+
+function onMessage(message) {
+	console.log(message.destinationName + "- " + message.payloadString);
+	addNode(message.destinationName, message.payloadString);
+}
+
+function onDisconnect(reason) {
+	console.log("disconnected - " + reason);
+	//alert("disconnected - " + reason);
+  document.getElementById('status').innerHTML = "Disconnected";
+  reconnect();
+}
+
+function reconnect() {
+  setTimeout(function(){
+    document.getElementById('status').innerHTML = "reconnecting";
+    client.connect(options.connectOpts);
+  },3000);
+}
+    </script>
+  </body>
+</html>
