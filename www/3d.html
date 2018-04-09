@@ -46,11 +46,11 @@
 				scene.add( camera );
 
 				// Crea le texture
-				var textureLoader = new THREE.TextureLoader( );
-				var texture = textureLoader.load( 'textures/UV_Grid_Sm.jpg' );
+				// var textureLoader = new THREE.TextureLoader( );
+				// var texture = textureLoader.load( 'textures/UV_Grid_Sm.jpg' );
 				
 				var loader = new THREE.OBJLoader();
-				loader.load( 'models/tanzolab.obj', function (object) {
+				loader.load( '3dmodels/tanzolab.obj', function (object) {
 					object.traverse( function ( child ) {
 						if ( child instanceof THREE.Mesh ) {
 							//child.material.map = texture;
