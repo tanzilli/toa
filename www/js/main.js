@@ -39,7 +39,7 @@ function sendMessage(topic,message_text) {
 $(document).ready(function() {
 	//client = new Paho.MQTT.Client("iot.eclipse.org", Number(443), "/ws",randomString(20));
 	//client = new Paho.MQTT.Client("www.tanzolab.it", Number(1884), "/ws",randomString(20));
-	client = new Paho.MQTT.Client("toa.local", Number(9001), "/ws",randomString(20));
+	client = new Paho.MQTT.Client("192.168.1.222", Number(9001), "/ws",randomString(20));
 	topic="toa/"
 	
 	client.onConnectionLost = onConnectionLost;

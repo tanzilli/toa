@@ -1,7 +1,7 @@
 //var mqtt_broker="www.tanzolab.it";
 //var mqtt_port=1884;
 
-var mqtt_broker="toa.local";
+var mqtt_broker="192.168.1.222";
 var mqtt_port=9001;
 var mqtt_mainpage_client;
 var message_line;
