@@ -19,6 +19,8 @@
 			background-color: black;
 			background-image: url("images/bg_001_800.jpg");
 		}
+		
+		/* html { cursor: none; } */
 	</style>
 
 	<script>
@@ -40,15 +42,15 @@
 			// Creazione linea messaggi CM3-Panel
 			//*****************************************************************************
 			message_line = new tanzoMessage("message_line");
-			message_line.message("Acme Systems srl &copy; 2018 - Pannello 4 tasti + Clock &#x1F60E;&#x1F60E;&#x1F60E;");
+			//message_line.message("benvenuti in Acme Systems srl");
 		
 			//*****************************************************************************
 			// Creazione switch su CM3-Panel
 			//*****************************************************************************
-			new tanzoSwitch("Uffici","0","p0");
-			new tanzoSwitch("Sala",  "1","p1");
-			new tanzoSwitch("Scale", "2","p2");
-			new tanzoSwitch("Cucina","3","p3");
+			new tanzoSwitch("Verde","16","p0");
+			new tanzoSwitch("Scala","3","p1");
+			new tanzoSwitch("Terrazzino","1","p2");
+			new tanzoSwitch("Terrazzone","2","p3");
 		
 			//*****************************************************************************
 			// Creazione orologio su CM3-Panel
@@ -78,7 +80,7 @@
 	</video>
 
 	<!-- Tasti -->
-	<div style="position: fixed; top: 50px; left:50px;">
+	<div style="position: fixed; top: 50px; right:50px;">
 		<div id="p0"></div>
 		<div id="p1"></div>
 		<div id="p2"></div>
@@ -86,7 +88,7 @@
 	</div>
 	
 	<!-- Orologio -->
-	<div id="clockdatewidget" style="position: fixed; top: 65px; right: 35px; background-color: rgba(0, 127, 127, 0.0)">
+	<div id="clockdatewidget" style="position: fixed; top: 65px; left: 35px; background-color: rgba(0, 127, 127, 0.0)">
 		<div id="clock"></div>
 		<div id="date" style="text-align: center; color: white; padding: 20px; font-family: 'arial'; font-size: 20px;"></div>
 	</div>

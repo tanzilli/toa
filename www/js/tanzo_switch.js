@@ -45,13 +45,11 @@ class tanzoSwitch {
 	}
 
 	onConnect() {
-		this.mqtt_client.subscribe("toa/light/"+ this.address + "/currentval");
-		this.mqtt_client.subscribe("toa/light/"+ this.address + "/setval");
-
-		var message;
-		message = new Paho.MQTT.Message("x");
-		message.destinationName = "toa/light/"+ this.address + "/getval";
-		this.mqtt_client.send(message);
+		this.mqtt_client.subscribe("toa/lights/"+ this.address + "/current_value");
+		//var message;
+		//message = new Paho.MQTT.Message("x");
+		//message.destinationName = "toa/light/"+ this.address + "/getval";
+		//this.mqtt_client.send(message);
 	}	
 
 	onMessageArrived(mqtt_message) {
@@ -70,7 +68,7 @@ class tanzoSwitch {
 		} else {
 			message = new Paho.MQTT.Message("0");
 		}	
-		message.destinationName = "toa/light/"+ this.address + "/setval";
+		message.destinationName = "toa/lights/"+ this.address + "/set_value";
 		this.mqtt_client.send(message);
 	}
 
