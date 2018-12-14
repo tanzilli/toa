@@ -4,42 +4,58 @@ class tanzoSwitch {
 		this.domElementId = domElementId;
 		this.address = address;
 		this.state = 0;
+		this.retry_timer=null;
 
 		$("#" + this.domElementId).click(this.click_handler.bind(this));
 		
 		$("#" + this.domElementId).html(`
-			<div id=` + address + ` style="
+			<div style="
 				border: 2px solid black; 
 				background-color: grey; 
-				background-color:rgba(10, 10, 100, 0.5); 
+				background-color:rgba(0, 0, 0, 0.5); 
 				border-color: light-grey; 
-				width: 260px; 
-				height: 60px;
-				line-height: 60px;
-				padding-top: 4px;
-				padding-bottom: 4px;
+				width: 240px; 
+				padding-top: 2px;
+				padding-bottom: 0px;
 				margin-bottom: 20px;
 				font-family: arial;
-				font-size: 28px; 
-				color: white; 
-				padding-left: 20px;
 			">
-		    	` + caption + `
+				<table>
+					<tr>
+						<td style="padding-left: 5px;">
+							<img width="60px" src="images/off.png" id=` + address + `>
+						</td>
+						<td style="font-size: 26px; color: white; padding-left: 10px;">
+					    	` + caption + `
+					    </td>
+				    </tr>
+			    </table>
 			</div>
 		`);
-		
+		//*****************************************************************************
+		// Connessione al broker MQTT
+		// https://www.eclipse.org/paho/clients/js/
+		//*****************************************************************************
+	
 		this.mqtt_client = new Paho.MQTT.Client(mqtt_broker, Number(mqtt_port), "/ws",randomString(20));
 		this.mqtt_client.onMessageArrived = this.onMessageArrived.bind(this);
+		//this.mqtt_client.onConnectionLost = this.onConnectionLost;
 
+		//setInterval(this.CheckConnection,2000,this.mqtt_client);
+
+		this.Connect();		
+	}
+
+	Connect() {
+		console.log("Connect");
 		this.mqtt_client.connect({
-			onSuccess:this.onConnect.bind(this),reconnect:true,keepAliveInterval: 3, timeout:3
+			onSuccess:this.onConnect.bind(this)
 		});
 	}
 
-
 	onConnect() {
 		this.mqtt_client.subscribe("toa/lights/"+ this.address + "/current_value");
-		console.log("Connect");
+		console.log(this.mqtt_client.isConnected);
 	}	
 
 	onMessageArrived(mqtt_message) {
@@ -47,6 +63,15 @@ class tanzoSwitch {
 			this.state_off();
 		} else {
 			this.state_on();
+		}
+	}
+	
+	// called when the client loses its connection
+	CheckConnection(mqtt_client) {
+		if (mqtt_client.isConnected) { 
+			console.log("Connected");
+		} else {
+			console.log("Not Connected");
 		}
 	}
 	
@@ -63,12 +88,12 @@ class tanzoSwitch {
 	}
 
 	state_off() {
-		$("#" +  this.address).css("background-color","rgba(10, 10, 100, 0.5)");
+		$("#" +  this.address).attr("src","images/off.png");
 		this.state=0;
 	}
 
 	state_on() {
-		$("#" +  this.address).css("background-color","rgba(255, 0, 0, 1)");
+		$("#" +  this.address).attr("src","images/on.png");
 		this.state=1;
 	}
 }
