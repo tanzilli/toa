@@ -63,12 +63,14 @@ class tanzoSwitch {
 	}
 
 	state_off() {
-		$("#" +  this.address).css("background-color","rgba(10, 10, 100, 0.5)");
+		$("#" +  this.address).css("background-color","#808080");
+		$("#" +  this.address).css("color","white");
 		this.state=0;
 	}
 
 	state_on() {
-		$("#" +  this.address).css("background-color","rgba(255, 0, 0, 1)");
+		$("#" +  this.address).css("background-color","rgba(255, 255, 0, 1)");
+		$("#" +  this.address).css("color","black");
 		this.state=1;
 	}
 }
