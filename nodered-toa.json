@@ -1,1 +1,5328 @@
-[{"id":"b9aee244.570dc","type":"tab","label":"Lights","disabled":false,"info":""},{"id":"b6f275f1.f50b78","type":"tab","label":"CM3-Panel","disabled":false,"info":""},{"id":"9e2c603a.858fe","type":"tab","label":"CM3-Home","disabled":false,"info":""},{"id":"9a56a685.0b3558","type":"tab","label":"Assorbimenti","disabled":false,"info":""},{"id":"9baf0a1c.2eb568","type":"tab","label":"Telegram","disabled":false,"info":""},{"id":"7f63de28.637aa","type":"tab","label":"Sonoff","disabled":false,"info":""},{"id":"2bdcdf69.ad913","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"86a1cd35.744c2","type":"mqtt-broker","z":"","name":"toa","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":false,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"be48502d.a2f1f","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"4833e069.009da","type":"chatbot-telegram-node","z":"","botname":"Tanzo Office Automation","usernames":"","providerToken":"","polling":"1000","store":"","log":"","parseMode":"","debug":false},{"id":"619c3cbb.873b84","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"e0926b23.e33988","type":"mqtt out","z":"b6f275f1.f50b78","name":"","topic":"","qos":"","retain":"","broker":"86a1cd35.744c2","x":585,"y":290,"wires":[]},{"id":"7f774513.6aeffc","type":"inject","z":"b6f275f1.f50b78","name":"","topic":"toa/cm3panel","payload":"{\"cmd\":\"clock_off\"}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":195,"y":290,"wires":[["e0926b23.e33988"]]},{"id":"56f67e92.7fd16","type":"inject","z":"b6f275f1.f50b78","name":"","topic":"toa/cm3panel","payload":"{\"cmd\":\"clock_on\"}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":195,"y":350,"wires":[["e0926b23.e33988"]]},{"id":"72814bf.a675fb4","type":"inject","z":"b6f275f1.f50b78","name":"Golden bridge","topic":"toa/cm3panel","payload":"{\"cmd\":\"loadvideo\",\"value\":\"goldenbridge.mp4\"}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":265,"y":410,"wires":[["e0926b23.e33988"]]},{"id":"8e2433a3.7f622","type":"inject","z":"b6f275f1.f50b78","name":"Skyline","topic":"toa/cm3panel","payload":"{\"cmd\":\"loadvideo\",\"value\":\"skyline.mp4\"}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":285,"y":450,"wires":[["e0926b23.e33988"]]},{"id":"aff06c68.5058e","type":"inject","z":"b6f275f1.f50b78","name":"Singapore","topic":"toa/cm3panel","payload":"{\"cmd\":\"loadvideo\",\"value\":\"singapore.mp4\"}","payloadType":"json","repeat":"","crontab":"","once":true,"onceDelay":"240","x":305,"y":490,"wires":[["e0926b23.e33988"]]},{"id":"5c7c9eea.0bb2a","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/6/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":555,"wires":[["c551a438.7caba8"]]},{"id":"e0e15875.0c8bd8","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/6/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":590,"wires":[["c551a438.7caba8"]]},{"id":"329c8ba5.fbf5d4","type":"http request","z":"b9aee244.570dc","name":"","method":"GET","ret":"txt","url":"","tls":"","x":1445,"y":140,"wires":[[]]},{"id":"dede6718.ce4948","type":"mqtt in","z":"b9aee244.570dc","name":"","topic":"toa/lights/+/set_value","qos":"2","broker":"86a1cd35.744c2","x":980,"y":145,"wires":[["8f5f167.1a9f3e8"]]},{"id":"aa8c1c05.85dc7","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/16/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1420,"wires":[["ac9c39e6.ba5218"]]},{"id":"d0082c11.f6e27","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/16/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1455,"wires":[["ac9c39e6.ba5218"]]},{"id":"8c7724f5.b5fd28","type":"mqtt out","z":"b9aee244.570dc","name":"","topic":"","qos":"","retain":"false","broker":"86a1cd35.744c2","x":1400,"y":655,"wires":[]},{"id":"8f5f167.1a9f3e8","type":"function","z":"b9aee244.570dc","name":"Filtro relè","func":"var res = msg.topic.split(\"/\");\nvar msg1={};\n\nlight_id=parseInt(res[2]);\nlight_value=parseInt(msg.payload);\n\nif (light_id>=1 && light_id<=16) {\n\n\n    relay_id=light_id;\n    \n    if (light_value===0)\n        relay_value=0;\n    else    \n        relay_value=1;\n    \n    msg.url = \"http://192.168.1.8:80/current_state.json?pw=admin&Relay\" + relay_id + \"=\" + relay_value;\n\n\n    msg1.topic=\"toa/lights/\" + light_id + \"/current_value\";\n    msg1.payload=light_value;\n\n    return [msg,msg1];\n}  \n","outputs":2,"noerr":0,"x":1220,"y":145,"wires":[["329c8ba5.fbf5d4"],["bb296c75.6d0f6"]]},{"id":"2ab750f0.3c471","type":"exec","z":"9e2c603a.858fe","command":"","addpay":true,"append":"","useSpawn":"false","timer":"","oldrc":false,"name":"","x":390,"y":145,"wires":[[],[],[]]},{"id":"8bce2dad.5ed52","type":"inject","z":"9e2c603a.858fe","name":"Halt","topic":"","payload":"sudo halt","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":150,"y":145,"wires":[["2ab750f0.3c471"]]},{"id":"412bcf5d.0a197","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/7/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":640,"wires":[["bb7ecf29.d8d38"]]},{"id":"62a6cae8.112ab4","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/7/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":675,"wires":[["bb7ecf29.d8d38"]]},{"id":"eeaeff4c.10c08","type":"rpi-gpio in","z":"b9aee244.570dc","name":"WC uomini","pin":"24","intype":"tri","debounce":"25","read":false,"x":930,"y":635,"wires":[["2c5f2059.56eca"]]},{"id":"20759198.e3345e","type":"rpi-gpio in","z":"b9aee244.570dc","name":"WC donne","pin":"26","intype":"tri","debounce":"25","read":false,"x":930,"y":685,"wires":[["105a48c8.0920e7"]]},{"id":"2c5f2059.56eca","type":"function","z":"b9aee244.570dc","name":"","func":"var wc_uomini = flow.get('wc_uomini')||0;\n\nif (msg.payload===0) {\n    if (wc_uomini===0) {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=1;\n        wc_uomini=1;\n        flow.set('wc_uomini',wc_uomini)\n    } else {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=0;\n        wc_uomini=0;\n        flow.set('wc_uomini',wc_uomini)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n","outputs":1,"noerr":0,"x":1065,"y":635,"wires":[["cb309dcd.1bca4"]]},{"id":"105a48c8.0920e7","type":"function","z":"b9aee244.570dc","name":"","func":"var wc_donne = flow.get('wc_donne')||0;\n\nif (msg.payload===0) {\n    if (wc_donne===0) {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=1;\n        wc_donne=1;\n        flow.set('wc_donne',wc_donne)\n    } else {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=0;\n        wc_donne=0;\n        flow.set('wc_donne',wc_donne)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n","outputs":1,"noerr":0,"x":1065,"y":685,"wires":[["cb309dcd.1bca4"]]},{"id":"46f037b4.614358","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL1-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":445,"wires":[[]]},{"id":"6950ad7d.a8f2c4","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL2-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":495,"wires":[[]]},{"id":"4ca4343.39f4fcc","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL3-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":545,"wires":[[]]},{"id":"fd6bc618.e21668","type":"comment","z":"9a56a685.0b3558","name":"Misuratore trifase Fotovoltaico","info":"","x":195,"y":405,"wires":[]},{"id":"73194d8d.03fff4","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL1-GEN","qos":"2","broker":"86a1cd35.744c2","x":185,"y":75,"wires":[[]]},{"id":"352894b7.3ffc7c","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL2-GEN","qos":"2","broker":"86a1cd35.744c2","x":185,"y":125,"wires":[[]]},{"id":"17c28da2.96cdc2","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/VL3-GEN","qos":"2","broker":"86a1cd35.744c2","x":185,"y":175,"wires":[[]]},{"id":"f2043e1c.57036","type":"comment","z":"9a56a685.0b3558","name":"Misuratore trifase QE Generale","info":"","x":205,"y":35,"wires":[]},{"id":"707fac7f.720174","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KW1-GEN","qos":"2","broker":"86a1cd35.744c2","x":195,"y":230,"wires":[[]]},{"id":"aa37d9ce.edc8c8","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KW2-GEN","qos":"2","broker":"86a1cd35.744c2","x":195,"y":280,"wires":[[]]},{"id":"f4758f7f.62fb7","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KW3-GEN","qos":"2","broker":"86a1cd35.744c2","x":195,"y":330,"wires":[[]]},{"id":"93350d2e.d0e06","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KWL1-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":600,"wires":[[]]},{"id":"31e05043.e8306","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KWL2-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":650,"wires":[[]]},{"id":"74faef4f.9533","type":"mqtt in","z":"9a56a685.0b3558","name":"","topic":"toa/assorbimenti/KWL3-FT","qos":"2","broker":"86a1cd35.744c2","x":185,"y":700,"wires":[[]]},{"id":"15b926ab.916c79","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/3/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":355,"y":290,"wires":[["eae555d3.bde108"]]},{"id":"15c34850.5c9008","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/3/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":355,"y":325,"wires":[["eae555d3.bde108"]]},{"id":"a736cacf.3ab9f8","type":"comment","z":"b9aee244.570dc","name":"Stanza Verde (16)","info":"","x":170,"y":1420,"wires":[]},{"id":"40d8ee2b.63fe9","type":"comment","z":"b9aee244.570dc","name":"WC Uomini (6)","info":"","x":180,"y":555,"wires":[]},{"id":"6b45950d.f406bc","type":"comment","z":"b9aee244.570dc","name":"WC Donne (7)","info":"","x":175,"y":640,"wires":[]},{"id":"c4fd82f7.f3086","type":"comment","z":"b9aee244.570dc","name":"Scala (3)","info":"","x":195,"y":290,"wires":[]},{"id":"da1ecdf9.5c62d","type":"comment","z":"b9aee244.570dc","name":"Pulsanti","info":"","x":920,"y":595,"wires":[]},{"id":"c462e887.a78fe8","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/1/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":120,"wires":[["9a5e1d5f.99637"]]},{"id":"c44fbf85.1dc29","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/1/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":155,"wires":[["9a5e1d5f.99637"]]},{"id":"cb10a77a.877f98","type":"comment","z":"b9aee244.570dc","name":"Terrazzino (1)","info":"","x":180,"y":120,"wires":[]},{"id":"f992ed09.bc56b","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/2/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":355,"y":205,"wires":[["30a554b4.bc666c"]]},{"id":"8cf232e9.c8815","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/2/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":355,"y":240,"wires":[["30a554b4.bc666c"]]},{"id":"f4f79d38.92d5f","type":"comment","z":"b9aee244.570dc","name":"Terrazzone (2)","info":"","x":185,"y":205,"wires":[]},{"id":"f1879a7.cab5b68","type":"mqtt out","z":"9baf0a1c.2eb568","name":"","topic":"toa/cm3panel","qos":"","retain":"true","broker":"86a1cd35.744c2","x":960,"y":120,"wires":[]},{"id":"2b01c1fd.5d838e","type":"function","z":"9baf0a1c.2eb568","name":"Telegram2mqtt","func":"content=msg.payload[\"content\"];\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;","outputs":1,"noerr":0,"x":575,"y":120,"wires":[["f1879a7.cab5b68"]]},{"id":"2c0215df.d9600a","type":"chatbot-telegram-receive","z":"9baf0a1c.2eb568","bot":"4833e069.009da","botProduction":"","x":155,"y":85,"wires":[["2b01c1fd.5d838e","8e00a2e5.52358","3990720b.9d8b1e"]]},{"id":"8e00a2e5.52358","type":"chatbot-telegram-send","z":"9baf0a1c.2eb568","bot":"4833e069.009da","botProduction":"","track":false,"passThrough":false,"outputs":0,"x":585,"y":165,"wires":[]},{"id":"3990720b.9d8b1e","type":"debug","z":"9baf0a1c.2eb568","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":565,"y":75,"wires":[]},{"id":"2454a37d.0c2bec","type":"inject","z":"7f63de28.637aa","name":"ON","topic":"","payload":"ON","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":95,"y":70,"wires":[["228b44ed.d86bac"]]},{"id":"a7c1866f.031518","type":"inject","z":"7f63de28.637aa","name":"OFF","topic":"","payload":"OFF","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":95,"y":110,"wires":[["228b44ed.d86bac"]]},{"id":"228b44ed.d86bac","type":"mqtt out","z":"7f63de28.637aa","name":"1273","topic":"cmnd/sonoff-1273/POWER","qos":"","retain":"","broker":"86a1cd35.744c2","x":265,"y":90,"wires":[]},{"id":"bb296c75.6d0f6","type":"mqtt out","z":"b9aee244.570dc","name":"","topic":"","qos":"","retain":"true","broker":"86a1cd35.744c2","x":1425,"y":195,"wires":[]},{"id":"92200da6.69dc8","type":"inject","z":"9baf0a1c.2eb568","name":"Welcome message","topic":"","payload":"Benvenuti in Acme Systems","payloadType":"str","repeat":"","crontab":"","once":true,"onceDelay":0.1,"x":365,"y":370,"wires":[["3faa6a18.17fb16"]]},{"id":"3faa6a18.17fb16","type":"function","z":"9baf0a1c.2eb568","name":"Text to JSON","func":"content=msg.payload;\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;","outputs":1,"noerr":0,"x":615,"y":370,"wires":[["f1879a7.cab5b68"]]},{"id":"cd4a8790.a21db8","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/10/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":910,"wires":[["4ffd9064.558b"]]},{"id":"82084543.9464d8","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/10/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":945,"wires":[["4ffd9064.558b"]]},{"id":"b94afbec.56f278","type":"comment","z":"b9aee244.570dc","name":"Sala (10)","info":"","x":190,"y":915,"wires":[]},{"id":"e56dd631.39e5a8","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/11/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":995,"wires":[["754a9ffd.9e21b"]]},{"id":"c64a4b3c.a5f218","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/11/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1030,"wires":[["754a9ffd.9e21b"]]},{"id":"d84b19f7.00df98","type":"comment","z":"b9aee244.570dc","name":"Cucina (11)","info":"","x":180,"y":995,"wires":[]},{"id":"5bd0ab84.b7c404","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/12/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1080,"wires":[["1cf2895b.f07237"]]},{"id":"62fa686e.f219d8","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/12/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1115,"wires":[["1cf2895b.f07237"]]},{"id":"c316cbf4.b51258","type":"comment","z":"b9aee244.570dc","name":"Open space (12)","info":"","x":170,"y":1085,"wires":[]},{"id":"c35bea2f.21d3f8","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/13/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1165,"wires":[["435de856.883668"]]},{"id":"5afe3e72.7f3d3","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/13/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1200,"wires":[["435de856.883668"]]},{"id":"7e15f3cf.e2c0ac","type":"comment","z":"b9aee244.570dc","name":"Gialla (13)","info":"","x":190,"y":1165,"wires":[]},{"id":"9e968d97.df504","type":"link in","z":"b9aee244.570dc","name":"mqtt_relay","links":["9a5e1d5f.99637","30a554b4.bc666c","eae555d3.bde108","c551a438.7caba8","bb7ecf29.d8d38","4ffd9064.558b","754a9ffd.9e21b","1cf2895b.f07237","435de856.883668","ac9c39e6.ba5218","cb309dcd.1bca4","5ff67e50.c8c93","1889247a.4dfd2c","3a1de492.400fac","fafa0ada.7aab98","a5c2793a.539ef8","8759dc81.87d51"],"x":1275,"y":655,"wires":[["8c7724f5.b5fd28"]]},{"id":"9a5e1d5f.99637","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":475,"y":135,"wires":[]},{"id":"30a554b4.bc666c","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":475,"y":220,"wires":[]},{"id":"eae555d3.bde108","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":305,"wires":[]},{"id":"c551a438.7caba8","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":565,"wires":[]},{"id":"bb7ecf29.d8d38","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":655,"wires":[]},{"id":"4ffd9064.558b","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":925,"wires":[]},{"id":"754a9ffd.9e21b","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":1010,"wires":[]},{"id":"1cf2895b.f07237","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":1095,"wires":[]},{"id":"435de856.883668","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":1180,"wires":[]},{"id":"ac9c39e6.ba5218","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":465,"y":1435,"wires":[]},{"id":"cb309dcd.1bca4","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":1170,"y":655,"wires":[]},{"id":"56fa72ed.6bfabc","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/4/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":375,"wires":[["5ff67e50.c8c93"]]},{"id":"474e0235.8aeedc","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/4/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":410,"wires":[["5ff67e50.c8c93"]]},{"id":"30ac1843.001488","type":"comment","z":"b9aee244.570dc","name":"(4)","info":"","x":200,"y":375,"wires":[]},{"id":"5ff67e50.c8c93","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":390,"wires":[]},{"id":"a4badd75.862f9","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/5/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":460,"wires":[["1889247a.4dfd2c"]]},{"id":"9befa301.a8057","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/5/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":495,"wires":[["1889247a.4dfd2c"]]},{"id":"bfd5d661.c759f8","type":"comment","z":"b9aee244.570dc","name":"(5)","info":"","x":195,"y":460,"wires":[]},{"id":"1889247a.4dfd2c","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":475,"wires":[]},{"id":"1e2b04f2.d1422b","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/8/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":725,"wires":[["3a1de492.400fac"]]},{"id":"ff2aabf0.6bbba8","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/8/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":760,"wires":[["3a1de492.400fac"]]},{"id":"8d8a60d9.89f46","type":"comment","z":"b9aee244.570dc","name":"(8)","info":"","x":190,"y":725,"wires":[]},{"id":"3a1de492.400fac","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":740,"wires":[]},{"id":"4eeae9f3.ab8208","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/9/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":815,"wires":[["fafa0ada.7aab98"]]},{"id":"4056086a.0228b8","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/9/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":850,"wires":[["fafa0ada.7aab98"]]},{"id":"d7969bb2.7d6428","type":"comment","z":"b9aee244.570dc","name":"(9)","info":"","x":195,"y":815,"wires":[]},{"id":"fafa0ada.7aab98","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":830,"wires":[]},{"id":"55eabb5e.93baa4","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/14/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":1245,"wires":[["a5c2793a.539ef8"]]},{"id":"e0539c9.53d746","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/14/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":345,"y":1280,"wires":[["a5c2793a.539ef8"]]},{"id":"373becda.714b84","type":"comment","z":"b9aee244.570dc","name":"(14)","info":"","x":190,"y":1245,"wires":[]},{"id":"a5c2793a.539ef8","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":1260,"wires":[]},{"id":"63138de4.718f14","type":"inject","z":"b9aee244.570dc","name":"ON","topic":"toa/lights/15/set_value","payload":"1","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1335,"wires":[["8759dc81.87d51"]]},{"id":"7fe3ed72.e511c4","type":"inject","z":"b9aee244.570dc","name":"OFF","topic":"toa/lights/15/set_value","payload":"0","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":350,"y":1370,"wires":[["8759dc81.87d51"]]},{"id":"b83dc549.e319a8","type":"comment","z":"b9aee244.570dc","name":"(15)","info":"","x":195,"y":1335,"wires":[]},{"id":"8759dc81.87d51","type":"link out","z":"b9aee244.570dc","name":"","links":["9e968d97.df504"],"x":470,"y":1350,"wires":[]},{"id":"e7a00ab5.b5dfe8","type":"inject","z":"b9aee244.570dc","name":"All ON","topic":"","payload":"1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":1010,"y":415,"wires":[["abfef57c.099778"]]},{"id":"16b10ab2.c6c615","type":"inject","z":"b9aee244.570dc","name":"All OFF","topic":"","payload":"0","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":1010,"y":460,"wires":[["abfef57c.099778"]]},{"id":"953fe4.07f9902","type":"inject","z":"b9aee244.570dc","name":"Init","topic":"","payload":"0","payloadType":"num","repeat":"","crontab":"","once":true,"onceDelay":"1","x":1010,"y":365,"wires":[["abfef57c.099778"]]},{"id":"abfef57c.099778","type":"function","z":"b9aee244.570dc","name":"LightInit","func":"var light_state = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];\nvar outputMsgs = [];\n\nfor (i=0;i<light_state.length;i++) {\n    light_state[i]=msg.payload;\n}\n\nglobal.set('light_state',light_state);\n\nfor (i=0;i<light_state.length;i++) {\n    light_id=i+1;\n    outputMsgs.push({payload:light_state[i],topic:\"toa/lights/\" + light_id + \"/set_value\"});\n}\nreturn [outputMsgs];\n","outputs":1,"noerr":0,"x":1240,"y":365,"wires":[["a633cc1b.0a726"]]},{"id":"a633cc1b.0a726","type":"mqtt out","z":"b9aee244.570dc","name":"","topic":"","qos":"","retain":"","broker":"86a1cd35.744c2","x":1390,"y":365,"wires":[]},{"id":"2c69238e.09a6fc","type":"mqtt in","z":"b9aee244.570dc","name":"getval","topic":"toa/light/+/getval","qos":"2","broker":"86a1cd35.744c2","x":985,"y":850,"wires":[["3bb2f8d1.0b6f98"]]},{"id":"3bb2f8d1.0b6f98","type":"function","z":"b9aee244.570dc","name":"current_val","func":"light_state=global.get('light_state');\ntopic=msg.topic\nid=parseInt(topic.split(\"/\")[2]);\nmsg.payload=light_state[id];\nmsg.topic=\"toa/lights/\" + id + \"/current_val\";\n\nreturn msg;","outputs":1,"noerr":0,"x":1165,"y":850,"wires":[["a5e5b964.d6edf8"]]},{"id":"a5e5b964.d6edf8","type":"mqtt out","z":"b9aee244.570dc","name":"","topic":"","qos":"","retain":"true","broker":"86a1cd35.744c2","x":1305,"y":850,"wires":[]},{"id":"43f61970.e0c258","type":"inject","z":"b6f275f1.f50b78","name":"Restart Chromium","topic":"","payload":"sudo systemctl restart chromium","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":150,"y":185,"wires":[["eb2cee49.922f8"]]},{"id":"eb2cee49.922f8","type":"mqtt out","z":"b6f275f1.f50b78","name":"","topic":"toa/cm3shell","qos":"","retain":"","broker":"86a1cd35.744c2","x":445,"y":170,"wires":[]},{"id":"23b25717.ae3698","type":"inject","z":"b6f275f1.f50b78","name":"Reboot","topic":"","payload":"sudo reboot","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":110,"y":145,"wires":[["eb2cee49.922f8"]]},{"id":"11314bb4.4dfc04","type":"inject","z":"b6f275f1.f50b78","name":"Halt","topic":"","payload":"sudo halt","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":110,"y":105,"wires":[["eb2cee49.922f8"]]}]
+[
+    {
+        "id": "b9aee244.570dc",
+        "type": "tab",
+        "label": "Relays",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6d96a905.566d28",
+        "type": "tab",
+        "label": "Sonoff-s26",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b6f275f1.f50b78",
+        "type": "tab",
+        "label": "CM3-Panel",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9e2c603a.858fe",
+        "type": "tab",
+        "label": "CM3-Home",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9a56a685.0b3558",
+        "type": "tab",
+        "label": "Assorbimenti",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9baf0a1c.2eb568",
+        "type": "tab",
+        "label": "Telegram",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2bdcdf69.ad913",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Sinottico",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "86a1cd35.744c2",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "toa",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "4833e069.009da",
+        "type": "chatbot-telegram-node",
+        "z": "",
+        "botname": "Tanzo Office Automation",
+        "usernames": "",
+        "providerToken": "",
+        "polling": "1000",
+        "store": "",
+        "log": "",
+        "parseMode": "",
+        "debug": false
+    },
+    {
+        "id": "29a3ba9c.d66f76",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Sonoff-S26",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "b1c6a8f1.2356c8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Piantane",
+        "tab": "29a3ba9c.d66f76",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d52b7157.fe0ee",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Relays",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "6490cdde.182ee4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Piano",
+        "tab": "d52b7157.fe0ee",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "cda25b51.6fff18",
+        "type": "ui_group",
+        "z": "",
+        "name": "Vani",
+        "tab": "d52b7157.fe0ee",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5a16f45.b18720c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Terrazzi",
+        "tab": "d52b7157.fe0ee",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e0926b23.e33988",
+        "type": "mqtt out",
+        "z": "b6f275f1.f50b78",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 585,
+        "y": 290,
+        "wires": []
+    },
+    {
+        "id": "7f774513.6aeffc",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"clock_off\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 195,
+        "y": 290,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "56f67e92.7fd16",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"clock_on\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 195,
+        "y": 350,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "72814bf.a675fb4",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Matrix",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"loadvideo\",\"value\":\"matrix.mov\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 245,
+        "y": 409,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "8e2433a3.7f622",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Italy",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"loadvideo\",\"value\":\"italy.mov\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 245,
+        "y": 450,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "329c8ba5.fbf5d4",
+        "type": "http request",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 990,
+        "y": 150,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dede6718.ce4948",
+        "type": "mqtt in",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "toa/lights/+/set_value",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 485,
+        "y": 155,
+        "wires": [
+            [
+                "8f5f167.1a9f3e8"
+            ]
+        ]
+    },
+    {
+        "id": "8c7724f5.b5fd28",
+        "type": "mqtt out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 955,
+        "y": 710,
+        "wires": []
+    },
+    {
+        "id": "8f5f167.1a9f3e8",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "Denkovi filter",
+        "func": "var res = msg.topic.split(\"/\");\nvar msg1={};\n\nlight_id=parseInt(res[2]);\nlight_value=parseInt(msg.payload);\n\nif (light_id>=1 && light_id<=16) {\n\n\n    relay_id=light_id;\n    \n    if (light_value===0)\n        relay_value=0;\n    else    \n        relay_value=1;\n    \n    msg.url = \"http://192.168.1.8:80/current_state.json?pw=admin&Relay\" + relay_id + \"=\" + relay_value;\n\n\n    msg1.topic=\"toa/lights/\" + light_id + \"/current_value\";\n    msg1.payload=light_value;\n\n    return [msg,msg1];\n}  \n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 745,
+        "y": 155,
+        "wires": [
+            [
+                "329c8ba5.fbf5d4"
+            ],
+            [
+                "bb296c75.6d0f6"
+            ]
+        ]
+    },
+    {
+        "id": "2ab750f0.3c471",
+        "type": "exec",
+        "z": "9e2c603a.858fe",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 145,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8bce2dad.5ed52",
+        "type": "inject",
+        "z": "9e2c603a.858fe",
+        "name": "Halt",
+        "topic": "",
+        "payload": "sudo halt",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 145,
+        "wires": [
+            [
+                "2ab750f0.3c471"
+            ]
+        ]
+    },
+    {
+        "id": "eeaeff4c.10c08",
+        "type": "rpi-gpio in",
+        "z": "b9aee244.570dc",
+        "name": "WC uomini",
+        "pin": "24",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 485,
+        "y": 690,
+        "wires": [
+            [
+                "2c5f2059.56eca"
+            ]
+        ]
+    },
+    {
+        "id": "20759198.e3345e",
+        "type": "rpi-gpio in",
+        "z": "b9aee244.570dc",
+        "name": "WC donne",
+        "pin": "26",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 485,
+        "y": 740,
+        "wires": [
+            [
+                "105a48c8.0920e7"
+            ]
+        ]
+    },
+    {
+        "id": "2c5f2059.56eca",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "func": "var wc_uomini = flow.get('wc_uomini')||0;\n\nif (msg.payload===0) {\n    if (wc_uomini===0) {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=1;\n        wc_uomini=1;\n        flow.set('wc_uomini',wc_uomini)\n    } else {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=0;\n        wc_uomini=0;\n        flow.set('wc_uomini',wc_uomini)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 690,
+        "wires": [
+            [
+                "cb309dcd.1bca4"
+            ]
+        ]
+    },
+    {
+        "id": "105a48c8.0920e7",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "func": "var wc_donne = flow.get('wc_donne')||0;\n\nif (msg.payload===0) {\n    if (wc_donne===0) {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=1;\n        wc_donne=1;\n        flow.set('wc_donne',wc_donne)\n    } else {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=0;\n        wc_donne=0;\n        flow.set('wc_donne',wc_donne)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 620,
+        "y": 740,
+        "wires": [
+            [
+                "cb309dcd.1bca4"
+            ]
+        ]
+    },
+    {
+        "id": "46f037b4.614358",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL1-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 445,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6950ad7d.a8f2c4",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL2-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 495,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ca4343.39f4fcc",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL3-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 545,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd6bc618.e21668",
+        "type": "comment",
+        "z": "9a56a685.0b3558",
+        "name": "Misuratore trifase Fotovoltaico",
+        "info": "",
+        "x": 195,
+        "y": 405,
+        "wires": []
+    },
+    {
+        "id": "73194d8d.03fff4",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL1-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 75,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "352894b7.3ffc7c",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL2-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 125,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17c28da2.96cdc2",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/VL3-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 175,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2043e1c.57036",
+        "type": "comment",
+        "z": "9a56a685.0b3558",
+        "name": "Misuratore trifase QE Generale",
+        "info": "",
+        "x": 205,
+        "y": 35,
+        "wires": []
+    },
+    {
+        "id": "707fac7f.720174",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KW1-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 195,
+        "y": 230,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa37d9ce.edc8c8",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KW2-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 195,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4758f7f.62fb7",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KW3-GEN",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 195,
+        "y": 330,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93350d2e.d0e06",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KWL1-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31e05043.e8306",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KWL2-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 650,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "74faef4f.9533",
+        "type": "mqtt in",
+        "z": "9a56a685.0b3558",
+        "name": "",
+        "topic": "toa/assorbimenti/KWL3-FT",
+        "qos": "2",
+        "broker": "86a1cd35.744c2",
+        "x": 185,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da1ecdf9.5c62d",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Pulsanti",
+        "info": "",
+        "x": 475,
+        "y": 650,
+        "wires": []
+    },
+    {
+        "id": "f1879a7.cab5b68",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "topic": "toa/cm3panel",
+        "qos": "",
+        "retain": "true",
+        "broker": "86a1cd35.744c2",
+        "x": 1000,
+        "y": 1410,
+        "wires": []
+    },
+    {
+        "id": "2b01c1fd.5d838e",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "Telegram2mqtt",
+        "func": "content=msg.payload[\"content\"];\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 780,
+        "y": 1370,
+        "wires": [
+            [
+                "f1879a7.cab5b68"
+            ]
+        ]
+    },
+    {
+        "id": "2c0215df.d9600a",
+        "type": "chatbot-telegram-receive",
+        "z": "9baf0a1c.2eb568",
+        "bot": "4833e069.009da",
+        "botProduction": "",
+        "x": 155,
+        "y": 160,
+        "wires": [
+            [
+                "93261e74.fb31e"
+            ]
+        ]
+    },
+    {
+        "id": "8e00a2e5.52358",
+        "type": "chatbot-telegram-send",
+        "z": "9baf0a1c.2eb568",
+        "bot": "4833e069.009da",
+        "botProduction": "4833e069.009da",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 1040,
+        "y": 1250,
+        "wires": []
+    },
+    {
+        "id": "bb296c75.6d0f6",
+        "type": "mqtt out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "true",
+        "broker": "86a1cd35.744c2",
+        "x": 970,
+        "y": 205,
+        "wires": []
+    },
+    {
+        "id": "92200da6.69dc8",
+        "type": "inject",
+        "z": "9baf0a1c.2eb568",
+        "name": "Welcome message",
+        "topic": "",
+        "payload": "Benvenuti in Acme Systems",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 580,
+        "y": 1410,
+        "wires": [
+            [
+                "3faa6a18.17fb16"
+            ]
+        ]
+    },
+    {
+        "id": "3faa6a18.17fb16",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "Text to JSON",
+        "func": "content=msg.payload;\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 790,
+        "y": 1410,
+        "wires": [
+            [
+                "f1879a7.cab5b68"
+            ]
+        ]
+    },
+    {
+        "id": "9e968d97.df504",
+        "type": "link in",
+        "z": "b9aee244.570dc",
+        "name": "mqtt_relay",
+        "links": [
+            "9a5e1d5f.99637",
+            "30a554b4.bc666c",
+            "eae555d3.bde108",
+            "c551a438.7caba8",
+            "bb7ecf29.d8d38",
+            "4ffd9064.558b",
+            "754a9ffd.9e21b",
+            "1cf2895b.f07237",
+            "435de856.883668",
+            "ac9c39e6.ba5218",
+            "cb309dcd.1bca4",
+            "5ff67e50.c8c93",
+            "1889247a.4dfd2c",
+            "3a1de492.400fac",
+            "fafa0ada.7aab98",
+            "a5c2793a.539ef8",
+            "8759dc81.87d51",
+            "fe8971ee.7073c",
+            "c8a1cce4.333d2"
+        ],
+        "x": 830,
+        "y": 710,
+        "wires": [
+            [
+                "8c7724f5.b5fd28"
+            ]
+        ]
+    },
+    {
+        "id": "cb309dcd.1bca4",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 725,
+        "y": 710,
+        "wires": []
+    },
+    {
+        "id": "30ac1843.001488",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(4)",
+        "info": "",
+        "x": 165,
+        "y": 550,
+        "wires": []
+    },
+    {
+        "id": "bfd5d661.c759f8",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(5)",
+        "info": "",
+        "x": 165,
+        "y": 585,
+        "wires": []
+    },
+    {
+        "id": "8d8a60d9.89f46",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(8)",
+        "info": "",
+        "x": 165,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d7969bb2.7d6428",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(9)",
+        "info": "",
+        "x": 165,
+        "y": 655,
+        "wires": []
+    },
+    {
+        "id": "373becda.714b84",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(14)",
+        "info": "",
+        "x": 165,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "b83dc549.e319a8",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "(15)",
+        "info": "",
+        "x": 165,
+        "y": 725,
+        "wires": []
+    },
+    {
+        "id": "e7a00ab5.b5dfe8",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "All ON",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 540,
+        "y": 465,
+        "wires": [
+            [
+                "abfef57c.099778"
+            ]
+        ]
+    },
+    {
+        "id": "16b10ab2.c6c615",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "All OFF",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 540,
+        "y": 510,
+        "wires": [
+            [
+                "abfef57c.099778"
+            ]
+        ]
+    },
+    {
+        "id": "953fe4.07f9902",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "Init",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "x": 540,
+        "y": 415,
+        "wires": [
+            [
+                "abfef57c.099778"
+            ]
+        ]
+    },
+    {
+        "id": "abfef57c.099778",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "LightInit",
+        "func": "var light_state = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];\nvar outputMsgs = [];\n\nfor (i=0;i<light_state.length;i++) {\n    light_state[i]=msg.payload;\n}\n\nglobal.set('light_state',light_state);\n\nfor (i=0;i<light_state.length;i++) {\n    light_id=i+1;\n    outputMsgs.push({payload:light_state[i],topic:\"toa/lights/\" + light_id + \"/set_value\"});\n}\nreturn [outputMsgs];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 770,
+        "y": 415,
+        "wires": [
+            [
+                "a633cc1b.0a726"
+            ]
+        ]
+    },
+    {
+        "id": "a633cc1b.0a726",
+        "type": "mqtt out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 920,
+        "y": 415,
+        "wires": []
+    },
+    {
+        "id": "43f61970.e0c258",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Restart Chromium",
+        "topic": "",
+        "payload": "sudo systemctl restart chromium",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 185,
+        "wires": [
+            [
+                "eb2cee49.922f8"
+            ]
+        ]
+    },
+    {
+        "id": "eb2cee49.922f8",
+        "type": "mqtt out",
+        "z": "b6f275f1.f50b78",
+        "name": "",
+        "topic": "toa/cm3shell",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 445,
+        "y": 170,
+        "wires": []
+    },
+    {
+        "id": "23b25717.ae3698",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Reboot",
+        "topic": "",
+        "payload": "sudo reboot",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 145,
+        "wires": [
+            [
+                "eb2cee49.922f8"
+            ]
+        ]
+    },
+    {
+        "id": "11314bb4.4dfc04",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Halt",
+        "topic": "",
+        "payload": "sudo halt",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 105,
+        "wires": [
+            [
+                "eb2cee49.922f8"
+            ]
+        ]
+    },
+    {
+        "id": "b13243cd.0bffb",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Roadrunner",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"loadvideo\",\"value\":\"roadrunner.mov\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 225,
+        "y": 495,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "1bb36094.38399f",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "Caleidoscope",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"loadvideo\",\"value\":\"caleidoscope.mov\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 225,
+        "y": 540,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "8005abf8.f3e178",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 2",
+        "topic": "sonoff-s26/002/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "94ce369c.ed06d8",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 3",
+        "topic": "sonoff-s26/003/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 190,
+        "wires": []
+    },
+    {
+        "id": "d1e7ee37.cab1d",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 1",
+        "topic": "sonoff-s26/001/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "50389c13.58fa94",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 4",
+        "topic": "sonoff-s26/004/cmnd/POWER",
+        "qos": "0",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "88aaefb7.2d9de",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 5",
+        "topic": "sonoff-s26/005/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 290,
+        "wires": []
+    },
+    {
+        "id": "30384a4a.94f2e6",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 620,
+        "y": 1365,
+        "wires": [
+            [
+                "e68b51a0.caf07"
+            ]
+        ]
+    },
+    {
+        "id": "a9d1cc63.b1db5",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p1",
+        "links": [
+            "f904996f.bcb418",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "7dddccda.0ab114",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 915,
+        "y": 90,
+        "wires": [
+            [
+                "d1e7ee37.cab1d"
+            ]
+        ]
+    },
+    {
+        "id": "c395faa7.bbc678",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p2",
+        "links": [
+            "7531ac05.da3114",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "b48813be.81ad8",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 140,
+        "wires": [
+            [
+                "8005abf8.f3e178"
+            ]
+        ]
+    },
+    {
+        "id": "b9c797af.9ef868",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p3",
+        "links": [
+            "e849a56b.3fc218",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "adc88079.49cf7",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 190,
+        "wires": [
+            [
+                "94ce369c.ed06d8"
+            ]
+        ]
+    },
+    {
+        "id": "634ba040.4d8a3",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p4",
+        "links": [
+            "e4f28175.58895",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "b66ca16d.25f23",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 240,
+        "wires": [
+            [
+                "50389c13.58fa94"
+            ]
+        ]
+    },
+    {
+        "id": "a2d5b14d.104ad",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p5",
+        "links": [
+            "9596bf02.00b9d",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "7fe70003.06a72",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 290,
+        "wires": [
+            [
+                "88aaefb7.2d9de"
+            ]
+        ]
+    },
+    {
+        "id": "e68b51a0.caf07",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "634ba040.4d8a3",
+            "a2d5b14d.104ad",
+            "a9d1cc63.b1db5",
+            "b9c797af.9ef868",
+            "c395faa7.bbc678",
+            "e825f4d3.53f1b8",
+            "573ba97d.d9f028",
+            "8e849101.8fb97",
+            "64997e04.7e757",
+            "a1bb8f47.a185c",
+            "b7d60835.36dc18",
+            "4cacbd68.2d32c4",
+            "8846ea7a.7df7f8",
+            "517962ba.6a64dc",
+            "65c6ec3c.148f44",
+            "8c6de6b1.a08438",
+            "63238336.18dd8c",
+            "1322341e.ab432c",
+            "b1d0ef20.69b01",
+            "6eb75a0a.c13974",
+            "eb56f00e.bc387",
+            "83d9c307.2edc6",
+            "f2a29010.954f3",
+            "a183a430.ff4ec8",
+            "ce99d9f2.600988"
+        ],
+        "x": 715,
+        "y": 1395,
+        "wires": []
+    },
+    {
+        "id": "ea9b3a20.492e28",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "topic": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 620,
+        "y": 1410,
+        "wires": [
+            [
+                "e68b51a0.caf07"
+            ]
+        ]
+    },
+    {
+        "id": "4f658776.af3d08",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 6",
+        "topic": "sonoff-s26/006/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e825f4d3.53f1b8",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p6",
+        "links": [
+            "cede38b4.36f4d8",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "a5363a70.962ba8",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 340,
+        "wires": [
+            [
+                "4f658776.af3d08"
+            ]
+        ]
+    },
+    {
+        "id": "270f5472.be03cc",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 7",
+        "topic": "sonoff-s26/007/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "573ba97d.d9f028",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p7",
+        "links": [
+            "3a1d21f0.c92dde",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "2ed268fd.c55898",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 915,
+        "y": 390,
+        "wires": [
+            [
+                "270f5472.be03cc"
+            ]
+        ]
+    },
+    {
+        "id": "4af758af.638448",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 8",
+        "topic": "sonoff-s26/008/cmnd/POWER",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8e849101.8fb97",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p8",
+        "links": [
+            "75036d9.b337194",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "d5f6a0cc.a1da2",
+            "5d266980.d3d598",
+            "ff0f577.45f6aa8"
+        ],
+        "x": 915,
+        "y": 440,
+        "wires": [
+            [
+                "4af758af.638448"
+            ]
+        ]
+    },
+    {
+        "id": "40834a73.620374",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 9",
+        "topic": "sonoff-s26/009/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 490,
+        "wires": []
+    },
+    {
+        "id": "64997e04.7e757",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p9",
+        "links": [
+            "7f34ee2b.e4f47",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "11025a42.7de296",
+            "5d266980.d3d598",
+            "97562ceb.d6e04"
+        ],
+        "x": 915,
+        "y": 490,
+        "wires": [
+            [
+                "40834a73.620374"
+            ]
+        ]
+    },
+    {
+        "id": "4d7ff848.db5958",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 10",
+        "topic": "sonoff-s26/010/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a1bb8f47.a185c",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p10",
+        "links": [
+            "e68b51a0.caf07",
+            "ed439b4e.545618",
+            "36eb1659.1d97ca",
+            "c244026e.2e285",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 540,
+        "wires": [
+            [
+                "4d7ff848.db5958"
+            ]
+        ]
+    },
+    {
+        "id": "79c390b9.d60ca",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 11",
+        "topic": "sonoff-s26/011/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 590,
+        "wires": []
+    },
+    {
+        "id": "b7d60835.36dc18",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p11",
+        "links": [
+            "726d0d64.4f3504",
+            "e68b51a0.caf07",
+            "36eb1659.1d97ca",
+            "2f965cf1.e1ecd4",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 915,
+        "y": 590,
+        "wires": [
+            [
+                "79c390b9.d60ca"
+            ]
+        ]
+    },
+    {
+        "id": "48c6250e.5eef1c",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 12",
+        "topic": "sonoff-s26/012/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4cacbd68.2d32c4",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p12",
+        "links": [
+            "e68b51a0.caf07",
+            "f208c4e2.f63fb8",
+            "36eb1659.1d97ca",
+            "626631f8.10fbd",
+            "5d266980.d3d598"
+        ],
+        "x": 915,
+        "y": 640,
+        "wires": [
+            [
+                "48c6250e.5eef1c"
+            ]
+        ]
+    },
+    {
+        "id": "d298586e.0b9e68",
+        "type": "chatbot-inline-buttons",
+        "z": "9baf0a1c.2eb568",
+        "name": "Menu Principale",
+        "buttons": [
+            {
+                "type": "postback",
+                "label": "Piantane",
+                "value": "/piantane",
+                "answer": "",
+                "alert": false,
+                "style": "default"
+            },
+            {
+                "type": "postback",
+                "label": "Luci",
+                "value": "/luci",
+                "answer": "",
+                "alert": false,
+                "style": "primary"
+            },
+            {
+                "type": "postback",
+                "label": "Termo",
+                "value": "/termo",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            }
+        ],
+        "message": "Seleziona:",
+        "x": 780,
+        "y": 1170,
+        "wires": [
+            [
+                "8e00a2e5.52358"
+            ]
+        ]
+    },
+    {
+        "id": "87a7f406.c0a038",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "pid=msg.payload.substring(5,8);\nmsg.topic=\"sonoff-s26/\" + pid + \"/cmnd/POWER\";\nmsg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 120,
+        "wires": [
+            [
+                "fcffa9d8.594658"
+            ]
+        ]
+    },
+    {
+        "id": "93261e74.fb31e",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "Filtro utenti",
+        "func": "if (msg.payload[\"userId\"]===\"SergioTanzilli\") {\n    msg.payload=msg.payload;\n} else {\n    msg.payload=\"NULL\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "e44f8d97.a5f04",
+                "44310fcd.cad22",
+                "15ce5d81.5ad132",
+                "46ddf4a6.27b6ec",
+                "f4c5aed1.6503f",
+                "3516917c.04252e",
+                "e17650c0.e5068",
+                "c882df04.8b6bf",
+                "bcc21cb5.f9046",
+                "bc33b3.c35c7c5",
+                "6f72ec00.98eb44",
+                "d2dd3d6e.750a5",
+                "72768295.3555ec",
+                "353aaac.88a8956",
+                "4d0572b8.ab426c",
+                "c6e0188f.e1bd98",
+                "fc283bd1.9e5278",
+                "24ee59a3.39c2a6",
+                "2759c913.bca256",
+                "90212bd5.ad5578",
+                "1c17eb7e.3ae965",
+                "20472dbd.9fdc02",
+                "4655d812.fd5288",
+                "37088080.d704b",
+                "8b8d391b.da1388",
+                "9ba6232a.200af",
+                "764371f7.47555"
+            ]
+        ]
+    },
+    {
+        "id": "61c3a1d8.def31",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "01",
+        "group": "b1c6a8f1.2356c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 95,
+        "wires": [
+            [
+                "806ab7e9.ca8588"
+            ]
+        ]
+    },
+    {
+        "id": "806ab7e9.ca8588",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 95,
+        "wires": [
+            [
+                "7dddccda.0ab114"
+            ]
+        ]
+    },
+    {
+        "id": "7dddccda.0ab114",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "a9d1cc63.b1db5"
+        ],
+        "x": 550,
+        "y": 95,
+        "wires": []
+    },
+    {
+        "id": "8b0fde74.0b4ee",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "02",
+        "group": "b1c6a8f1.2356c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 145,
+        "wires": [
+            [
+                "e09ce2f7.704c7"
+            ]
+        ]
+    },
+    {
+        "id": "e09ce2f7.704c7",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 145,
+        "wires": [
+            [
+                "b48813be.81ad8"
+            ]
+        ]
+    },
+    {
+        "id": "b48813be.81ad8",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "c395faa7.bbc678"
+        ],
+        "x": 550,
+        "y": 145,
+        "wires": []
+    },
+    {
+        "id": "c1d80e5e.c4bd3",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "03",
+        "group": "b1c6a8f1.2356c8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 195,
+        "wires": [
+            [
+                "506b0d15.079734"
+            ]
+        ]
+    },
+    {
+        "id": "506b0d15.079734",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 195,
+        "wires": [
+            [
+                "adc88079.49cf7"
+            ]
+        ]
+    },
+    {
+        "id": "adc88079.49cf7",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "b9c797af.9ef868"
+        ],
+        "x": 550,
+        "y": 195,
+        "wires": []
+    },
+    {
+        "id": "41ee749c.57ec1c",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "04",
+        "group": "b1c6a8f1.2356c8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 245,
+        "wires": [
+            [
+                "41ecfa89.c4ce34"
+            ]
+        ]
+    },
+    {
+        "id": "41ecfa89.c4ce34",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 245,
+        "wires": [
+            [
+                "b66ca16d.25f23"
+            ]
+        ]
+    },
+    {
+        "id": "b66ca16d.25f23",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "634ba040.4d8a3"
+        ],
+        "x": 550,
+        "y": 245,
+        "wires": []
+    },
+    {
+        "id": "a4ccd893.7b1528",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "05",
+        "group": "b1c6a8f1.2356c8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 295,
+        "wires": [
+            [
+                "da68a0e4.77e54"
+            ]
+        ]
+    },
+    {
+        "id": "da68a0e4.77e54",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 295,
+        "wires": [
+            [
+                "7fe70003.06a72"
+            ]
+        ]
+    },
+    {
+        "id": "7fe70003.06a72",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "a2d5b14d.104ad"
+        ],
+        "x": 550,
+        "y": 295,
+        "wires": []
+    },
+    {
+        "id": "dc1ecff5.25bce",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "06",
+        "group": "b1c6a8f1.2356c8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 345,
+        "wires": [
+            [
+                "3a006e66.9cfd02"
+            ]
+        ]
+    },
+    {
+        "id": "3a006e66.9cfd02",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 345,
+        "wires": [
+            [
+                "a5363a70.962ba8"
+            ]
+        ]
+    },
+    {
+        "id": "a5363a70.962ba8",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "e825f4d3.53f1b8"
+        ],
+        "x": 550,
+        "y": 345,
+        "wires": []
+    },
+    {
+        "id": "3dd0266a.ac54ba",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "07",
+        "group": "b1c6a8f1.2356c8",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 395,
+        "wires": [
+            [
+                "6d78735f.b0b77c"
+            ]
+        ]
+    },
+    {
+        "id": "6d78735f.b0b77c",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 395,
+        "wires": [
+            [
+                "2ed268fd.c55898"
+            ]
+        ]
+    },
+    {
+        "id": "2ed268fd.c55898",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "573ba97d.d9f028"
+        ],
+        "x": 550,
+        "y": 395,
+        "wires": []
+    },
+    {
+        "id": "31eb9c40.23cb44",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "08",
+        "group": "b1c6a8f1.2356c8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 445,
+        "wires": [
+            [
+                "82268d56.79eca"
+            ]
+        ]
+    },
+    {
+        "id": "82268d56.79eca",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 445,
+        "wires": [
+            [
+                "d5f6a0cc.a1da2"
+            ]
+        ]
+    },
+    {
+        "id": "d5f6a0cc.a1da2",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "8e849101.8fb97"
+        ],
+        "x": 550,
+        "y": 445,
+        "wires": []
+    },
+    {
+        "id": "3bde787a.038fe8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "09",
+        "group": "b1c6a8f1.2356c8",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 495,
+        "wires": [
+            [
+                "a1b48a8.a42ca78"
+            ]
+        ]
+    },
+    {
+        "id": "a1b48a8.a42ca78",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 495,
+        "wires": [
+            [
+                "11025a42.7de296"
+            ]
+        ]
+    },
+    {
+        "id": "11025a42.7de296",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "64997e04.7e757"
+        ],
+        "x": 550,
+        "y": 495,
+        "wires": []
+    },
+    {
+        "id": "990cc71d.de4ee8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "10",
+        "group": "b1c6a8f1.2356c8",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 545,
+        "wires": [
+            [
+                "6db0891e.1a06d8"
+            ]
+        ]
+    },
+    {
+        "id": "6db0891e.1a06d8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 545,
+        "wires": [
+            [
+                "c244026e.2e285"
+            ]
+        ]
+    },
+    {
+        "id": "c244026e.2e285",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "a1bb8f47.a185c"
+        ],
+        "x": 550,
+        "y": 545,
+        "wires": []
+    },
+    {
+        "id": "f8f533dd.c0ec5",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "11",
+        "group": "b1c6a8f1.2356c8",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 595,
+        "wires": [
+            [
+                "afeb8517.5dc968"
+            ]
+        ]
+    },
+    {
+        "id": "afeb8517.5dc968",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 595,
+        "wires": [
+            [
+                "2f965cf1.e1ecd4"
+            ]
+        ]
+    },
+    {
+        "id": "2f965cf1.e1ecd4",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "b7d60835.36dc18"
+        ],
+        "x": 550,
+        "y": 595,
+        "wires": []
+    },
+    {
+        "id": "ff762818.73e3a8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "12",
+        "group": "b1c6a8f1.2356c8",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 640,
+        "wires": [
+            [
+                "66a9e41e.cc90dc"
+            ]
+        ]
+    },
+    {
+        "id": "66a9e41e.cc90dc",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 640,
+        "wires": [
+            [
+                "626631f8.10fbd"
+            ]
+        ]
+    },
+    {
+        "id": "626631f8.10fbd",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "4cacbd68.2d32c4"
+        ],
+        "x": 550,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "94273fb7.809b5",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "13",
+        "group": "b1c6a8f1.2356c8",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 685,
+        "wires": [
+            [
+                "5bf43ecd.454b8"
+            ]
+        ]
+    },
+    {
+        "id": "5bf43ecd.454b8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 685,
+        "wires": [
+            [
+                "a9dcfecc.75539"
+            ]
+        ]
+    },
+    {
+        "id": "a9dcfecc.75539",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "8846ea7a.7df7f8"
+        ],
+        "x": 550,
+        "y": 685,
+        "wires": []
+    },
+    {
+        "id": "5bdb226b.833fdc",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 13",
+        "topic": "sonoff-s26/013/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "8846ea7a.7df7f8",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p13",
+        "links": [
+            "36eb1659.1d97ca",
+            "a9dcfecc.75539",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "225d5b2d.e0a904"
+        ],
+        "x": 915,
+        "y": 690,
+        "wires": [
+            [
+                "5bdb226b.833fdc"
+            ]
+        ]
+    },
+    {
+        "id": "7ecd0ce6.337a84",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 14",
+        "topic": "sonoff-s26/014/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "517962ba.6a64dc",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p14",
+        "links": [
+            "36eb1659.1d97ca",
+            "e68b51a0.caf07",
+            "a20bacfb.66774",
+            "5d266980.d3d598",
+            "ff0f577.45f6aa8"
+        ],
+        "x": 915,
+        "y": 740,
+        "wires": [
+            [
+                "7ecd0ce6.337a84"
+            ]
+        ]
+    },
+    {
+        "id": "22d44f2.38e33b",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "14",
+        "group": "b1c6a8f1.2356c8",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 730,
+        "wires": [
+            [
+                "dda2c687.a63df8"
+            ]
+        ]
+    },
+    {
+        "id": "dda2c687.a63df8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 730,
+        "wires": [
+            [
+                "a20bacfb.66774"
+            ]
+        ]
+    },
+    {
+        "id": "a20bacfb.66774",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "517962ba.6a64dc"
+        ],
+        "x": 550,
+        "y": 730,
+        "wires": []
+    },
+    {
+        "id": "93226f2f.86dc2",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "10 Sala",
+        "group": "6490cdde.182ee4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/10/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 155,
+        "y": 285,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "fe8971ee.7073c",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 490,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4e1f5b15.a031a4",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=1;\n} else {\n    msg.payload=0;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "fe8971ee.7073c"
+            ]
+        ]
+    },
+    {
+        "id": "2d3cc21e.a0e91e",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "11 Cucina",
+        "group": "6490cdde.182ee4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/11/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 155,
+        "y": 325,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "86144eb.c7cf6b",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "12 Uffici",
+        "group": "6490cdde.182ee4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/12/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 155,
+        "y": 370,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "9ac719fb.cae9d8",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "7 WC donne",
+        "group": "cda25b51.6fff18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/7/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 145,
+        "y": 140,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "9822de41.9e2ed",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "6 WC uomini",
+        "group": "cda25b51.6fff18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/6/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 145,
+        "y": 95,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "d2df91cb.7843",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "16 Stanza verde",
+        "group": "cda25b51.6fff18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/16/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 135,
+        "y": 230,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "a0fc3a5d.0cbd78",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "3 Scala",
+        "group": "cda25b51.6fff18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/3/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 150,
+        "y": 50,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "822cd795.1e9ae8",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "1 Piccolo",
+        "group": "5a16f45.b18720c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/1/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 155,
+        "y": 435,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "fe222e4a.588d9",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "2 Grande",
+        "group": "5a16f45.b18720c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/2/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 155,
+        "y": 475,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "30924b0d.c3dc94",
+        "type": "ui_switch",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "label": "13 Stanza gialla",
+        "group": "cda25b51.6fff18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "toa/lights/16/set_value",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 135,
+        "y": 185,
+        "wires": [
+            [
+                "4e1f5b15.a031a4"
+            ]
+        ]
+    },
+    {
+        "id": "99b82b0e.bb6be8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "15",
+        "group": "b1c6a8f1.2356c8",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 775,
+        "wires": [
+            [
+                "81962bfa.9a4298"
+            ]
+        ]
+    },
+    {
+        "id": "81962bfa.9a4298",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 775,
+        "wires": [
+            [
+                "94200718.87f7a8"
+            ]
+        ]
+    },
+    {
+        "id": "94200718.87f7a8",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "65c6ec3c.148f44"
+        ],
+        "x": 550,
+        "y": 775,
+        "wires": []
+    },
+    {
+        "id": "340e4644.3cb26a",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "16",
+        "group": "b1c6a8f1.2356c8",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 820,
+        "wires": [
+            [
+                "8a78a255.22ed8"
+            ]
+        ]
+    },
+    {
+        "id": "8a78a255.22ed8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 820,
+        "wires": [
+            [
+                "7aa13f8a.3467c"
+            ]
+        ]
+    },
+    {
+        "id": "7aa13f8a.3467c",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "8c6de6b1.a08438"
+        ],
+        "x": 550,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "fdcc5e1a.2dab",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "17",
+        "group": "b1c6a8f1.2356c8",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 865,
+        "wires": [
+            [
+                "be515072.ba938"
+            ]
+        ]
+    },
+    {
+        "id": "be515072.ba938",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 865,
+        "wires": [
+            [
+                "44a46e0f.2dde9"
+            ]
+        ]
+    },
+    {
+        "id": "44a46e0f.2dde9",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "63238336.18dd8c"
+        ],
+        "x": 550,
+        "y": 865,
+        "wires": []
+    },
+    {
+        "id": "9613f8da.376398",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "18",
+        "group": "b1c6a8f1.2356c8",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 915,
+        "wires": [
+            [
+                "97e4108b.0ffa3"
+            ]
+        ]
+    },
+    {
+        "id": "97e4108b.0ffa3",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 915,
+        "wires": [
+            [
+                "95855d29.4fe5e"
+            ]
+        ]
+    },
+    {
+        "id": "95855d29.4fe5e",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "1322341e.ab432c"
+        ],
+        "x": 550,
+        "y": 915,
+        "wires": []
+    },
+    {
+        "id": "1b7bb282.08114d",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 15",
+        "topic": "sonoff-s26/015/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1035,
+        "y": 790,
+        "wires": []
+    },
+    {
+        "id": "65c6ec3c.148f44",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p15",
+        "links": [
+            "36eb1659.1d97ca",
+            "94200718.87f7a8",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "ff0f577.45f6aa8"
+        ],
+        "x": 915,
+        "y": 790,
+        "wires": [
+            [
+                "1b7bb282.08114d"
+            ]
+        ]
+    },
+    {
+        "id": "e87b5b62.91ef88",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 16",
+        "topic": "sonoff-s26/016/cmnd/POWER",
+        "qos": "1",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1030,
+        "y": 835,
+        "wires": []
+    },
+    {
+        "id": "8c6de6b1.a08438",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p16",
+        "links": [
+            "36eb1659.1d97ca",
+            "7aa13f8a.3467c",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "ff0f577.45f6aa8"
+        ],
+        "x": 910,
+        "y": 835,
+        "wires": [
+            [
+                "e87b5b62.91ef88"
+            ]
+        ]
+    },
+    {
+        "id": "5a977eec.85851",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 17",
+        "topic": "sonoff-s26/017/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1030,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "63238336.18dd8c",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p17",
+        "links": [
+            "36eb1659.1d97ca",
+            "44a46e0f.2dde9",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 910,
+        "y": 880,
+        "wires": [
+            [
+                "5a977eec.85851"
+            ]
+        ]
+    },
+    {
+        "id": "7e2550fe.3ef0e",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 18",
+        "topic": "sonoff-s26/018/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1030,
+        "y": 925,
+        "wires": []
+    },
+    {
+        "id": "1322341e.ab432c",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p18",
+        "links": [
+            "36eb1659.1d97ca",
+            "95855d29.4fe5e",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "ff0f577.45f6aa8"
+        ],
+        "x": 910,
+        "y": 925,
+        "wires": [
+            [
+                "7e2550fe.3ef0e"
+            ]
+        ]
+    },
+    {
+        "id": "96e2644f.77a1b8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "19",
+        "group": "b1c6a8f1.2356c8",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 965,
+        "wires": [
+            [
+                "894478da.6d4388"
+            ]
+        ]
+    },
+    {
+        "id": "894478da.6d4388",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 965,
+        "wires": [
+            [
+                "dcde4387.13c38"
+            ]
+        ]
+    },
+    {
+        "id": "dcde4387.13c38",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "b1d0ef20.69b01"
+        ],
+        "x": 550,
+        "y": 965,
+        "wires": []
+    },
+    {
+        "id": "747b9c96.710d54",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 19",
+        "topic": "sonoff-s26/019/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1030,
+        "y": 970,
+        "wires": []
+    },
+    {
+        "id": "b1d0ef20.69b01",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p19",
+        "links": [
+            "36eb1659.1d97ca",
+            "dcde4387.13c38",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 910,
+        "y": 970,
+        "wires": [
+            [
+                "747b9c96.710d54"
+            ]
+        ]
+    },
+    {
+        "id": "36ca0b4d.27f264",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "20",
+        "group": "b1c6a8f1.2356c8",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1020,
+        "wires": [
+            [
+                "aa7a447.4d1dcb8"
+            ]
+        ]
+    },
+    {
+        "id": "aa7a447.4d1dcb8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1020,
+        "wires": [
+            [
+                "69a0b6ac.306e68"
+            ]
+        ]
+    },
+    {
+        "id": "69a0b6ac.306e68",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "6eb75a0a.c13974"
+        ],
+        "x": 550,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "c9a25a04.36e748",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 20",
+        "topic": "sonoff-s26/020/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1030,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "6eb75a0a.c13974",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p20",
+        "links": [
+            "36eb1659.1d97ca",
+            "69a0b6ac.306e68",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 910,
+        "y": 1020,
+        "wires": [
+            [
+                "c9a25a04.36e748"
+            ]
+        ]
+    },
+    {
+        "id": "503e3198.f8e8c",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 21",
+        "topic": "sonoff-s26/021/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1025,
+        "y": 1070,
+        "wires": []
+    },
+    {
+        "id": "eb56f00e.bc387",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p21",
+        "links": [
+            "36eb1659.1d97ca",
+            "c7fa3f1a.39d8f",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 905,
+        "y": 1070,
+        "wires": [
+            [
+                "503e3198.f8e8c"
+            ]
+        ]
+    },
+    {
+        "id": "454af344.fc576c",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "21",
+        "group": "b1c6a8f1.2356c8",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1070,
+        "wires": [
+            [
+                "fb000c0.58839f8"
+            ]
+        ]
+    },
+    {
+        "id": "fb000c0.58839f8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1070,
+        "wires": [
+            [
+                "c7fa3f1a.39d8f"
+            ]
+        ]
+    },
+    {
+        "id": "c7fa3f1a.39d8f",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "eb56f00e.bc387"
+        ],
+        "x": 550,
+        "y": 1070,
+        "wires": []
+    },
+    {
+        "id": "f213b1b8.b2259",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 22",
+        "topic": "sonoff-s26/022/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1025,
+        "y": 1115,
+        "wires": []
+    },
+    {
+        "id": "83d9c307.2edc6",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p22",
+        "links": [
+            "12bf40f1.6c6adf",
+            "36eb1659.1d97ca",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 905,
+        "y": 1115,
+        "wires": [
+            [
+                "f213b1b8.b2259"
+            ]
+        ]
+    },
+    {
+        "id": "de54eb5f.5eed58",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "22",
+        "group": "b1c6a8f1.2356c8",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1115,
+        "wires": [
+            [
+                "b4d40bd2.fd46e8"
+            ]
+        ]
+    },
+    {
+        "id": "b4d40bd2.fd46e8",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1115,
+        "wires": [
+            [
+                "12bf40f1.6c6adf"
+            ]
+        ]
+    },
+    {
+        "id": "12bf40f1.6c6adf",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "83d9c307.2edc6"
+        ],
+        "x": 550,
+        "y": 1115,
+        "wires": []
+    },
+    {
+        "id": "2f2831de.737cfe",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 23",
+        "topic": "sonoff-s26/023/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1025,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "f2a29010.954f3",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p23",
+        "links": [
+            "2901872b.b20e38",
+            "36eb1659.1d97ca",
+            "e68b51a0.caf07",
+            "5d266980.d3d598"
+        ],
+        "x": 905,
+        "y": 1160,
+        "wires": [
+            [
+                "2f2831de.737cfe"
+            ]
+        ]
+    },
+    {
+        "id": "e42c7a73.693e08",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "23",
+        "group": "b1c6a8f1.2356c8",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1160,
+        "wires": [
+            [
+                "5840249e.454adc"
+            ]
+        ]
+    },
+    {
+        "id": "5840249e.454adc",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1160,
+        "wires": [
+            [
+                "2901872b.b20e38"
+            ]
+        ]
+    },
+    {
+        "id": "2901872b.b20e38",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "f2a29010.954f3"
+        ],
+        "x": 550,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "bfacff21.e455b",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 24",
+        "topic": "sonoff-s26/024/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1025,
+        "y": 1210,
+        "wires": []
+    },
+    {
+        "id": "a183a430.ff4ec8",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p24",
+        "links": [
+            "30df147d.3f62ec",
+            "36eb1659.1d97ca",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 905,
+        "y": 1210,
+        "wires": [
+            [
+                "bfacff21.e455b"
+            ]
+        ]
+    },
+    {
+        "id": "a2ccc37a.2461e",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "24",
+        "group": "b1c6a8f1.2356c8",
+        "order": 24,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1210,
+        "wires": [
+            [
+                "ac2bf15f.1d034"
+            ]
+        ]
+    },
+    {
+        "id": "ac2bf15f.1d034",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1210,
+        "wires": [
+            [
+                "30df147d.3f62ec"
+            ]
+        ]
+    },
+    {
+        "id": "30df147d.3f62ec",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "a183a430.ff4ec8"
+        ],
+        "x": 550,
+        "y": 1210,
+        "wires": []
+    },
+    {
+        "id": "c3c8e0e7.057a7",
+        "type": "mqtt out",
+        "z": "6d96a905.566d28",
+        "name": "Piantana 25",
+        "topic": "sonoff-s26/025/cmnd/POWER",
+        "qos": "2",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1025,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "ce99d9f2.600988",
+        "type": "link in",
+        "z": "6d96a905.566d28",
+        "name": "p25",
+        "links": [
+            "36eb1659.1d97ca",
+            "ce050578.d3e2a8",
+            "e68b51a0.caf07",
+            "5d266980.d3d598",
+            "2f48bb03.7482d4"
+        ],
+        "x": 905,
+        "y": 1260,
+        "wires": [
+            [
+                "c3c8e0e7.057a7"
+            ]
+        ]
+    },
+    {
+        "id": "a37bd75c.b255c8",
+        "type": "ui_switch",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "label": "25",
+        "group": "b1c6a8f1.2356c8",
+        "order": 25,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 275,
+        "y": 1260,
+        "wires": [
+            [
+                "9e17cc5f.a7165"
+            ]
+        ]
+    },
+    {
+        "id": "9e17cc5f.a7165",
+        "type": "function",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 415,
+        "y": 1260,
+        "wires": [
+            [
+                "ce050578.d3e2a8"
+            ]
+        ]
+    },
+    {
+        "id": "ce050578.d3e2a8",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "ce99d9f2.600988"
+        ],
+        "x": 550,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "e17650c0.e5068",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/start",
+        "x": 570,
+        "y": 1170,
+        "wires": [
+            [
+                "d298586e.0b9e68"
+            ]
+        ]
+    },
+    {
+        "id": "5641d0c5.fb917",
+        "type": "chatbot-inline-buttons",
+        "z": "9baf0a1c.2eb568",
+        "name": "Menu Piantane",
+        "buttons": [
+            {
+                "type": "postback",
+                "label": "Scale ON",
+                "value": "/piantane_scale_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Scale OFF",
+                "value": "/piantane_scale_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Uffici ON",
+                "value": "/piantane_uffici_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Uffici OFF",
+                "value": "/piantane_uffici_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Tutte ON",
+                "value": "/piantane_all_on",
+                "answer": "",
+                "alert": false,
+                "style": "default"
+            },
+            {
+                "type": "postback",
+                "label": "Tutte OFF",
+                "value": "/piantane_all_off",
+                "answer": "",
+                "alert": false,
+                "style": "primary"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Torna al menu",
+                "value": "/start",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            }
+        ],
+        "message": "Piantane:",
+        "x": 780,
+        "y": 1210,
+        "wires": [
+            [
+                "8e00a2e5.52358"
+            ]
+        ]
+    },
+    {
+        "id": "c882df04.8b6bf",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane",
+        "x": 580,
+        "y": 1210,
+        "wires": [
+            [
+                "5641d0c5.fb917"
+            ]
+        ]
+    },
+    {
+        "id": "fcffa9d8.594658",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "MQTT Sonoff",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "broker": "86a1cd35.744c2",
+        "x": 1195,
+        "y": 150,
+        "wires": []
+    },
+    {
+        "id": "389a0655.c1263a",
+        "type": "switch",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "/P-1-",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "/P-0-",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 800,
+        "y": 160,
+        "wires": [
+            [
+                "87a7f406.c0a038"
+            ],
+            [
+                "2226cf19.54ef9"
+            ]
+        ]
+    },
+    {
+        "id": "2226cf19.54ef9",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "pid=msg.payload.substring(5,8);\nmsg.topic=\"sonoff-s26/\" + pid + \"/cmnd/POWER\";\nmsg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 970,
+        "y": 175,
+        "wires": [
+            [
+                "fcffa9d8.594658"
+            ]
+        ]
+    },
+    {
+        "id": "e44f8d97.a5f04",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_all_on",
+        "x": 775,
+        "y": 225,
+        "wires": [
+            [
+                "f8a95d3e.23ccb"
+            ]
+        ]
+    },
+    {
+        "id": "f8a95d3e.23ccb",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 225,
+        "wires": [
+            [
+                "5d266980.d3d598"
+            ]
+        ]
+    },
+    {
+        "id": "44310fcd.cad22",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_all_off",
+        "x": 775,
+        "y": 265,
+        "wires": [
+            [
+                "a8078ad9.fa1828"
+            ]
+        ]
+    },
+    {
+        "id": "a8078ad9.fa1828",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 265,
+        "wires": [
+            [
+                "5d266980.d3d598"
+            ]
+        ]
+    },
+    {
+        "id": "5d266980.d3d598",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "1322341e.ab432c",
+            "4cacbd68.2d32c4",
+            "517962ba.6a64dc",
+            "573ba97d.d9f028",
+            "63238336.18dd8c",
+            "634ba040.4d8a3",
+            "64997e04.7e757",
+            "65c6ec3c.148f44",
+            "6eb75a0a.c13974",
+            "83d9c307.2edc6",
+            "8846ea7a.7df7f8",
+            "8c6de6b1.a08438",
+            "8e849101.8fb97",
+            "a183a430.ff4ec8",
+            "a1bb8f47.a185c",
+            "a2d5b14d.104ad",
+            "a9d1cc63.b1db5",
+            "b1d0ef20.69b01",
+            "b7d60835.36dc18",
+            "b9c797af.9ef868",
+            "c395faa7.bbc678",
+            "ce99d9f2.600988",
+            "e825f4d3.53f1b8",
+            "eb56f00e.bc387",
+            "f2a29010.954f3"
+        ],
+        "x": 1105,
+        "y": 245,
+        "wires": []
+    },
+    {
+        "id": "15ce5d81.5ad132",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_uffici_on",
+        "x": 785,
+        "y": 315,
+        "wires": [
+            [
+                "1a4e965.efb506a"
+            ]
+        ]
+    },
+    {
+        "id": "1a4e965.efb506a",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 315,
+        "wires": [
+            [
+                "2f48bb03.7482d4"
+            ]
+        ]
+    },
+    {
+        "id": "46ddf4a6.27b6ec",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_uffici_off",
+        "x": 785,
+        "y": 355,
+        "wires": [
+            [
+                "e8c4fd5f.92c16"
+            ]
+        ]
+    },
+    {
+        "id": "e8c4fd5f.92c16",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 355,
+        "wires": [
+            [
+                "2f48bb03.7482d4"
+            ]
+        ]
+    },
+    {
+        "id": "2f48bb03.7482d4",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "573ba97d.d9f028",
+            "63238336.18dd8c",
+            "6eb75a0a.c13974",
+            "83d9c307.2edc6",
+            "a183a430.ff4ec8",
+            "a9d1cc63.b1db5",
+            "b1d0ef20.69b01",
+            "b7d60835.36dc18",
+            "ce99d9f2.600988",
+            "eb56f00e.bc387"
+        ],
+        "x": 1105,
+        "y": 335,
+        "wires": []
+    },
+    {
+        "id": "ac0e888b.358da8",
+        "type": "inject",
+        "z": "b6f275f1.f50b78",
+        "name": "None",
+        "topic": "toa/cm3panel",
+        "payload": "{\"cmd\":\"loadvideo\",\"value\":\"\"}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 205,
+        "y": 585,
+        "wires": [
+            [
+                "e0926b23.e33988"
+            ]
+        ]
+    },
+    {
+        "id": "f4c5aed1.6503f",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_scale_on",
+        "x": 785,
+        "y": 405,
+        "wires": [
+            [
+                "7c4fe616.d97578"
+            ]
+        ]
+    },
+    {
+        "id": "7c4fe616.d97578",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 405,
+        "wires": [
+            [
+                "ff0f577.45f6aa8"
+            ]
+        ]
+    },
+    {
+        "id": "3516917c.04252e",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_scale_off",
+        "x": 785,
+        "y": 445,
+        "wires": [
+            [
+                "81cccd91.a96fe"
+            ]
+        ]
+    },
+    {
+        "id": "81cccd91.a96fe",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 445,
+        "wires": [
+            [
+                "ff0f577.45f6aa8"
+            ]
+        ]
+    },
+    {
+        "id": "ff0f577.45f6aa8",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "1322341e.ab432c",
+            "517962ba.6a64dc",
+            "65c6ec3c.148f44",
+            "8c6de6b1.a08438",
+            "8e849101.8fb97"
+        ],
+        "x": 1105,
+        "y": 425,
+        "wires": []
+    },
+    {
+        "id": "bcc21cb5.f9046",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=msg.payload[\"content\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "389a0655.c1263a"
+            ]
+        ]
+    },
+    {
+        "id": "a78eb2a9.ac7a7",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "Scala",
+        "topic": "toa/lights/3/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1545,
+        "y": 505,
+        "wires": []
+    },
+    {
+        "id": "bc33b3.c35c7c5",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_scala_on",
+        "x": 775,
+        "y": 670,
+        "wires": [
+            [
+                "21b5792c.514ce6"
+            ]
+        ]
+    },
+    {
+        "id": "6f72ec00.98eb44",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_scala_off",
+        "x": 775,
+        "y": 710,
+        "wires": [
+            [
+                "7c37d1a4.66f99"
+            ]
+        ]
+    },
+    {
+        "id": "21b5792c.514ce6",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 670,
+        "wires": [
+            [
+                "aaf23979.247128"
+            ]
+        ]
+    },
+    {
+        "id": "7c37d1a4.66f99",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 710,
+        "wires": [
+            [
+                "aaf23979.247128"
+            ]
+        ]
+    },
+    {
+        "id": "c9decf58.39811",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l3",
+        "links": [
+            "aaf23979.247128"
+        ],
+        "x": 1425,
+        "y": 505,
+        "wires": [
+            [
+                "a78eb2a9.ac7a7"
+            ]
+        ]
+    },
+    {
+        "id": "aaf23979.247128",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "c9decf58.39811"
+        ],
+        "x": 1065,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "d2dd3d6e.750a5",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luci",
+        "x": 570,
+        "y": 1250,
+        "wires": [
+            [
+                "c486619b.98b87"
+            ]
+        ]
+    },
+    {
+        "id": "c486619b.98b87",
+        "type": "chatbot-inline-buttons",
+        "z": "9baf0a1c.2eb568",
+        "name": "Menu Luci",
+        "buttons": [
+            {
+                "type": "postback",
+                "label": "Scale ON",
+                "value": "/luce_scala_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Scale OFF",
+                "value": "/luce_scala_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Uffici ON",
+                "value": "/luce_uffici_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Uffici OFF",
+                "value": "/luce_uffici_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Cucina ON",
+                "value": "/luce_cucina_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Cucina OFF",
+                "value": "/luce_cucina_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Sala ON",
+                "value": "/luce_sala_on",
+                "answer": "",
+                "alert": false,
+                "style": "default"
+            },
+            {
+                "type": "postback",
+                "label": "Sala OFF",
+                "value": "/luce_sala_off",
+                "answer": "",
+                "alert": false,
+                "style": "primary"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "WC donne ON",
+                "value": "/luce_wcdonne_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "WC donne OFF",
+                "value": "/luce_wcdonne_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "WC uomini ON",
+                "value": "/luce_wcuomini_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "WC uomini OFF",
+                "value": "/luce_wcuomini_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Torna al menu",
+                "value": "/start",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            }
+        ],
+        "message": "Luci:",
+        "x": 770,
+        "y": 1250,
+        "wires": [
+            [
+                "8e00a2e5.52358"
+            ]
+        ]
+    },
+    {
+        "id": "bfa51167.8b959",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "Sala",
+        "topic": "toa/lights/10/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1545,
+        "y": 550,
+        "wires": []
+    },
+    {
+        "id": "82b141b3.a5ca7",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l10",
+        "links": [
+            "83f24cc4.8d709"
+        ],
+        "x": 1425,
+        "y": 550,
+        "wires": [
+            [
+                "bfa51167.8b959"
+            ]
+        ]
+    },
+    {
+        "id": "834f2500.c3d288",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "Cucina",
+        "topic": "toa/lights/11/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1555,
+        "y": 595,
+        "wires": []
+    },
+    {
+        "id": "3c5dbf07.7b11a",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "Uffici",
+        "topic": "toa/lights/12/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1545,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "376f201f.38bc2",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l11",
+        "links": [
+            "e0f469dd.9c0478"
+        ],
+        "x": 1425,
+        "y": 595,
+        "wires": [
+            [
+                "834f2500.c3d288"
+            ]
+        ]
+    },
+    {
+        "id": "4d30f721.273e78",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l12",
+        "links": [
+            "15ae219d.a28bde"
+        ],
+        "x": 1425,
+        "y": 640,
+        "wires": [
+            [
+                "3c5dbf07.7b11a"
+            ]
+        ]
+    },
+    {
+        "id": "72768295.3555ec",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_sala_on",
+        "x": 775,
+        "y": 755,
+        "wires": [
+            [
+                "2ef3d6c0.7e984a"
+            ]
+        ]
+    },
+    {
+        "id": "353aaac.88a8956",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_sala_off",
+        "x": 775,
+        "y": 795,
+        "wires": [
+            [
+                "cf095bc5.8358b8"
+            ]
+        ]
+    },
+    {
+        "id": "2ef3d6c0.7e984a",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 755,
+        "wires": [
+            [
+                "83f24cc4.8d709"
+            ]
+        ]
+    },
+    {
+        "id": "cf095bc5.8358b8",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 795,
+        "wires": [
+            [
+                "83f24cc4.8d709"
+            ]
+        ]
+    },
+    {
+        "id": "83f24cc4.8d709",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "82b141b3.a5ca7"
+        ],
+        "x": 1065,
+        "y": 775,
+        "wires": []
+    },
+    {
+        "id": "4d0572b8.ab426c",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_cucina_on",
+        "x": 775,
+        "y": 835,
+        "wires": [
+            [
+                "5177f1e.df8a41"
+            ]
+        ]
+    },
+    {
+        "id": "c6e0188f.e1bd98",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_cucina_off",
+        "x": 775,
+        "y": 875,
+        "wires": [
+            [
+                "b5d6d92.497a828"
+            ]
+        ]
+    },
+    {
+        "id": "5177f1e.df8a41",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 835,
+        "wires": [
+            [
+                "e0f469dd.9c0478"
+            ]
+        ]
+    },
+    {
+        "id": "b5d6d92.497a828",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 875,
+        "wires": [
+            [
+                "e0f469dd.9c0478"
+            ]
+        ]
+    },
+    {
+        "id": "e0f469dd.9c0478",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "376f201f.38bc2"
+        ],
+        "x": 1065,
+        "y": 855,
+        "wires": []
+    },
+    {
+        "id": "fc283bd1.9e5278",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_uffici_on",
+        "x": 775,
+        "y": 920,
+        "wires": [
+            [
+                "9fb4668f.451cb8"
+            ]
+        ]
+    },
+    {
+        "id": "24ee59a3.39c2a6",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_uffici_off",
+        "x": 775,
+        "y": 960,
+        "wires": [
+            [
+                "444637fe.f46478"
+            ]
+        ]
+    },
+    {
+        "id": "9fb4668f.451cb8",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 920,
+        "wires": [
+            [
+                "15ae219d.a28bde"
+            ]
+        ]
+    },
+    {
+        "id": "444637fe.f46478",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 960,
+        "wires": [
+            [
+                "15ae219d.a28bde"
+            ]
+        ]
+    },
+    {
+        "id": "15ae219d.a28bde",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "4d30f721.273e78"
+        ],
+        "x": 1070,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "2759c913.bca256",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_wcdonne_on",
+        "x": 785,
+        "y": 1000,
+        "wires": [
+            [
+                "f6ee4e83.37016"
+            ]
+        ]
+    },
+    {
+        "id": "90212bd5.ad5578",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_wcdonne_off",
+        "x": 785,
+        "y": 1040,
+        "wires": [
+            [
+                "4ffa9053.1b922"
+            ]
+        ]
+    },
+    {
+        "id": "f6ee4e83.37016",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1000,
+        "wires": [
+            [
+                "4614b3fe.ba4eac"
+            ]
+        ]
+    },
+    {
+        "id": "4ffa9053.1b922",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1040,
+        "wires": [
+            [
+                "4614b3fe.ba4eac"
+            ]
+        ]
+    },
+    {
+        "id": "4614b3fe.ba4eac",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "7bf82f52.0f52d"
+        ],
+        "x": 1070,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "eb64acc3.47923",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "WC donne",
+        "topic": "toa/lights/7/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1565,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "7bf82f52.0f52d",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l7",
+        "links": [
+            "4614b3fe.ba4eac"
+        ],
+        "x": 1425,
+        "y": 690,
+        "wires": [
+            [
+                "eb64acc3.47923"
+            ]
+        ]
+    },
+    {
+        "id": "1c17eb7e.3ae965",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_wcuomini_on",
+        "x": 785,
+        "y": 1080,
+        "wires": [
+            [
+                "95d093de.066de"
+            ]
+        ]
+    },
+    {
+        "id": "20472dbd.9fdc02",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/luce_wcuomini_off",
+        "x": 785,
+        "y": 1120,
+        "wires": [
+            [
+                "f7031704.df5548"
+            ]
+        ]
+    },
+    {
+        "id": "95d093de.066de",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=255;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1080,
+        "wires": [
+            [
+                "fb8c4732.c45928"
+            ]
+        ]
+    },
+    {
+        "id": "f7031704.df5548",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 1120,
+        "wires": [
+            [
+                "fb8c4732.c45928"
+            ]
+        ]
+    },
+    {
+        "id": "fb8c4732.c45928",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "3f4c5305.0f030c"
+        ],
+        "x": 1070,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "a990fe67.93507",
+        "type": "mqtt out",
+        "z": "9baf0a1c.2eb568",
+        "name": "WC uomini",
+        "topic": "toa/lights/6/set_value",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1565,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "3f4c5305.0f030c",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "l6",
+        "links": [
+            "fb8c4732.c45928"
+        ],
+        "x": 1425,
+        "y": 740,
+        "wires": [
+            [
+                "a990fe67.93507"
+            ]
+        ]
+    },
+    {
+        "id": "4655d812.fd5288",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/termo",
+        "x": 570,
+        "y": 1290,
+        "wires": [
+            [
+                "ff0a9cbf.b93c2"
+            ]
+        ]
+    },
+    {
+        "id": "ff0a9cbf.b93c2",
+        "type": "chatbot-inline-buttons",
+        "z": "9baf0a1c.2eb568",
+        "name": "Menu Termo",
+        "buttons": [
+            {
+                "type": "postback",
+                "label": "WC donne ON",
+                "value": "/termo_wcdonne_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "WC donne OFF",
+                "value": "/termo_wcdonne_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "WC uomini ON",
+                "value": "/termo_wcuomini_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "WC uomini OFF",
+                "value": "/termo_wcuomini_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "Torna al menu",
+                "value": "/start",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            }
+        ],
+        "message": "Termo:",
+        "x": 770,
+        "y": 1290,
+        "wires": [
+            [
+                "8e00a2e5.52358"
+            ]
+        ]
+    },
+    {
+        "id": "37088080.d704b",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/termo_wcdonne_on",
+        "x": 795,
+        "y": 490,
+        "wires": [
+            [
+                "31376aed.ab9186"
+            ]
+        ]
+    },
+    {
+        "id": "31376aed.ab9186",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 490,
+        "wires": [
+            [
+                "97562ceb.d6e04"
+            ]
+        ]
+    },
+    {
+        "id": "8b8d391b.da1388",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/termo_wcdonne_off",
+        "x": 795,
+        "y": 530,
+        "wires": [
+            [
+                "696c7fa8.4375d"
+            ]
+        ]
+    },
+    {
+        "id": "696c7fa8.4375d",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 530,
+        "wires": [
+            [
+                "97562ceb.d6e04"
+            ]
+        ]
+    },
+    {
+        "id": "97562ceb.d6e04",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "64997e04.7e757"
+        ],
+        "x": 1105,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "9ba6232a.200af",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/termo_wcuomini_on",
+        "x": 795,
+        "y": 570,
+        "wires": [
+            [
+                "e0b8927f.5b227"
+            ]
+        ]
+    },
+    {
+        "id": "e0b8927f.5b227",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 570,
+        "wires": [
+            [
+                "225d5b2d.e0a904"
+            ]
+        ]
+    },
+    {
+        "id": "764371f7.47555",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/termo_wcuomini_off",
+        "x": 795,
+        "y": 610,
+        "wires": [
+            [
+                "c29ff3b6.a34d5"
+            ]
+        ]
+    },
+    {
+        "id": "c29ff3b6.a34d5",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 610,
+        "wires": [
+            [
+                "225d5b2d.e0a904"
+            ]
+        ]
+    },
+    {
+        "id": "225d5b2d.e0a904",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "8846ea7a.7df7f8"
+        ],
+        "x": 1105,
+        "y": 590,
+        "wires": []
+    }
+]

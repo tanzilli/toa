@@ -10,9 +10,9 @@ class tanzoSwitch {
 		$("#" + this.domElementId).html(`
 			<div id=` + address + ` style="
 				border: 2px solid black; 
-				background-color: grey; 
 				background-color:rgba(10, 10, 100, 0.5); 
-				border-color: light-grey; 
+				//border-color: red; 
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				width: 260px; 
 				height: 60px;
 				line-height: 60px;
@@ -63,14 +63,16 @@ class tanzoSwitch {
 	}
 
 	state_off() {
-		$("#" +  this.address).css("background-color","#808080");
+		$("#" +  this.address).css("background-color","rgba(80,80,80, 0.5)");
 		$("#" +  this.address).css("color","white");
+		$("#" +  this.address).css("border-color","darkgrey");
 		this.state=0;
 	}
 
 	state_on() {
-		$("#" +  this.address).css("background-color","rgba(255, 255, 0, 1)");
+		$("#" +  this.address).css("background-color","rgba(255, 255, 0, 0.7)");
 		$("#" +  this.address).css("color","black");
+		$("#" +  this.address).css("border-color","red");
 		this.state=1;
 	}
 }
