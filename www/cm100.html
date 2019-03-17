@@ -12,7 +12,7 @@
 	<script src="js/jquery.thooClock.js" type="text/javascript"></script>	
 	<script src="js/tanzo_switch.js"     type="text/javascript"></script>	
 	<script src="js/tanzo_message.js"    type="text/javascript"></script>	
-	<script src="js/common.js"           type="text/javascript"></script>	
+	<script src="js/common1.js"           type="text/javascript"></script>	
 
 	<style>
 		body { 
@@ -47,10 +47,11 @@
 			//*****************************************************************************
 			// Creazione switch su CM3-Panel
 			//*****************************************************************************
-			new tanzoSwitch("Sala","10","p0");
-			new tanzoSwitch("Scala","3","p1");
-			new tanzoSwitch("Terrazzino","1","p2");
-			new tanzoSwitch("Terrazzone","2","p3");
+			new tanzoSwitch("Luce Sergio",      "17", "p0");
+			new tanzoSwitch("Piantana 1 Sergio","26", "p1");
+			new tanzoSwitch("Piantana 2 Sergio","27", "p2");
+			new tanzoSwitch("Cucina",           "11", "p3");
+			new tanzoSwitch("Uffici",           "12", "p4");
 		
 			//*****************************************************************************
 			// Creazione orologio su CM3-Panel
@@ -76,15 +77,16 @@
 <body>
 	<!-- Video sullo sfondo -->
 	<video autoplay muted loop id="videoclip" style="position: fixed; right: 0px; bottom: 0px; min-width: 100%; min-height: 100%;">
-	  <source src="video/matrix.mov" id="mp4video" type="video/mp4">
+	  <source id="mp4video" type="video/mp4">
 	</video>
 
 	<!-- Tasti -->
-	<div style="position: fixed; top: 50px; right:50px;">
+	<div style="position: fixed; top: 20px; right:50px;">
 		<div id="p0"></div>
 		<div id="p1"></div>
 		<div id="p2"></div>
 		<div id="p3"></div>
+		<div id="p4"></div>
 	</div>
 	
 	<!-- Orologio -->

@@ -12,6 +12,7 @@
 	<script src="js/tanzo_switch.js"     type="text/javascript"></script>	
 	<script src="js/tanzo_message.js"    type="text/javascript"></script>	
 	<script src="js/common.js"           type="text/javascript"></script>	
+	<script src="js/svg.min.js"          type="text/javascript" ></script>
 
 	<style>
 		body { 
@@ -23,76 +24,28 @@
 	</style>
 
 	<script>
-
-		//*****************************************************************************
-		// Aggiorna la data
-		//*****************************************************************************
-		
-		var days = ["Domenica","Lunedi","Martedi","Mercoledi","Giovedi","Venerdi","Sabato"];
-		var months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
-		
-		function updateDate() {
-			var d = new Date();
-			$("#date").html(days[d.getDay()] + " " +  d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear())
-		}
-		
 		$(document).ready(function() {
-			//*****************************************************************************
-			// Creazione linea messaggi CM3-Panel
-			//*****************************************************************************
-			message_line = new tanzoMessage("message_line");
-			//message_line.message("benvenuti in Acme Systems srl");
-		
-			//*****************************************************************************
-			// Creazione switch su CM3-Panel
-			//*****************************************************************************
-			new tanzoSwitch("Sala","10","p0");
-			new tanzoSwitch("Scala","3","p1");
-			new tanzoSwitch("Terrazzino","1","p2");
-			new tanzoSwitch("Terrazzone","2","p3");
-		
-			//*****************************************************************************
-			// Creazione orologio su CM3-Panel
-			//*****************************************************************************
+				var draw = SVG('drawing').size(300, 300);
+				//var rect = draw.rect(100, 100).attr({ fill: 'red' });
 
-			$('#clock').thooClock({
-					size: 300,
-					showNumerals:true,
-					brandText:'ACME SYSTEMS',
-					brandText2:'Italy',
-					onEverySecond:function(){
-						updateDate();
-				}
-			});
+				var rect = draw.rect(100, 100).fill('#f06').move(20, 20);
+				rect.radius(10);
+
+				a=draw.path('M0 0 H50 A20 20 0 1 0 100 50 v25 C50 125 0 85 0 85 z');
+				a.plot('M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80');
+				a.animate(2000).plot('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80').loop(true, true);
+			
+				rect.click(function() {
+					this.fill({ color: 'green' })
+				})
+			
 		});
-
-		
 	</script>
 	
 	<title>Acme CM3-Panel</title>
 </head>
 
 <body>
-	<!-- Video sullo sfondo -->
-	<video autoplay muted loop id="videoclip" style="position: fixed; right: 0px; bottom: 0px; min-width: 100%; min-height: 100%;">
-	  <source src="video/matrix.mov" id="mp4video" type="video/mp4">
-	</video>
-
-	<!-- Tasti -->
-	<div style="position: fixed; top: 50px; right:50px;">
-		<div id="p0"></div>
-		<div id="p1"></div>
-		<div id="p2"></div>
-		<div id="p3"></div>
-	</div>
-	
-	<!-- Orologio -->
-	<div id="clockdatewidget" style="position: fixed; top: 65px; left: 35px; background-color: rgba(0, 127, 127, 0.0)">
-		<div id="clock"></div>
-		<div id="date" style="text-align: center; color: white; padding: 20px; font-family: 'arial'; font-size: 20px;"></div>
-	</div>
-	
-	<!-- Linea di messaggi in basso -->
-	<div id="message_line"></div>
+	<div id="drawing"></div>
 </body>
 </html>

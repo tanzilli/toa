@@ -47,7 +47,9 @@
 			//*****************************************************************************
 			// Creazione switch su CM3-Panel
 			//*****************************************************************************
-			new tanzoSwitch("Scala","3","p0");
+			new tanzoSwitch("Ingresso","23","p0");
+			new tanzoSwitch("Scala","3","p1");
+			new tanzoSwitch("Magazzino","25","p2");
 		
 			//*****************************************************************************
 			// Creazione orologio su CM3-Panel
@@ -73,12 +75,16 @@
 <body>
 	<!-- Video sullo sfondo -->
 	<video autoplay muted loop id="videoclip" style="position: fixed; right: 0px; bottom: 0px; min-width: 100%; min-height: 100%;">
-	  <source src="video/matrix.mov" id="mp4video" type="video/mp4">
+	  <source id="mp4video" type="video/mp4">
 	</video>
 
 	<!-- Tasti -->
-	<div style="position: fixed; top: 50px; right:50px;">
+	<div style="position: fixed; top: 20px; right:50px;">
 		<div id="p0"></div>
+		<div id="p1"></div>
+		<div id="p2"></div>
+		<div id="p3"></div>
+		<div id="p4"></div>
 	</div>
 	
 	<!-- Orologio -->
@@ -88,6 +94,6 @@
 	</div>
 	
 	<!-- Linea di messaggi in basso -->
-	<div id="message_line"></div>
+	<!--<div id="message_line"></div>-->
 </body>
 </html>
