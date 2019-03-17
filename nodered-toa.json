@@ -172,25 +172,6 @@
         "debug": false
     },
     {
-        "id": "29a3ba9c.d66f76",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Sonoff-S26",
-        "icon": "dashboard",
-        "order": 1
-    },
-    {
-        "id": "b1c6a8f1.2356c8",
-        "type": "ui_group",
-        "z": "",
-        "name": "Piantane",
-        "tab": "29a3ba9c.d66f76",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "d52b7157.fe0ee",
         "type": "ui_tab",
         "z": "",
@@ -333,8 +314,8 @@
         "ret": "txt",
         "url": "",
         "tls": "",
-        "x": 990,
-        "y": 150,
+        "x": 1300,
+        "y": 90,
         "wires": [
             []
         ]
@@ -343,15 +324,16 @@
         "id": "dede6718.ce4948",
         "type": "mqtt in",
         "z": "b9aee244.570dc",
-        "name": "",
+        "name": "set_value",
         "topic": "toa/lights/+/set_value",
         "qos": "2",
         "broker": "86a1cd35.744c2",
-        "x": 485,
-        "y": 155,
+        "x": 835,
+        "y": 90,
         "wires": [
             [
-                "8f5f167.1a9f3e8"
+                "8f5f167.1a9f3e8",
+                "e902ec21.409c"
             ]
         ]
     },
@@ -364,20 +346,20 @@
         "qos": "",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 955,
-        "y": 710,
+        "x": 675,
+        "y": 90,
         "wires": []
     },
     {
         "id": "8f5f167.1a9f3e8",
         "type": "function",
         "z": "b9aee244.570dc",
-        "name": "Denkovi filter",
+        "name": "Denkovi gateway",
         "func": "var res = msg.topic.split(\"/\");\nvar msg1={};\n\nlight_id=parseInt(res[2]);\nlight_value=parseInt(msg.payload);\n\nif (light_id>=1 && light_id<=16) {\n\n\n    relay_id=light_id;\n    \n    if (light_value===0)\n        relay_value=0;\n    else    \n        relay_value=1;\n    \n    msg.url = \"http://192.168.1.8:80/current_state.json?pw=admin&Relay\" + relay_id + \"=\" + relay_value;\n\n\n    msg1.topic=\"toa/lights/\" + light_id + \"/current_value\";\n    msg1.payload=light_value;\n\n    return [msg,msg1];\n}  \n",
         "outputs": 2,
         "noerr": 0,
-        "x": 745,
-        "y": 155,
+        "x": 1080,
+        "y": 90,
         "wires": [
             [
                 "329c8ba5.fbf5d4"
@@ -435,8 +417,8 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 485,
-        "y": 690,
+        "x": 830,
+        "y": 600,
         "wires": [
             [
                 "2c5f2059.56eca"
@@ -452,8 +434,8 @@
         "intype": "tri",
         "debounce": "25",
         "read": false,
-        "x": 485,
-        "y": 740,
+        "x": 830,
+        "y": 650,
         "wires": [
             [
                 "105a48c8.0920e7"
@@ -468,8 +450,8 @@
         "func": "var wc_uomini = flow.get('wc_uomini')||0;\n\nif (msg.payload===0) {\n    if (wc_uomini===0) {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=1;\n        wc_uomini=1;\n        flow.set('wc_uomini',wc_uomini)\n    } else {\n        msg.topic=\"toa/lights/6/set_value\";\n        msg.payload=0;\n        wc_uomini=0;\n        flow.set('wc_uomini',wc_uomini)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 620,
-        "y": 690,
+        "x": 965,
+        "y": 600,
         "wires": [
             [
                 "cb309dcd.1bca4"
@@ -484,8 +466,8 @@
         "func": "var wc_donne = flow.get('wc_donne')||0;\n\nif (msg.payload===0) {\n    if (wc_donne===0) {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=1;\n        wc_donne=1;\n        flow.set('wc_donne',wc_donne)\n    } else {\n        msg.topic=\"toa/lights/7/set_value\";\n        msg.payload=0;\n        wc_donne=0;\n        flow.set('wc_donne',wc_donne)\n    }\n} else {\n    msg.payload=null;\n}\n\nreturn msg;    \n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 620,
-        "y": 740,
+        "x": 965,
+        "y": 650,
         "wires": [
             [
                 "cb309dcd.1bca4"
@@ -607,7 +589,9 @@
         "x": 195,
         "y": 230,
         "wires": [
-            []
+            [
+                "3467c21c.61cede"
+            ]
         ]
     },
     {
@@ -621,7 +605,9 @@
         "x": 195,
         "y": 280,
         "wires": [
-            []
+            [
+                "c629b0d.b2d025"
+            ]
         ]
     },
     {
@@ -635,7 +621,9 @@
         "x": 195,
         "y": 330,
         "wires": [
-            []
+            [
+                "8361fedf.7973a"
+            ]
         ]
     },
     {
@@ -649,7 +637,9 @@
         "x": 185,
         "y": 600,
         "wires": [
-            []
+            [
+                "7677fb0d.fe5d04"
+            ]
         ]
     },
     {
@@ -663,7 +653,9 @@
         "x": 185,
         "y": 650,
         "wires": [
-            []
+            [
+                "445b307c.8647f"
+            ]
         ]
     },
     {
@@ -677,17 +669,19 @@
         "x": 185,
         "y": 700,
         "wires": [
-            []
+            [
+                "e6c2d75a.ba06a8"
+            ]
         ]
     },
     {
         "id": "da1ecdf9.5c62d",
         "type": "comment",
         "z": "b9aee244.570dc",
-        "name": "Pulsanti",
+        "name": "Lettura Pulsanti fisici",
         "info": "",
-        "x": 475,
-        "y": 650,
+        "x": 860,
+        "y": 560,
         "wires": []
     },
     {
@@ -699,8 +693,8 @@
         "qos": "",
         "retain": "true",
         "broker": "86a1cd35.744c2",
-        "x": 1000,
-        "y": 1410,
+        "x": 990,
+        "y": 1845,
         "wires": []
     },
     {
@@ -711,8 +705,8 @@
         "func": "content=msg.payload[\"content\"];\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 780,
-        "y": 1370,
+        "x": 770,
+        "y": 1805,
         "wires": [
             [
                 "f1879a7.cab5b68"
@@ -729,7 +723,8 @@
         "y": 160,
         "wires": [
             [
-                "93261e74.fb31e"
+                "93261e74.fb31e",
+                "cd5f3fe0.4ca8e"
             ]
         ]
     },
@@ -743,7 +738,7 @@
         "passThrough": false,
         "outputs": 0,
         "x": 1040,
-        "y": 1250,
+        "y": 1650,
         "wires": []
     },
     {
@@ -755,8 +750,8 @@
         "qos": "",
         "retain": "true",
         "broker": "86a1cd35.744c2",
-        "x": 970,
-        "y": 205,
+        "x": 1280,
+        "y": 130,
         "wires": []
     },
     {
@@ -771,8 +766,8 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 580,
-        "y": 1410,
+        "x": 570,
+        "y": 1845,
         "wires": [
             [
                 "3faa6a18.17fb16"
@@ -787,8 +782,8 @@
         "func": "content=msg.payload;\nmsg.payload={\"cmd\":\"message\",\"value\":content}\nnode.status({text:content});\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 790,
-        "y": 1410,
+        "x": 780,
+        "y": 1845,
         "wires": [
             [
                 "f1879a7.cab5b68"
@@ -819,10 +814,30 @@
             "a5c2793a.539ef8",
             "8759dc81.87d51",
             "fe8971ee.7073c",
-            "c8a1cce4.333d2"
+            "c8a1cce4.333d2",
+            "7559c8a2.9de798",
+            "d8377df5.d142d",
+            "ea12d423.13f4d8",
+            "cc1f22ab.da4ca",
+            "b499b4b7.775a48",
+            "ca765209.0bac2",
+            "76cf4858.1c3298",
+            "e6c4f1d8.57174",
+            "249ce012.89255",
+            "547aace9.a09654",
+            "bfa7c981.62b368",
+            "132f19ea.4aca26",
+            "c89c1660.29d788",
+            "ffecf8c9.ca21d8",
+            "467279f1.91cce8",
+            "f9eafcc8.5e15e",
+            "8d723377.717f2",
+            "80bb1f3c.9bb31",
+            "e1cd2941.b90e08",
+            "da965d04.73313"
         ],
-        "x": 830,
-        "y": 710,
+        "x": 565,
+        "y": 90,
         "wires": [
             [
                 "8c7724f5.b5fd28"
@@ -837,68 +852,8 @@
         "links": [
             "9e968d97.df504"
         ],
-        "x": 725,
-        "y": 710,
-        "wires": []
-    },
-    {
-        "id": "30ac1843.001488",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(4)",
-        "info": "",
-        "x": 165,
-        "y": 550,
-        "wires": []
-    },
-    {
-        "id": "bfd5d661.c759f8",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(5)",
-        "info": "",
-        "x": 165,
-        "y": 585,
-        "wires": []
-    },
-    {
-        "id": "8d8a60d9.89f46",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(8)",
-        "info": "",
-        "x": 165,
+        "x": 1070,
         "y": 620,
-        "wires": []
-    },
-    {
-        "id": "d7969bb2.7d6428",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(9)",
-        "info": "",
-        "x": 165,
-        "y": 655,
-        "wires": []
-    },
-    {
-        "id": "373becda.714b84",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(14)",
-        "info": "",
-        "x": 165,
-        "y": 690,
-        "wires": []
-    },
-    {
-        "id": "b83dc549.e319a8",
-        "type": "comment",
-        "z": "b9aee244.570dc",
-        "name": "(15)",
-        "info": "",
-        "x": 165,
-        "y": 725,
         "wires": []
     },
     {
@@ -913,8 +868,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 540,
-        "y": 465,
+        "x": 840,
+        "y": 435,
         "wires": [
             [
                 "abfef57c.099778"
@@ -933,8 +888,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 540,
-        "y": 510,
+        "x": 840,
+        "y": 470,
         "wires": [
             [
                 "abfef57c.099778"
@@ -953,8 +908,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": "1",
-        "x": 540,
-        "y": 415,
+        "x": 840,
+        "y": 400,
         "wires": [
             [
                 "abfef57c.099778"
@@ -969,8 +924,8 @@
         "func": "var light_state = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];\nvar outputMsgs = [];\n\nfor (i=0;i<light_state.length;i++) {\n    light_state[i]=msg.payload;\n}\n\nglobal.set('light_state',light_state);\n\nfor (i=0;i<light_state.length;i++) {\n    light_id=i+1;\n    outputMsgs.push({payload:light_state[i],topic:\"toa/lights/\" + light_id + \"/set_value\"});\n}\nreturn [outputMsgs];\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 770,
-        "y": 415,
+        "x": 1020,
+        "y": 435,
         "wires": [
             [
                 "a633cc1b.0a726"
@@ -986,8 +941,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 920,
-        "y": 415,
+        "x": 1175,
+        "y": 435,
         "wires": []
     },
     {
@@ -1107,39 +1062,39 @@
         "id": "8005abf8.f3e178",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 2",
+        "name": "Scrivania Daniela",
         "topic": "sonoff-s26/002/cmnd/POWER",
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 140,
+        "x": 865,
+        "y": 155,
         "wires": []
     },
     {
         "id": "94ce369c.ed06d8",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 3",
+        "name": "Scrivania Tiziana",
         "topic": "sonoff-s26/003/cmnd/POWER",
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 190,
+        "x": 865,
+        "y": 215,
         "wires": []
     },
     {
         "id": "d1e7ee37.cab1d",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 1",
+        "name": "Piantana Sergio",
         "topic": "sonoff-s26/001/cmnd/POWER",
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 90,
+        "x": 855,
+        "y": 95,
         "wires": []
     },
     {
@@ -1151,21 +1106,21 @@
         "qos": "0",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 240,
+        "x": 845,
+        "y": 280,
         "wires": []
     },
     {
         "id": "88aaefb7.2d9de",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 5",
+        "name": "Scrivania Roberto",
         "topic": "sonoff-s26/005/cmnd/POWER",
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 290,
+        "x": 865,
+        "y": 335,
         "wires": []
     },
     {
@@ -1180,8 +1135,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 620,
-        "y": 1365,
+        "x": 425,
+        "y": 1660,
         "wires": [
             [
                 "e68b51a0.caf07"
@@ -1201,8 +1156,8 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 915,
-        "y": 90,
+        "x": 725,
+        "y": 95,
         "wires": [
             [
                 "d1e7ee37.cab1d"
@@ -1219,10 +1174,11 @@
             "e68b51a0.caf07",
             "36eb1659.1d97ca",
             "b48813be.81ad8",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 140,
+        "x": 725,
+        "y": 155,
         "wires": [
             [
                 "8005abf8.f3e178"
@@ -1239,10 +1195,11 @@
             "e68b51a0.caf07",
             "36eb1659.1d97ca",
             "adc88079.49cf7",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 190,
+        "x": 725,
+        "y": 215,
         "wires": [
             [
                 "94ce369c.ed06d8"
@@ -1259,10 +1216,11 @@
             "e68b51a0.caf07",
             "36eb1659.1d97ca",
             "b66ca16d.25f23",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 240,
+        "x": 725,
+        "y": 280,
         "wires": [
             [
                 "50389c13.58fa94"
@@ -1279,10 +1237,11 @@
             "e68b51a0.caf07",
             "36eb1659.1d97ca",
             "7fe70003.06a72",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 290,
+        "x": 725,
+        "y": 335,
         "wires": [
             [
                 "88aaefb7.2d9de"
@@ -1321,8 +1280,8 @@
             "a183a430.ff4ec8",
             "ce99d9f2.600988"
         ],
-        "x": 715,
-        "y": 1395,
+        "x": 520,
+        "y": 1690,
         "wires": []
     },
     {
@@ -1337,8 +1296,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 620,
-        "y": 1410,
+        "x": 425,
+        "y": 1705,
         "wires": [
             [
                 "e68b51a0.caf07"
@@ -1349,13 +1308,13 @@
         "id": "4f658776.af3d08",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 6",
+        "name": "Packaging",
         "topic": "sonoff-s26/006/cmnd/POWER",
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 340,
+        "x": 840,
+        "y": 395,
         "wires": []
     },
     {
@@ -1368,10 +1327,11 @@
             "e68b51a0.caf07",
             "36eb1659.1d97ca",
             "a5363a70.962ba8",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 340,
+        "x": 720,
+        "y": 395,
         "wires": [
             [
                 "4f658776.af3d08"
@@ -1387,8 +1347,8 @@
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 390,
+        "x": 840,
+        "y": 455,
         "wires": []
     },
     {
@@ -1404,8 +1364,8 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 915,
-        "y": 390,
+        "x": 720,
+        "y": 455,
         "wires": [
             [
                 "270f5472.be03cc"
@@ -1421,8 +1381,8 @@
         "qos": "0",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 440,
+        "x": 840,
+        "y": 515,
         "wires": []
     },
     {
@@ -1438,8 +1398,8 @@
             "5d266980.d3d598",
             "ff0f577.45f6aa8"
         ],
-        "x": 915,
-        "y": 440,
+        "x": 720,
+        "y": 515,
         "wires": [
             [
                 "4af758af.638448"
@@ -1455,8 +1415,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 490,
+        "x": 840,
+        "y": 575,
         "wires": []
     },
     {
@@ -1472,8 +1432,8 @@
             "5d266980.d3d598",
             "97562ceb.d6e04"
         ],
-        "x": 915,
-        "y": 490,
+        "x": 720,
+        "y": 575,
         "wires": [
             [
                 "40834a73.620374"
@@ -1489,8 +1449,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 540,
+        "x": 840,
+        "y": 635,
         "wires": []
     },
     {
@@ -1503,10 +1463,11 @@
             "ed439b4e.545618",
             "36eb1659.1d97ca",
             "c244026e.2e285",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 540,
+        "x": 720,
+        "y": 635,
         "wires": [
             [
                 "4d7ff848.db5958"
@@ -1522,8 +1483,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 590,
+        "x": 840,
+        "y": 695,
         "wires": []
     },
     {
@@ -1539,8 +1500,8 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 915,
-        "y": 590,
+        "x": 720,
+        "y": 695,
         "wires": [
             [
                 "79c390b9.d60ca"
@@ -1556,8 +1517,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 640,
+        "x": 840,
+        "y": 755,
         "wires": []
     },
     {
@@ -1570,10 +1531,11 @@
             "f208c4e2.f63fb8",
             "36eb1659.1d97ca",
             "626631f8.10fbd",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 915,
-        "y": 640,
+        "x": 720,
+        "y": 755,
         "wires": [
             [
                 "48c6250e.5eef1c"
@@ -1612,11 +1574,35 @@
             },
             {
                 "type": "newline"
+            },
+            {
+                "type": "postback",
+                "label": "KW",
+                "value": "/kwtot",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Chromium",
+                "value": "/chromium_restart",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "CM3 Reboot",
+                "value": "/cm3_reboot",
+                "answer": "",
+                "alert": false,
+                "style": ""
             }
         ],
         "message": "Seleziona:",
         "x": 780,
-        "y": 1170,
+        "y": 1570,
         "wires": [
             [
                 "8e00a2e5.52358"
@@ -1644,87 +1630,17 @@
         "type": "function",
         "z": "9baf0a1c.2eb568",
         "name": "Filtro utenti",
-        "func": "if (msg.payload[\"userId\"]===\"SergioTanzilli\") {\n    msg.payload=msg.payload;\n} else {\n    msg.payload=\"NULL\";\n}\nreturn msg;",
-        "outputs": 1,
+        "func": "\nif (msg.payload[\"chatId\"]===112957351 || msg.payload[\"chatId\"]===77690704 ) {\n    node.status({fill:\"green\",shape:\"dot\",text:msg.payload[\"userId\"]});\n    return [msg,null];\n} else {\n    node.status({fill:\"red\",shape:\"dot\",text:msg.payload[\"userId\"]});\n    return [null,msg];\n}\n",
+        "outputs": 2,
         "noerr": 0,
-        "x": 350,
+        "x": 375,
         "y": 160,
         "wires": [
             [
-                "e44f8d97.a5f04",
-                "44310fcd.cad22",
-                "15ce5d81.5ad132",
-                "46ddf4a6.27b6ec",
-                "f4c5aed1.6503f",
-                "3516917c.04252e",
-                "e17650c0.e5068",
-                "c882df04.8b6bf",
                 "bcc21cb5.f9046",
-                "bc33b3.c35c7c5",
-                "6f72ec00.98eb44",
-                "d2dd3d6e.750a5",
-                "72768295.3555ec",
-                "353aaac.88a8956",
-                "4d0572b8.ab426c",
-                "c6e0188f.e1bd98",
-                "fc283bd1.9e5278",
-                "24ee59a3.39c2a6",
-                "2759c913.bca256",
-                "90212bd5.ad5578",
-                "1c17eb7e.3ae965",
-                "20472dbd.9fdc02",
-                "4655d812.fd5288",
-                "37088080.d704b",
-                "8b8d391b.da1388",
-                "9ba6232a.200af",
-                "764371f7.47555"
-            ]
-        ]
-    },
-    {
-        "id": "61c3a1d8.def31",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "01",
-        "group": "b1c6a8f1.2356c8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 95,
-        "wires": [
-            [
-                "806ab7e9.ca8588"
-            ]
-        ]
-    },
-    {
-        "id": "806ab7e9.ca8588",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 95,
-        "wires": [
-            [
-                "7dddccda.0ab114"
-            ]
+                "9923dbbf.00ff88"
+            ],
+            []
         ]
     },
     {
@@ -1735,55 +1651,9 @@
         "links": [
             "a9d1cc63.b1db5"
         ],
-        "x": 550,
+        "x": 570,
         "y": 95,
         "wires": []
-    },
-    {
-        "id": "8b0fde74.0b4ee",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "02",
-        "group": "b1c6a8f1.2356c8",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 145,
-        "wires": [
-            [
-                "e09ce2f7.704c7"
-            ]
-        ]
-    },
-    {
-        "id": "e09ce2f7.704c7",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 145,
-        "wires": [
-            [
-                "b48813be.81ad8"
-            ]
-        ]
     },
     {
         "id": "b48813be.81ad8",
@@ -1793,113 +1663,9 @@
         "links": [
             "c395faa7.bbc678"
         ],
-        "x": 550,
-        "y": 145,
+        "x": 570,
+        "y": 155,
         "wires": []
-    },
-    {
-        "id": "c1d80e5e.c4bd3",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "03",
-        "group": "b1c6a8f1.2356c8",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 195,
-        "wires": [
-            [
-                "506b0d15.079734"
-            ]
-        ]
-    },
-    {
-        "id": "506b0d15.079734",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 195,
-        "wires": [
-            [
-                "adc88079.49cf7"
-            ]
-        ]
-    },
-    {
-        "id": "adc88079.49cf7",
-        "type": "link out",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "links": [
-            "b9c797af.9ef868"
-        ],
-        "x": 550,
-        "y": 195,
-        "wires": []
-    },
-    {
-        "id": "41ee749c.57ec1c",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "04",
-        "group": "b1c6a8f1.2356c8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 245,
-        "wires": [
-            [
-                "41ecfa89.c4ce34"
-            ]
-        ]
-    },
-    {
-        "id": "41ecfa89.c4ce34",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 245,
-        "wires": [
-            [
-                "b66ca16d.25f23"
-            ]
-        ]
     },
     {
         "id": "b66ca16d.25f23",
@@ -1909,55 +1675,9 @@
         "links": [
             "634ba040.4d8a3"
         ],
-        "x": 550,
-        "y": 245,
+        "x": 570,
+        "y": 280,
         "wires": []
-    },
-    {
-        "id": "a4ccd893.7b1528",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "05",
-        "group": "b1c6a8f1.2356c8",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 295,
-        "wires": [
-            [
-                "da68a0e4.77e54"
-            ]
-        ]
-    },
-    {
-        "id": "da68a0e4.77e54",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 295,
-        "wires": [
-            [
-                "7fe70003.06a72"
-            ]
-        ]
     },
     {
         "id": "7fe70003.06a72",
@@ -1967,55 +1687,9 @@
         "links": [
             "a2d5b14d.104ad"
         ],
-        "x": 550,
-        "y": 295,
+        "x": 570,
+        "y": 335,
         "wires": []
-    },
-    {
-        "id": "dc1ecff5.25bce",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "06",
-        "group": "b1c6a8f1.2356c8",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 345,
-        "wires": [
-            [
-                "3a006e66.9cfd02"
-            ]
-        ]
-    },
-    {
-        "id": "3a006e66.9cfd02",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 345,
-        "wires": [
-            [
-                "a5363a70.962ba8"
-            ]
-        ]
     },
     {
         "id": "a5363a70.962ba8",
@@ -2025,55 +1699,9 @@
         "links": [
             "e825f4d3.53f1b8"
         ],
-        "x": 550,
-        "y": 345,
+        "x": 570,
+        "y": 395,
         "wires": []
-    },
-    {
-        "id": "3dd0266a.ac54ba",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "07",
-        "group": "b1c6a8f1.2356c8",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 395,
-        "wires": [
-            [
-                "6d78735f.b0b77c"
-            ]
-        ]
-    },
-    {
-        "id": "6d78735f.b0b77c",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 395,
-        "wires": [
-            [
-                "2ed268fd.c55898"
-            ]
-        ]
     },
     {
         "id": "2ed268fd.c55898",
@@ -2083,55 +1711,9 @@
         "links": [
             "573ba97d.d9f028"
         ],
-        "x": 550,
-        "y": 395,
+        "x": 570,
+        "y": 455,
         "wires": []
-    },
-    {
-        "id": "31eb9c40.23cb44",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "08",
-        "group": "b1c6a8f1.2356c8",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 445,
-        "wires": [
-            [
-                "82268d56.79eca"
-            ]
-        ]
-    },
-    {
-        "id": "82268d56.79eca",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 445,
-        "wires": [
-            [
-                "d5f6a0cc.a1da2"
-            ]
-        ]
     },
     {
         "id": "d5f6a0cc.a1da2",
@@ -2141,55 +1723,9 @@
         "links": [
             "8e849101.8fb97"
         ],
-        "x": 550,
-        "y": 445,
+        "x": 570,
+        "y": 515,
         "wires": []
-    },
-    {
-        "id": "3bde787a.038fe8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "09",
-        "group": "b1c6a8f1.2356c8",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 495,
-        "wires": [
-            [
-                "a1b48a8.a42ca78"
-            ]
-        ]
-    },
-    {
-        "id": "a1b48a8.a42ca78",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 495,
-        "wires": [
-            [
-                "11025a42.7de296"
-            ]
-        ]
     },
     {
         "id": "11025a42.7de296",
@@ -2199,55 +1735,9 @@
         "links": [
             "64997e04.7e757"
         ],
-        "x": 550,
-        "y": 495,
+        "x": 570,
+        "y": 575,
         "wires": []
-    },
-    {
-        "id": "990cc71d.de4ee8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "10",
-        "group": "b1c6a8f1.2356c8",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 545,
-        "wires": [
-            [
-                "6db0891e.1a06d8"
-            ]
-        ]
-    },
-    {
-        "id": "6db0891e.1a06d8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 545,
-        "wires": [
-            [
-                "c244026e.2e285"
-            ]
-        ]
     },
     {
         "id": "c244026e.2e285",
@@ -2257,55 +1747,9 @@
         "links": [
             "a1bb8f47.a185c"
         ],
-        "x": 550,
-        "y": 545,
+        "x": 570,
+        "y": 640,
         "wires": []
-    },
-    {
-        "id": "f8f533dd.c0ec5",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "11",
-        "group": "b1c6a8f1.2356c8",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 595,
-        "wires": [
-            [
-                "afeb8517.5dc968"
-            ]
-        ]
-    },
-    {
-        "id": "afeb8517.5dc968",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 595,
-        "wires": [
-            [
-                "2f965cf1.e1ecd4"
-            ]
-        ]
     },
     {
         "id": "2f965cf1.e1ecd4",
@@ -2315,55 +1759,9 @@
         "links": [
             "b7d60835.36dc18"
         ],
-        "x": 550,
-        "y": 595,
+        "x": 570,
+        "y": 700,
         "wires": []
-    },
-    {
-        "id": "ff762818.73e3a8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "12",
-        "group": "b1c6a8f1.2356c8",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 640,
-        "wires": [
-            [
-                "66a9e41e.cc90dc"
-            ]
-        ]
-    },
-    {
-        "id": "66a9e41e.cc90dc",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 640,
-        "wires": [
-            [
-                "626631f8.10fbd"
-            ]
-        ]
     },
     {
         "id": "626631f8.10fbd",
@@ -2373,55 +1771,9 @@
         "links": [
             "4cacbd68.2d32c4"
         ],
-        "x": 550,
-        "y": 640,
+        "x": 570,
+        "y": 760,
         "wires": []
-    },
-    {
-        "id": "94273fb7.809b5",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "13",
-        "group": "b1c6a8f1.2356c8",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 685,
-        "wires": [
-            [
-                "5bf43ecd.454b8"
-            ]
-        ]
-    },
-    {
-        "id": "5bf43ecd.454b8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 685,
-        "wires": [
-            [
-                "a9dcfecc.75539"
-            ]
-        ]
     },
     {
         "id": "a9dcfecc.75539",
@@ -2431,8 +1783,8 @@
         "links": [
             "8846ea7a.7df7f8"
         ],
-        "x": 550,
-        "y": 685,
+        "x": 570,
+        "y": 820,
         "wires": []
     },
     {
@@ -2444,8 +1796,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 690,
+        "x": 840,
+        "y": 815,
         "wires": []
     },
     {
@@ -2460,8 +1812,8 @@
             "5d266980.d3d598",
             "225d5b2d.e0a904"
         ],
-        "x": 915,
-        "y": 690,
+        "x": 720,
+        "y": 815,
         "wires": [
             [
                 "5bdb226b.833fdc"
@@ -2477,8 +1829,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 740,
+        "x": 840,
+        "y": 875,
         "wires": []
     },
     {
@@ -2493,57 +1845,11 @@
             "5d266980.d3d598",
             "ff0f577.45f6aa8"
         ],
-        "x": 915,
-        "y": 740,
+        "x": 720,
+        "y": 875,
         "wires": [
             [
                 "7ecd0ce6.337a84"
-            ]
-        ]
-    },
-    {
-        "id": "22d44f2.38e33b",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "14",
-        "group": "b1c6a8f1.2356c8",
-        "order": 14,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 730,
-        "wires": [
-            [
-                "dda2c687.a63df8"
-            ]
-        ]
-    },
-    {
-        "id": "dda2c687.a63df8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 730,
-        "wires": [
-            [
-                "a20bacfb.66774"
             ]
         ]
     },
@@ -2555,383 +1861,9 @@
         "links": [
             "517962ba.6a64dc"
         ],
-        "x": 550,
-        "y": 730,
+        "x": 570,
+        "y": 880,
         "wires": []
-    },
-    {
-        "id": "93226f2f.86dc2",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "10 Sala",
-        "group": "6490cdde.182ee4",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/10/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 155,
-        "y": 285,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "fe8971ee.7073c",
-        "type": "link out",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "links": [
-            "9e968d97.df504"
-        ],
-        "x": 490,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "4e1f5b15.a031a4",
-        "type": "function",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=1;\n} else {\n    msg.payload=0;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 380,
-        "y": 280,
-        "wires": [
-            [
-                "fe8971ee.7073c"
-            ]
-        ]
-    },
-    {
-        "id": "2d3cc21e.a0e91e",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "11 Cucina",
-        "group": "6490cdde.182ee4",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/11/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 155,
-        "y": 325,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "86144eb.c7cf6b",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "12 Uffici",
-        "group": "6490cdde.182ee4",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/12/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 155,
-        "y": 370,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "9ac719fb.cae9d8",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "7 WC donne",
-        "group": "cda25b51.6fff18",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/7/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 145,
-        "y": 140,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "9822de41.9e2ed",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "6 WC uomini",
-        "group": "cda25b51.6fff18",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/6/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 145,
-        "y": 95,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "d2df91cb.7843",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "16 Stanza verde",
-        "group": "cda25b51.6fff18",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/16/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 135,
-        "y": 230,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "a0fc3a5d.0cbd78",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "3 Scala",
-        "group": "cda25b51.6fff18",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/3/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 150,
-        "y": 50,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "822cd795.1e9ae8",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "1 Piccolo",
-        "group": "5a16f45.b18720c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/1/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 155,
-        "y": 435,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "fe222e4a.588d9",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "2 Grande",
-        "group": "5a16f45.b18720c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/2/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 155,
-        "y": 475,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "30924b0d.c3dc94",
-        "type": "ui_switch",
-        "z": "b9aee244.570dc",
-        "name": "",
-        "label": "13 Stanza gialla",
-        "group": "cda25b51.6fff18",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "toa/lights/16/set_value",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 135,
-        "y": 185,
-        "wires": [
-            [
-                "4e1f5b15.a031a4"
-            ]
-        ]
-    },
-    {
-        "id": "99b82b0e.bb6be8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "15",
-        "group": "b1c6a8f1.2356c8",
-        "order": 15,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 775,
-        "wires": [
-            [
-                "81962bfa.9a4298"
-            ]
-        ]
-    },
-    {
-        "id": "81962bfa.9a4298",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 775,
-        "wires": [
-            [
-                "94200718.87f7a8"
-            ]
-        ]
     },
     {
         "id": "94200718.87f7a8",
@@ -2941,55 +1873,9 @@
         "links": [
             "65c6ec3c.148f44"
         ],
-        "x": 550,
-        "y": 775,
+        "x": 570,
+        "y": 935,
         "wires": []
-    },
-    {
-        "id": "340e4644.3cb26a",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "16",
-        "group": "b1c6a8f1.2356c8",
-        "order": 16,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 820,
-        "wires": [
-            [
-                "8a78a255.22ed8"
-            ]
-        ]
-    },
-    {
-        "id": "8a78a255.22ed8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 820,
-        "wires": [
-            [
-                "7aa13f8a.3467c"
-            ]
-        ]
     },
     {
         "id": "7aa13f8a.3467c",
@@ -2999,55 +1885,9 @@
         "links": [
             "8c6de6b1.a08438"
         ],
-        "x": 550,
-        "y": 820,
+        "x": 570,
+        "y": 1000,
         "wires": []
-    },
-    {
-        "id": "fdcc5e1a.2dab",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "17",
-        "group": "b1c6a8f1.2356c8",
-        "order": 17,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 865,
-        "wires": [
-            [
-                "be515072.ba938"
-            ]
-        ]
-    },
-    {
-        "id": "be515072.ba938",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 865,
-        "wires": [
-            [
-                "44a46e0f.2dde9"
-            ]
-        ]
     },
     {
         "id": "44a46e0f.2dde9",
@@ -3057,55 +1897,9 @@
         "links": [
             "63238336.18dd8c"
         ],
-        "x": 550,
-        "y": 865,
+        "x": 570,
+        "y": 1060,
         "wires": []
-    },
-    {
-        "id": "9613f8da.376398",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "18",
-        "group": "b1c6a8f1.2356c8",
-        "order": 18,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 915,
-        "wires": [
-            [
-                "97e4108b.0ffa3"
-            ]
-        ]
-    },
-    {
-        "id": "97e4108b.0ffa3",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 915,
-        "wires": [
-            [
-                "95855d29.4fe5e"
-            ]
-        ]
     },
     {
         "id": "95855d29.4fe5e",
@@ -3115,8 +1909,8 @@
         "links": [
             "1322341e.ab432c"
         ],
-        "x": 550,
-        "y": 915,
+        "x": 565,
+        "y": 1125,
         "wires": []
     },
     {
@@ -3128,8 +1922,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1035,
-        "y": 790,
+        "x": 840,
+        "y": 935,
         "wires": []
     },
     {
@@ -3144,8 +1938,8 @@
             "5d266980.d3d598",
             "ff0f577.45f6aa8"
         ],
-        "x": 915,
-        "y": 790,
+        "x": 720,
+        "y": 935,
         "wires": [
             [
                 "1b7bb282.08114d"
@@ -3161,8 +1955,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1030,
-        "y": 835,
+        "x": 835,
+        "y": 1000,
         "wires": []
     },
     {
@@ -3177,8 +1971,8 @@
             "5d266980.d3d598",
             "ff0f577.45f6aa8"
         ],
-        "x": 910,
-        "y": 835,
+        "x": 715,
+        "y": 1000,
         "wires": [
             [
                 "e87b5b62.91ef88"
@@ -3194,8 +1988,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1030,
-        "y": 880,
+        "x": 835,
+        "y": 1060,
         "wires": []
     },
     {
@@ -3210,8 +2004,8 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 910,
-        "y": 880,
+        "x": 715,
+        "y": 1060,
         "wires": [
             [
                 "5a977eec.85851"
@@ -3227,8 +2021,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1030,
-        "y": 925,
+        "x": 835,
+        "y": 1120,
         "wires": []
     },
     {
@@ -3243,57 +2037,11 @@
             "5d266980.d3d598",
             "ff0f577.45f6aa8"
         ],
-        "x": 910,
-        "y": 925,
+        "x": 715,
+        "y": 1120,
         "wires": [
             [
                 "7e2550fe.3ef0e"
-            ]
-        ]
-    },
-    {
-        "id": "96e2644f.77a1b8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "19",
-        "group": "b1c6a8f1.2356c8",
-        "order": 19,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 965,
-        "wires": [
-            [
-                "894478da.6d4388"
-            ]
-        ]
-    },
-    {
-        "id": "894478da.6d4388",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 965,
-        "wires": [
-            [
-                "dcde4387.13c38"
             ]
         ]
     },
@@ -3305,21 +2053,21 @@
         "links": [
             "b1d0ef20.69b01"
         ],
-        "x": 550,
-        "y": 965,
+        "x": 565,
+        "y": 1180,
         "wires": []
     },
     {
         "id": "747b9c96.710d54",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 19",
+        "name": "Benito",
         "topic": "sonoff-s26/019/cmnd/POWER",
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1030,
-        "y": 970,
+        "x": 815,
+        "y": 1175,
         "wires": []
     },
     {
@@ -3332,59 +2080,13 @@
             "dcde4387.13c38",
             "e68b51a0.caf07",
             "5d266980.d3d598",
-            "2f48bb03.7482d4"
+            "7a65814d.c7468"
         ],
-        "x": 910,
-        "y": 970,
+        "x": 715,
+        "y": 1175,
         "wires": [
             [
                 "747b9c96.710d54"
-            ]
-        ]
-    },
-    {
-        "id": "36ca0b4d.27f264",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "20",
-        "group": "b1c6a8f1.2356c8",
-        "order": 20,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1020,
-        "wires": [
-            [
-                "aa7a447.4d1dcb8"
-            ]
-        ]
-    },
-    {
-        "id": "aa7a447.4d1dcb8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1020,
-        "wires": [
-            [
-                "69a0b6ac.306e68"
             ]
         ]
     },
@@ -3396,8 +2098,8 @@
         "links": [
             "6eb75a0a.c13974"
         ],
-        "x": 550,
-        "y": 1020,
+        "x": 565,
+        "y": 1240,
         "wires": []
     },
     {
@@ -3409,8 +2111,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1030,
-        "y": 1020,
+        "x": 835,
+        "y": 1235,
         "wires": []
     },
     {
@@ -3425,8 +2127,8 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 910,
-        "y": 1020,
+        "x": 715,
+        "y": 1235,
         "wires": [
             [
                 "c9a25a04.36e748"
@@ -3442,8 +2144,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1025,
-        "y": 1070,
+        "x": 835,
+        "y": 1295,
         "wires": []
     },
     {
@@ -3458,57 +2160,11 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 905,
-        "y": 1070,
+        "x": 715,
+        "y": 1295,
         "wires": [
             [
                 "503e3198.f8e8c"
-            ]
-        ]
-    },
-    {
-        "id": "454af344.fc576c",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "21",
-        "group": "b1c6a8f1.2356c8",
-        "order": 21,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1070,
-        "wires": [
-            [
-                "fb000c0.58839f8"
-            ]
-        ]
-    },
-    {
-        "id": "fb000c0.58839f8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1070,
-        "wires": [
-            [
-                "c7fa3f1a.39d8f"
             ]
         ]
     },
@@ -3520,8 +2176,8 @@
         "links": [
             "eb56f00e.bc387"
         ],
-        "x": 550,
-        "y": 1070,
+        "x": 565,
+        "y": 1300,
         "wires": []
     },
     {
@@ -3533,8 +2189,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1025,
-        "y": 1115,
+        "x": 835,
+        "y": 1355,
         "wires": []
     },
     {
@@ -3549,57 +2205,11 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 905,
-        "y": 1115,
+        "x": 715,
+        "y": 1355,
         "wires": [
             [
                 "f213b1b8.b2259"
-            ]
-        ]
-    },
-    {
-        "id": "de54eb5f.5eed58",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "22",
-        "group": "b1c6a8f1.2356c8",
-        "order": 22,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1115,
-        "wires": [
-            [
-                "b4d40bd2.fd46e8"
-            ]
-        ]
-    },
-    {
-        "id": "b4d40bd2.fd46e8",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1115,
-        "wires": [
-            [
-                "12bf40f1.6c6adf"
             ]
         ]
     },
@@ -3611,21 +2221,21 @@
         "links": [
             "83d9c307.2edc6"
         ],
-        "x": 550,
-        "y": 1115,
+        "x": 565,
+        "y": 1360,
         "wires": []
     },
     {
         "id": "2f2831de.737cfe",
         "type": "mqtt out",
         "z": "6d96a905.566d28",
-        "name": "Piantana 23",
+        "name": "Sergio",
         "topic": "sonoff-s26/023/cmnd/POWER",
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1025,
-        "y": 1160,
+        "x": 815,
+        "y": 1415,
         "wires": []
     },
     {
@@ -3637,59 +2247,14 @@
             "2901872b.b20e38",
             "36eb1659.1d97ca",
             "e68b51a0.caf07",
-            "5d266980.d3d598"
+            "5d266980.d3d598",
+            "7a65814d.c7468"
         ],
-        "x": 905,
-        "y": 1160,
+        "x": 715,
+        "y": 1415,
         "wires": [
             [
                 "2f2831de.737cfe"
-            ]
-        ]
-    },
-    {
-        "id": "e42c7a73.693e08",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "23",
-        "group": "b1c6a8f1.2356c8",
-        "order": 23,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1160,
-        "wires": [
-            [
-                "5840249e.454adc"
-            ]
-        ]
-    },
-    {
-        "id": "5840249e.454adc",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1160,
-        "wires": [
-            [
-                "2901872b.b20e38"
             ]
         ]
     },
@@ -3701,8 +2266,8 @@
         "links": [
             "f2a29010.954f3"
         ],
-        "x": 550,
-        "y": 1160,
+        "x": 565,
+        "y": 1420,
         "wires": []
     },
     {
@@ -3714,8 +2279,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1025,
-        "y": 1210,
+        "x": 835,
+        "y": 1475,
         "wires": []
     },
     {
@@ -3730,57 +2295,11 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 905,
-        "y": 1210,
+        "x": 715,
+        "y": 1475,
         "wires": [
             [
                 "bfacff21.e455b"
-            ]
-        ]
-    },
-    {
-        "id": "a2ccc37a.2461e",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "24",
-        "group": "b1c6a8f1.2356c8",
-        "order": 24,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1210,
-        "wires": [
-            [
-                "ac2bf15f.1d034"
-            ]
-        ]
-    },
-    {
-        "id": "ac2bf15f.1d034",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1210,
-        "wires": [
-            [
-                "30df147d.3f62ec"
             ]
         ]
     },
@@ -3792,8 +2311,8 @@
         "links": [
             "a183a430.ff4ec8"
         ],
-        "x": 550,
-        "y": 1210,
+        "x": 565,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3805,8 +2324,8 @@
         "qos": "2",
         "retain": "false",
         "broker": "86a1cd35.744c2",
-        "x": 1025,
-        "y": 1260,
+        "x": 835,
+        "y": 1535,
         "wires": []
     },
     {
@@ -3821,57 +2340,11 @@
             "5d266980.d3d598",
             "2f48bb03.7482d4"
         ],
-        "x": 905,
-        "y": 1260,
+        "x": 715,
+        "y": 1535,
         "wires": [
             [
                 "c3c8e0e7.057a7"
-            ]
-        ]
-    },
-    {
-        "id": "a37bd75c.b255c8",
-        "type": "ui_switch",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "label": "25",
-        "group": "b1c6a8f1.2356c8",
-        "order": 25,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 275,
-        "y": 1260,
-        "wires": [
-            [
-                "9e17cc5f.a7165"
-            ]
-        ]
-    },
-    {
-        "id": "9e17cc5f.a7165",
-        "type": "function",
-        "z": "6d96a905.566d28",
-        "name": "",
-        "func": "if (msg.payload) {\n    msg.payload=\"ON\";\n} else {\n    msg.payload=\"OFF\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 415,
-        "y": 1260,
-        "wires": [
-            [
-                "ce050578.d3e2a8"
             ]
         ]
     },
@@ -3883,8 +2356,8 @@
         "links": [
             "ce99d9f2.600988"
         ],
-        "x": 550,
-        "y": 1260,
+        "x": 565,
+        "y": 1540,
         "wires": []
     },
     {
@@ -3894,7 +2367,7 @@
         "name": "",
         "command": "/start",
         "x": 570,
-        "y": 1170,
+        "y": 1570,
         "wires": [
             [
                 "d298586e.0b9e68"
@@ -3947,6 +2420,25 @@
             },
             {
                 "type": "postback",
+                "label": "Sala ON",
+                "value": "/piantane_sala_on",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "postback",
+                "label": "Sala OFF",
+                "value": "/piantane_sala_off",
+                "answer": "",
+                "alert": false,
+                "style": ""
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "type": "postback",
                 "label": "Tutte ON",
                 "value": "/piantane_all_on",
                 "answer": "",
@@ -3975,7 +2467,7 @@
         ],
         "message": "Piantane:",
         "x": 780,
-        "y": 1210,
+        "y": 1610,
         "wires": [
             [
                 "8e00a2e5.52358"
@@ -3989,7 +2481,7 @@
         "name": "",
         "command": "/piantane",
         "x": 580,
-        "y": 1210,
+        "y": 1610,
         "wires": [
             [
                 "5641d0c5.fb917"
@@ -4031,7 +2523,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 800,
+        "x": 745,
         "y": 160,
         "wires": [
             [
@@ -4226,7 +2718,6 @@
             "83d9c307.2edc6",
             "a183a430.ff4ec8",
             "a9d1cc63.b1db5",
-            "b1d0ef20.69b01",
             "b7d60835.36dc18",
             "ce99d9f2.600988",
             "eb56f00e.bc387"
@@ -4339,7 +2830,7 @@
         "func": "msg.payload=msg.payload[\"content\"];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 610,
+        "x": 565,
         "y": 160,
         "wires": [
             [
@@ -4356,8 +2847,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1545,
-        "y": 505,
+        "x": 1490,
+        "y": 150,
         "wires": []
     },
     {
@@ -4366,8 +2857,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_scala_on",
-        "x": 775,
-        "y": 670,
+        "x": 785,
+        "y": 785,
         "wires": [
             [
                 "21b5792c.514ce6"
@@ -4380,8 +2871,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_scala_off",
-        "x": 775,
-        "y": 710,
+        "x": 785,
+        "y": 825,
         "wires": [
             [
                 "7c37d1a4.66f99"
@@ -4396,8 +2887,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 670,
+        "x": 960,
+        "y": 785,
         "wires": [
             [
                 "aaf23979.247128"
@@ -4412,8 +2903,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 710,
+        "x": 960,
+        "y": 825,
         "wires": [
             [
                 "aaf23979.247128"
@@ -4428,8 +2919,8 @@
         "links": [
             "aaf23979.247128"
         ],
-        "x": 1425,
-        "y": 505,
+        "x": 1370,
+        "y": 150,
         "wires": [
             [
                 "a78eb2a9.ac7a7"
@@ -4444,8 +2935,8 @@
         "links": [
             "c9decf58.39811"
         ],
-        "x": 1065,
-        "y": 690,
+        "x": 1110,
+        "y": 805,
         "wires": []
     },
     {
@@ -4455,7 +2946,7 @@
         "name": "",
         "command": "/luci",
         "x": 570,
-        "y": 1250,
+        "y": 1650,
         "wires": [
             [
                 "c486619b.98b87"
@@ -4593,7 +3084,7 @@
         ],
         "message": "Luci:",
         "x": 770,
-        "y": 1250,
+        "y": 1650,
         "wires": [
             [
                 "8e00a2e5.52358"
@@ -4609,8 +3100,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1545,
-        "y": 550,
+        "x": 1490,
+        "y": 195,
         "wires": []
     },
     {
@@ -4621,8 +3112,8 @@
         "links": [
             "83f24cc4.8d709"
         ],
-        "x": 1425,
-        "y": 550,
+        "x": 1370,
+        "y": 195,
         "wires": [
             [
                 "bfa51167.8b959"
@@ -4638,8 +3129,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1555,
-        "y": 595,
+        "x": 1500,
+        "y": 240,
         "wires": []
     },
     {
@@ -4651,8 +3142,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1545,
-        "y": 640,
+        "x": 1490,
+        "y": 285,
         "wires": []
     },
     {
@@ -4663,8 +3154,8 @@
         "links": [
             "e0f469dd.9c0478"
         ],
-        "x": 1425,
-        "y": 595,
+        "x": 1370,
+        "y": 240,
         "wires": [
             [
                 "834f2500.c3d288"
@@ -4679,8 +3170,8 @@
         "links": [
             "15ae219d.a28bde"
         ],
-        "x": 1425,
-        "y": 640,
+        "x": 1370,
+        "y": 285,
         "wires": [
             [
                 "3c5dbf07.7b11a"
@@ -4693,8 +3184,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_sala_on",
-        "x": 775,
-        "y": 755,
+        "x": 785,
+        "y": 870,
         "wires": [
             [
                 "2ef3d6c0.7e984a"
@@ -4707,8 +3198,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_sala_off",
-        "x": 775,
-        "y": 795,
+        "x": 785,
+        "y": 910,
         "wires": [
             [
                 "cf095bc5.8358b8"
@@ -4723,8 +3214,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 755,
+        "x": 960,
+        "y": 870,
         "wires": [
             [
                 "83f24cc4.8d709"
@@ -4739,8 +3230,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 795,
+        "x": 960,
+        "y": 910,
         "wires": [
             [
                 "83f24cc4.8d709"
@@ -4755,8 +3246,8 @@
         "links": [
             "82b141b3.a5ca7"
         ],
-        "x": 1065,
-        "y": 775,
+        "x": 1110,
+        "y": 890,
         "wires": []
     },
     {
@@ -4765,8 +3256,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_cucina_on",
-        "x": 775,
-        "y": 835,
+        "x": 785,
+        "y": 950,
         "wires": [
             [
                 "5177f1e.df8a41"
@@ -4779,8 +3270,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_cucina_off",
-        "x": 775,
-        "y": 875,
+        "x": 785,
+        "y": 990,
         "wires": [
             [
                 "b5d6d92.497a828"
@@ -4795,8 +3286,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 835,
+        "x": 960,
+        "y": 950,
         "wires": [
             [
                 "e0f469dd.9c0478"
@@ -4811,8 +3302,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 875,
+        "x": 960,
+        "y": 990,
         "wires": [
             [
                 "e0f469dd.9c0478"
@@ -4827,8 +3318,8 @@
         "links": [
             "376f201f.38bc2"
         ],
-        "x": 1065,
-        "y": 855,
+        "x": 1110,
+        "y": 970,
         "wires": []
     },
     {
@@ -4837,8 +3328,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_uffici_on",
-        "x": 775,
-        "y": 920,
+        "x": 785,
+        "y": 1035,
         "wires": [
             [
                 "9fb4668f.451cb8"
@@ -4851,8 +3342,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_uffici_off",
-        "x": 775,
-        "y": 960,
+        "x": 785,
+        "y": 1075,
         "wires": [
             [
                 "444637fe.f46478"
@@ -4867,8 +3358,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 920,
+        "x": 960,
+        "y": 1035,
         "wires": [
             [
                 "15ae219d.a28bde"
@@ -4883,8 +3374,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 960,
+        "x": 960,
+        "y": 1075,
         "wires": [
             [
                 "15ae219d.a28bde"
@@ -4899,8 +3390,8 @@
         "links": [
             "4d30f721.273e78"
         ],
-        "x": 1070,
-        "y": 940,
+        "x": 1115,
+        "y": 1055,
         "wires": []
     },
     {
@@ -4909,8 +3400,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_wcdonne_on",
-        "x": 785,
-        "y": 1000,
+        "x": 795,
+        "y": 1115,
         "wires": [
             [
                 "f6ee4e83.37016"
@@ -4923,8 +3414,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_wcdonne_off",
-        "x": 785,
-        "y": 1040,
+        "x": 795,
+        "y": 1155,
         "wires": [
             [
                 "4ffa9053.1b922"
@@ -4939,8 +3430,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1000,
+        "x": 960,
+        "y": 1115,
         "wires": [
             [
                 "4614b3fe.ba4eac"
@@ -4955,8 +3446,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1040,
+        "x": 960,
+        "y": 1155,
         "wires": [
             [
                 "4614b3fe.ba4eac"
@@ -4971,8 +3462,8 @@
         "links": [
             "7bf82f52.0f52d"
         ],
-        "x": 1070,
-        "y": 1020,
+        "x": 1115,
+        "y": 1135,
         "wires": []
     },
     {
@@ -4984,8 +3475,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1565,
-        "y": 690,
+        "x": 1510,
+        "y": 335,
         "wires": []
     },
     {
@@ -4996,8 +3487,8 @@
         "links": [
             "4614b3fe.ba4eac"
         ],
-        "x": 1425,
-        "y": 690,
+        "x": 1370,
+        "y": 335,
         "wires": [
             [
                 "eb64acc3.47923"
@@ -5010,8 +3501,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_wcuomini_on",
-        "x": 785,
-        "y": 1080,
+        "x": 795,
+        "y": 1195,
         "wires": [
             [
                 "95d093de.066de"
@@ -5024,8 +3515,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/luce_wcuomini_off",
-        "x": 785,
-        "y": 1120,
+        "x": 795,
+        "y": 1235,
         "wires": [
             [
                 "f7031704.df5548"
@@ -5040,8 +3531,8 @@
         "func": "msg.payload=255;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1080,
+        "x": 960,
+        "y": 1195,
         "wires": [
             [
                 "fb8c4732.c45928"
@@ -5056,8 +3547,8 @@
         "func": "msg.payload=0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1120,
+        "x": 960,
+        "y": 1235,
         "wires": [
             [
                 "fb8c4732.c45928"
@@ -5072,8 +3563,8 @@
         "links": [
             "3f4c5305.0f030c"
         ],
-        "x": 1070,
-        "y": 1100,
+        "x": 1115,
+        "y": 1215,
         "wires": []
     },
     {
@@ -5085,8 +3576,8 @@
         "qos": "",
         "retain": "",
         "broker": "86a1cd35.744c2",
-        "x": 1565,
-        "y": 740,
+        "x": 1510,
+        "y": 385,
         "wires": []
     },
     {
@@ -5097,8 +3588,8 @@
         "links": [
             "fb8c4732.c45928"
         ],
-        "x": 1425,
-        "y": 740,
+        "x": 1370,
+        "y": 385,
         "wires": [
             [
                 "a990fe67.93507"
@@ -5112,7 +3603,7 @@
         "name": "",
         "command": "/termo",
         "x": 570,
-        "y": 1290,
+        "y": 1690,
         "wires": [
             [
                 "ff0a9cbf.b93c2"
@@ -5174,7 +3665,7 @@
         ],
         "message": "Termo:",
         "x": 770,
-        "y": 1290,
+        "y": 1690,
         "wires": [
             [
                 "8e00a2e5.52358"
@@ -5187,8 +3678,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/termo_wcdonne_on",
-        "x": 795,
-        "y": 490,
+        "x": 800,
+        "y": 590,
         "wires": [
             [
                 "31376aed.ab9186"
@@ -5203,8 +3694,8 @@
         "func": "msg.payload=\"ON\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 975,
-        "y": 490,
+        "x": 980,
+        "y": 590,
         "wires": [
             [
                 "97562ceb.d6e04"
@@ -5217,8 +3708,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/termo_wcdonne_off",
-        "x": 795,
-        "y": 530,
+        "x": 800,
+        "y": 630,
         "wires": [
             [
                 "696c7fa8.4375d"
@@ -5233,8 +3724,8 @@
         "func": "msg.payload=\"OFF\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 975,
-        "y": 530,
+        "x": 980,
+        "y": 630,
         "wires": [
             [
                 "97562ceb.d6e04"
@@ -5249,8 +3740,8 @@
         "links": [
             "64997e04.7e757"
         ],
-        "x": 1105,
-        "y": 510,
+        "x": 1110,
+        "y": 610,
         "wires": []
     },
     {
@@ -5259,8 +3750,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/termo_wcuomini_on",
-        "x": 795,
-        "y": 570,
+        "x": 800,
+        "y": 670,
         "wires": [
             [
                 "e0b8927f.5b227"
@@ -5275,8 +3766,8 @@
         "func": "msg.payload=\"ON\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 975,
-        "y": 570,
+        "x": 980,
+        "y": 670,
         "wires": [
             [
                 "225d5b2d.e0a904"
@@ -5289,8 +3780,8 @@
         "z": "9baf0a1c.2eb568",
         "name": "",
         "command": "/termo_wcuomini_off",
-        "x": 795,
-        "y": 610,
+        "x": 800,
+        "y": 710,
         "wires": [
             [
                 "c29ff3b6.a34d5"
@@ -5305,8 +3796,8 @@
         "func": "msg.payload=\"OFF\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 975,
-        "y": 610,
+        "x": 980,
+        "y": 710,
         "wires": [
             [
                 "225d5b2d.e0a904"
@@ -5321,8 +3812,3179 @@
         "links": [
             "8846ea7a.7df7f8"
         ],
-        "x": 1105,
+        "x": 1110,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "9923dbbf.00ff88",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "telegram_incoming",
+        "links": [
+            "229f616.75d139e",
+            "9d91fde9.795df",
+            "920610dc.e0e36",
+            "3a71d422.d076cc",
+            "2a9e1354.0fa96c",
+            "baf822ef.b4a57",
+            "d583a711.7ee1a8",
+            "c666e752.744358",
+            "a3d13e1d.33e9b",
+            "1682d9be.092016",
+            "1df5a952.2e3307",
+            "711757b4.436048",
+            "b601e0e4.a6866",
+            "d28b141f.9ed728",
+            "8e32e46f.88dc98",
+            "8b70c510.973dc8",
+            "f8ef77fd.a09d78",
+            "93c173c1.2a304",
+            "191642e5.57d08d",
+            "7d7f25ef.d3241c",
+            "d63a5b64.cfe228",
+            "ffc5f8a9.01e168",
+            "3e65c7a5.f0a8d8",
+            "fd5de886.0bc258",
+            "ba8184f3.b91358",
+            "4710c802.51fe98",
+            "a88ff39f.f16c4",
+            "23c6e700.b0c6ba",
+            "92cedd97.485f1",
+            "9ea5be57.3d588",
+            "2f62ea26.46a496",
+            "f4b486fe.31d7e8"
+        ],
+        "x": 460,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "229f616.75d139e",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 225,
+        "wires": [
+            [
+                "e44f8d97.a5f04"
+            ]
+        ]
+    },
+    {
+        "id": "9d91fde9.795df",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 265,
+        "wires": [
+            [
+                "44310fcd.cad22"
+            ]
+        ]
+    },
+    {
+        "id": "920610dc.e0e36",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 315,
+        "wires": [
+            [
+                "15ce5d81.5ad132"
+            ]
+        ]
+    },
+    {
+        "id": "3a71d422.d076cc",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 355,
+        "wires": [
+            [
+                "46ddf4a6.27b6ec"
+            ]
+        ]
+    },
+    {
+        "id": "2a9e1354.0fa96c",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 405,
+        "wires": [
+            [
+                "f4c5aed1.6503f"
+            ]
+        ]
+    },
+    {
+        "id": "baf822ef.b4a57",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 445,
+        "wires": [
+            [
+                "3516917c.04252e"
+            ]
+        ]
+    },
+    {
+        "id": "d583a711.7ee1a8",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 660,
         "y": 590,
+        "wires": [
+            [
+                "37088080.d704b"
+            ]
+        ]
+    },
+    {
+        "id": "c666e752.744358",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 660,
+        "y": 630,
+        "wires": [
+            [
+                "8b8d391b.da1388"
+            ]
+        ]
+    },
+    {
+        "id": "a3d13e1d.33e9b",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 660,
+        "y": 670,
+        "wires": [
+            [
+                "9ba6232a.200af"
+            ]
+        ]
+    },
+    {
+        "id": "1682d9be.092016",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 660,
+        "y": 710,
+        "wires": [
+            [
+                "764371f7.47555"
+            ]
+        ]
+    },
+    {
+        "id": "1df5a952.2e3307",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 785,
+        "wires": [
+            [
+                "bc33b3.c35c7c5"
+            ]
+        ]
+    },
+    {
+        "id": "711757b4.436048",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 825,
+        "wires": [
+            [
+                "6f72ec00.98eb44"
+            ]
+        ]
+    },
+    {
+        "id": "b601e0e4.a6866",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 870,
+        "wires": [
+            [
+                "72768295.3555ec"
+            ]
+        ]
+    },
+    {
+        "id": "d28b141f.9ed728",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 910,
+        "wires": [
+            [
+                "353aaac.88a8956"
+            ]
+        ]
+    },
+    {
+        "id": "8e32e46f.88dc98",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 950,
+        "wires": [
+            [
+                "4d0572b8.ab426c"
+            ]
+        ]
+    },
+    {
+        "id": "8b70c510.973dc8",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 990,
+        "wires": [
+            [
+                "c6e0188f.e1bd98"
+            ]
+        ]
+    },
+    {
+        "id": "f8ef77fd.a09d78",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1035,
+        "wires": [
+            [
+                "fc283bd1.9e5278"
+            ]
+        ]
+    },
+    {
+        "id": "93c173c1.2a304",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1075,
+        "wires": [
+            [
+                "24ee59a3.39c2a6"
+            ]
+        ]
+    },
+    {
+        "id": "191642e5.57d08d",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1115,
+        "wires": [
+            [
+                "2759c913.bca256"
+            ]
+        ]
+    },
+    {
+        "id": "7d7f25ef.d3241c",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1155,
+        "wires": [
+            [
+                "90212bd5.ad5578"
+            ]
+        ]
+    },
+    {
+        "id": "d63a5b64.cfe228",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1195,
+        "wires": [
+            [
+                "1c17eb7e.3ae965"
+            ]
+        ]
+    },
+    {
+        "id": "ffc5f8a9.01e168",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1235,
+        "wires": [
+            [
+                "20472dbd.9fdc02"
+            ]
+        ]
+    },
+    {
+        "id": "3e65c7a5.f0a8d8",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 465,
+        "y": 1570,
+        "wires": [
+            [
+                "e17650c0.e5068"
+            ]
+        ]
+    },
+    {
+        "id": "fd5de886.0bc258",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 465,
+        "y": 1610,
+        "wires": [
+            [
+                "c882df04.8b6bf"
+            ]
+        ]
+    },
+    {
+        "id": "ba8184f3.b91358",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 465,
+        "y": 1650,
+        "wires": [
+            [
+                "d2dd3d6e.750a5"
+            ]
+        ]
+    },
+    {
+        "id": "4710c802.51fe98",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 465,
+        "y": 1690,
+        "wires": [
+            [
+                "4655d812.fd5288"
+            ]
+        ]
+    },
+    {
+        "id": "7e94f6bb.1978b8",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "var kw = parseFloat(global.get('KW-TOT')||\"0\");\nvar kwl = parseFloat(global.get('KWL-TOT')||\"0\");\n\nmsg.payload[\"content\"] = \"Solare \" + kwl + \" | Enel \" + kw;\nnode.status({fill:\"green\",shape:\"dot\",text:kwl});\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 1380,
+        "wires": [
+            [
+                "8e00a2e5.52358"
+            ]
+        ]
+    },
+    {
+        "id": "3467c21c.61cede",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KW1-GEN",
+        "func": "global.set('KW1-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 230,
+        "wires": [
+            [
+                "4f064bcb.309aa4"
+            ]
+        ]
+    },
+    {
+        "id": "4f064bcb.309aa4",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KW-TOT",
+        "func": "var kw1 = parseFloat(global.get('KW1-GEN')||\"0\");\nvar kw2 = parseFloat(global.get('KW2-GEN')||\"0\");\nvar kw3 = parseFloat(global.get('KW3-GEN')||\"0\");\n\nvar kw=kw1+kw2+kw3;\n\nmsg.payload=kw.toFixed(3);\nglobal.set('KW-TOT',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 645,
+        "y": 280,
+        "wires": [
+            [
+                "35228d90.2e27f2"
+            ]
+        ]
+    },
+    {
+        "id": "c629b0d.b2d025",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KW2-GEN",
+        "func": "global.set('KW2-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "4f064bcb.309aa4"
+            ]
+        ]
+    },
+    {
+        "id": "8361fedf.7973a",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KW3-GEN",
+        "func": "global.set('KW3-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 330,
+        "wires": [
+            [
+                "4f064bcb.309aa4"
+            ]
+        ]
+    },
+    {
+        "id": "35228d90.2e27f2",
+        "type": "link out",
+        "z": "9a56a685.0b3558",
+        "name": "kwtot",
+        "links": [
+            "21028cdf.d8fb64"
+        ],
+        "x": 755,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9d1add5d.13f03",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/kwtot",
+        "x": 775,
+        "y": 1380,
+        "wires": [
+            [
+                "7e94f6bb.1978b8"
+            ]
+        ]
+    },
+    {
+        "id": "a88ff39f.f16c4",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 670,
+        "y": 1380,
+        "wires": [
+            [
+                "9d1add5d.13f03"
+            ]
+        ]
+    },
+    {
+        "id": "b410cc0d.cc08b",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_sala_on",
+        "x": 785,
+        "y": 490,
+        "wires": [
+            [
+                "69db5ba8.38a024"
+            ]
+        ]
+    },
+    {
+        "id": "69db5ba8.38a024",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"ON\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 490,
+        "wires": [
+            [
+                "7a65814d.c7468"
+            ]
+        ]
+    },
+    {
+        "id": "fa8c364e.9511f8",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/piantane_sala_off",
+        "x": 785,
+        "y": 530,
+        "wires": [
+            [
+                "26490f6b.160d1"
+            ]
+        ]
+    },
+    {
+        "id": "26490f6b.160d1",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"OFF\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975,
+        "y": 530,
+        "wires": [
+            [
+                "7a65814d.c7468"
+            ]
+        ]
+    },
+    {
+        "id": "7a65814d.c7468",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "4cacbd68.2d32c4",
+            "634ba040.4d8a3",
+            "a1bb8f47.a185c",
+            "a2d5b14d.104ad",
+            "b1d0ef20.69b01",
+            "b9c797af.9ef868",
+            "c395faa7.bbc678",
+            "e825f4d3.53f1b8",
+            "f2a29010.954f3"
+        ],
+        "x": 1105,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "23c6e700.b0c6ba",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 490,
+        "wires": [
+            [
+                "b410cc0d.cc08b"
+            ]
+        ]
+    },
+    {
+        "id": "92cedd97.485f1",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 655,
+        "y": 530,
+        "wires": [
+            [
+                "fa8c364e.9511f8"
+            ]
+        ]
+    },
+    {
+        "id": "cd5f3fe0.4ca8e",
+        "type": "debug",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 230,
+        "y": 415,
+        "wires": []
+    },
+    {
+        "id": "78703d9e.f94b74",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/10/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 765,
+        "wires": [
+            [
+                "7559c8a2.9de798"
+            ]
+        ]
+    },
+    {
+        "id": "b169865f.e49758",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/10/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 800,
+        "wires": [
+            [
+                "7559c8a2.9de798"
+            ]
+        ]
+    },
+    {
+        "id": "3ebc53b3.65067c",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 85,
+        "wires": [
+            [
+                "7dddccda.0ab114"
+            ]
+        ]
+    },
+    {
+        "id": "5e975daa.21d194",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 110,
+        "wires": [
+            [
+                "7dddccda.0ab114"
+            ]
+        ]
+    },
+    {
+        "id": "59735a3a.aeca54",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 145,
+        "wires": [
+            [
+                "b48813be.81ad8"
+            ]
+        ]
+    },
+    {
+        "id": "72d04ae4.c790e4",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 170,
+        "wires": [
+            [
+                "b48813be.81ad8"
+            ]
+        ]
+    },
+    {
+        "id": "3f886634.c168aa",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 205,
+        "wires": [
+            [
+                "adc88079.49cf7"
+            ]
+        ]
+    },
+    {
+        "id": "dcea5d17.160a3",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 230,
+        "wires": [
+            [
+                "adc88079.49cf7"
+            ]
+        ]
+    },
+    {
+        "id": "9cb6ab00.0d0a08",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 265,
+        "wires": [
+            [
+                "b66ca16d.25f23"
+            ]
+        ]
+    },
+    {
+        "id": "14bea0aa.b02fef",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 290,
+        "wires": [
+            [
+                "b66ca16d.25f23"
+            ]
+        ]
+    },
+    {
+        "id": "ccdd9889.ded018",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 325,
+        "wires": [
+            [
+                "7fe70003.06a72"
+            ]
+        ]
+    },
+    {
+        "id": "d44d8e18.8966e",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 350,
+        "wires": [
+            [
+                "7fe70003.06a72"
+            ]
+        ]
+    },
+    {
+        "id": "60509cf2.20bb94",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 385,
+        "wires": [
+            [
+                "a5363a70.962ba8"
+            ]
+        ]
+    },
+    {
+        "id": "facc789d.a79448",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 410,
+        "wires": [
+            [
+                "a5363a70.962ba8"
+            ]
+        ]
+    },
+    {
+        "id": "3a689742.ae1418",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 445,
+        "wires": [
+            [
+                "2ed268fd.c55898"
+            ]
+        ]
+    },
+    {
+        "id": "79fff373.3cf9ec",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 470,
+        "wires": [
+            [
+                "2ed268fd.c55898"
+            ]
+        ]
+    },
+    {
+        "id": "d6d23d5e.78926",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 505,
+        "wires": [
+            [
+                "d5f6a0cc.a1da2"
+            ]
+        ]
+    },
+    {
+        "id": "c2520629.51cf48",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 530,
+        "wires": [
+            [
+                "d5f6a0cc.a1da2"
+            ]
+        ]
+    },
+    {
+        "id": "737e12d0.88c97c",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 565,
+        "wires": [
+            [
+                "11025a42.7de296"
+            ]
+        ]
+    },
+    {
+        "id": "991b2650.d5b948",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 590,
+        "wires": [
+            [
+                "11025a42.7de296"
+            ]
+        ]
+    },
+    {
+        "id": "de600e68.2c3fb",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 625,
+        "wires": [
+            [
+                "c244026e.2e285"
+            ]
+        ]
+    },
+    {
+        "id": "d875c33e.451b5",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 650,
+        "wires": [
+            [
+                "c244026e.2e285"
+            ]
+        ]
+    },
+    {
+        "id": "eaa6ebd9.7ba478",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 685,
+        "wires": [
+            [
+                "2f965cf1.e1ecd4"
+            ]
+        ]
+    },
+    {
+        "id": "43c0ece2.e3f9b4",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 710,
+        "wires": [
+            [
+                "2f965cf1.e1ecd4"
+            ]
+        ]
+    },
+    {
+        "id": "87617e1d.2caba",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 745,
+        "wires": [
+            [
+                "626631f8.10fbd"
+            ]
+        ]
+    },
+    {
+        "id": "b1352ff9.ae1a6",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 770,
+        "wires": [
+            [
+                "626631f8.10fbd"
+            ]
+        ]
+    },
+    {
+        "id": "641c36a5.2cdc48",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 805,
+        "wires": [
+            [
+                "a9dcfecc.75539"
+            ]
+        ]
+    },
+    {
+        "id": "9ddd5a92.4a7528",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 830,
+        "wires": [
+            [
+                "a9dcfecc.75539"
+            ]
+        ]
+    },
+    {
+        "id": "fa299207.d6dc5",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 865,
+        "wires": [
+            [
+                "a20bacfb.66774"
+            ]
+        ]
+    },
+    {
+        "id": "6d5a3615.f04048",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 890,
+        "wires": [
+            [
+                "a20bacfb.66774"
+            ]
+        ]
+    },
+    {
+        "id": "f2eb4acb.3e5fa8",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 925,
+        "wires": [
+            [
+                "94200718.87f7a8"
+            ]
+        ]
+    },
+    {
+        "id": "f991fccc.480de",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 950,
+        "wires": [
+            [
+                "94200718.87f7a8"
+            ]
+        ]
+    },
+    {
+        "id": "b0696b06.d92a68",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 985,
+        "wires": [
+            [
+                "7aa13f8a.3467c"
+            ]
+        ]
+    },
+    {
+        "id": "acd371ac.5fed6",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1010,
+        "wires": [
+            [
+                "7aa13f8a.3467c"
+            ]
+        ]
+    },
+    {
+        "id": "3e0be446.25d54c",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1045,
+        "wires": [
+            [
+                "44a46e0f.2dde9"
+            ]
+        ]
+    },
+    {
+        "id": "b89d9254.d2002",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1070,
+        "wires": [
+            [
+                "44a46e0f.2dde9"
+            ]
+        ]
+    },
+    {
+        "id": "a0c8244d.1b5a48",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1105,
+        "wires": [
+            [
+                "95855d29.4fe5e"
+            ]
+        ]
+    },
+    {
+        "id": "f9f527c3.474688",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1130,
+        "wires": [
+            [
+                "95855d29.4fe5e"
+            ]
+        ]
+    },
+    {
+        "id": "20820cf4.5dc5a4",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1165,
+        "wires": [
+            [
+                "dcde4387.13c38"
+            ]
+        ]
+    },
+    {
+        "id": "a2e1d8f7.8a5d08",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1190,
+        "wires": [
+            [
+                "dcde4387.13c38"
+            ]
+        ]
+    },
+    {
+        "id": "73cdd5e3.e8b41c",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1225,
+        "wires": [
+            [
+                "69a0b6ac.306e68"
+            ]
+        ]
+    },
+    {
+        "id": "53372704.e34e08",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1250,
+        "wires": [
+            [
+                "69a0b6ac.306e68"
+            ]
+        ]
+    },
+    {
+        "id": "a81c641c.38ed08",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1285,
+        "wires": [
+            [
+                "c7fa3f1a.39d8f"
+            ]
+        ]
+    },
+    {
+        "id": "240a405e.a496f",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1310,
+        "wires": [
+            [
+                "c7fa3f1a.39d8f"
+            ]
+        ]
+    },
+    {
+        "id": "388eef69.f88b6",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1345,
+        "wires": [
+            [
+                "12bf40f1.6c6adf"
+            ]
+        ]
+    },
+    {
+        "id": "9cb9bf00.dd833",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1370,
+        "wires": [
+            [
+                "12bf40f1.6c6adf"
+            ]
+        ]
+    },
+    {
+        "id": "68a33399.bfc05c",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1405,
+        "wires": [
+            [
+                "2901872b.b20e38"
+            ]
+        ]
+    },
+    {
+        "id": "90ac5cc9.dca82",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1430,
+        "wires": [
+            [
+                "2901872b.b20e38"
+            ]
+        ]
+    },
+    {
+        "id": "34495f99.58507",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1465,
+        "wires": [
+            [
+                "30df147d.3f62ec"
+            ]
+        ]
+    },
+    {
+        "id": "572257e8.36eb38",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1490,
+        "wires": [
+            [
+                "30df147d.3f62ec"
+            ]
+        ]
+    },
+    {
+        "id": "de538246.08874",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1525,
+        "wires": [
+            [
+                "ce050578.d3e2a8"
+            ]
+        ]
+    },
+    {
+        "id": "7b3454e2.f263cc",
+        "type": "inject",
+        "z": "6d96a905.566d28",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1550,
+        "wires": [
+            [
+                "ce050578.d3e2a8"
+            ]
+        ]
+    },
+    {
+        "id": "8d9d80f6.75c8b",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/chromium_restart",
+        "x": 795,
+        "y": 1275,
+        "wires": [
+            [
+                "568db65a.21d598"
+            ]
+        ]
+    },
+    {
+        "id": "9ea5be57.3d588",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1275,
+        "wires": [
+            [
+                "8d9d80f6.75c8b"
+            ]
+        ]
+    },
+    {
+        "id": "568db65a.21d598",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"sudo systemctl restart chromium\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 1275,
+        "wires": [
+            [
+                "2d0075b2.02d58a"
+            ]
+        ]
+    },
+    {
+        "id": "646b550b.1c49bc",
+        "type": "link in",
+        "z": "b6f275f1.f50b78",
+        "name": "cm3panelshell",
+        "links": [
+            "2d0075b2.02d58a",
+            "7340e949.5a0d58"
+        ],
+        "x": 225,
+        "y": 230,
+        "wires": [
+            [
+                "eb2cee49.922f8"
+            ]
+        ]
+    },
+    {
+        "id": "2d0075b2.02d58a",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "646b550b.1c49bc"
+        ],
+        "x": 1110,
+        "y": 1275,
+        "wires": []
+    },
+    {
+        "id": "25ffc6e4.c8b05a",
+        "type": "chatbot-command",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "command": "/cm3_reboot",
+        "x": 775,
+        "y": 1315,
+        "wires": [
+            [
+                "f844cfe5.bb87f"
+            ]
+        ]
+    },
+    {
+        "id": "2f62ea26.46a496",
+        "type": "link in",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "9923dbbf.00ff88"
+        ],
+        "x": 665,
+        "y": 1315,
+        "wires": [
+            [
+                "25ffc6e4.c8b05a"
+            ]
+        ]
+    },
+    {
+        "id": "f844cfe5.bb87f",
+        "type": "function",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "func": "msg.payload=\"sudo reboot\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 1315,
+        "wires": [
+            [
+                "7340e949.5a0d58"
+            ]
+        ]
+    },
+    {
+        "id": "7340e949.5a0d58",
+        "type": "link out",
+        "z": "9baf0a1c.2eb568",
+        "name": "",
+        "links": [
+            "646b550b.1c49bc"
+        ],
+        "x": 1110,
+        "y": 1315,
+        "wires": []
+    },
+    {
+        "id": "7677fb0d.fe5d04",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KWL1-GEN",
+        "func": "global.set('KWL1-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 600,
+        "wires": [
+            [
+                "fc9a63f.9f9e7a"
+            ]
+        ]
+    },
+    {
+        "id": "fc9a63f.9f9e7a",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KWL-TOT",
+        "func": "var kw1 = parseFloat(global.get('KWL1-GEN')||\"0\");\nvar kw2 = parseFloat(global.get('KWL2-GEN')||\"0\");\nvar kw3 = parseFloat(global.get('KWL3-GEN')||\"0\");\n\nvar kw=kw1+kw2+kw3;\n\nmsg.payload=kw.toFixed(3);\nglobal.set('KWL-TOT',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 645,
+        "y": 650,
+        "wires": [
+            [
+                "d4a10cec.9cd46"
+            ]
+        ]
+    },
+    {
+        "id": "445b307c.8647f",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KWL2-GEN",
+        "func": "global.set('KWL2-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 650,
+        "wires": [
+            [
+                "fc9a63f.9f9e7a"
+            ]
+        ]
+    },
+    {
+        "id": "e6c2d75a.ba06a8",
+        "type": "function",
+        "z": "9a56a685.0b3558",
+        "name": "KWL3-GEN",
+        "func": "global.set('KWL3-GEN',msg.payload);\nnode.status({fill:\"green\",shape:\"dot\",text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 700,
+        "wires": [
+            [
+                "fc9a63f.9f9e7a"
+            ]
+        ]
+    },
+    {
+        "id": "d4a10cec.9cd46",
+        "type": "link out",
+        "z": "9a56a685.0b3558",
+        "name": "kwtot",
+        "links": [
+            "21028cdf.d8fb64"
+        ],
+        "x": 755,
+        "y": 650,
+        "wires": []
+    },
+    {
+        "id": "adc88079.49cf7",
+        "type": "link out",
+        "z": "6d96a905.566d28",
+        "name": "",
+        "links": [
+            "b9c797af.9ef868"
+        ],
+        "x": 570,
+        "y": 215,
+        "wires": []
+    },
+    {
+        "id": "7559c8a2.9de798",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 765,
+        "wires": []
+    },
+    {
+        "id": "395a341b.f4eb5c",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/17/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1300,
+        "wires": [
+            [
+                "d8377df5.d142d"
+            ]
+        ]
+    },
+    {
+        "id": "a213caad.0939b8",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/17/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1335,
+        "wires": [
+            [
+                "d8377df5.d142d"
+            ]
+        ]
+    },
+    {
+        "id": "d8377df5.d142d",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 445,
+        "y": 1315,
+        "wires": []
+    },
+    {
+        "id": "6391e88d.282278",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Gestione MQTT relay su scheda Denkovi id da 1 a 16",
+        "info": "",
+        "x": 1190,
+        "y": 50,
+        "wires": []
+    },
+    {
+        "id": "4a6c361f.d1e718",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Gestione MQTT sonoff S26 id da 17 a 27",
+        "info": "",
+        "x": 1150,
+        "y": 205,
+        "wires": []
+    },
+    {
+        "id": "e902ec21.409c",
+        "type": "function",
+        "z": "b9aee244.570dc",
+        "name": "Sonoff gateway",
+        "func": "var res = msg.topic.split(\"/\");\nvar msg1={};\n\nlight_id=parseInt(res[2]);\nlight_value=parseInt(msg.payload);\n\nif (light_id>=17 && light_id<=27) {\n\n    if (light_id==17)\n        sonoff_id=\"023\";\n\n    if (light_id==18)\n        sonoff_id=\"005\";\n    \n    if (light_id==19)\n        sonoff_id=\"019\";\n\n    if (light_id==20)\n        sonoff_id=\"006\";\n\n    if (light_id==21)\n        sonoff_id=\"003\";\n\n    if (light_id==22)\n        sonoff_id=\"002\";\n\n    if (light_id==23)\n        sonoff_id=\"008\";\n\n    if (light_id==24)\n        sonoff_id=\"024\";\n\n    if (light_id==25)\n        sonoff_id=\"011\";\n\n    if (light_id==26)\n        sonoff_id=\"001\";\n\n    if (light_id==27)\n        sonoff_id=\"021\";\n\n    if (light_value===0)\n        msg.payload=\"OFF\";\n    else    \n        msg.payload=\"ON\";\n\n    msg.topic=\"sonoff-s26/\" + sonoff_id + \"/cmnd/POWER\";\n\n    msg1.topic=\"toa/lights/\" + light_id + \"/current_value\";\n    msg1.payload=light_value;\n\n    return [msg,msg1];\n}  \n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 1070,
+        "y": 245,
+        "wires": [
+            [
+                "36ec5fa3.81444"
+            ],
+            [
+                "24a3599a.00fa86"
+            ]
+        ]
+    },
+    {
+        "id": "36ec5fa3.81444",
+        "type": "mqtt out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "86a1cd35.744c2",
+        "x": 1285,
+        "y": 245,
+        "wires": []
+    },
+    {
+        "id": "24a3599a.00fa86",
+        "type": "mqtt out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "true",
+        "broker": "86a1cd35.744c2",
+        "x": 1285,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "21751a45.bef676",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "info": "",
+        "x": 170,
+        "y": 765,
+        "wires": []
+    },
+    {
+        "id": "f31b65ee.bf9898",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/10/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 990,
+        "wires": [
+            [
+                "cc1f22ab.da4ca"
+            ]
+        ]
+    },
+    {
+        "id": "6ad73e5a.c9dd",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/10/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1025,
+        "wires": [
+            [
+                "cc1f22ab.da4ca"
+            ]
+        ]
+    },
+    {
+        "id": "cc1f22ab.da4ca",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 990,
+        "wires": []
+    },
+    {
+        "id": "6a49ed99.98fa84",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Gialla 13",
+        "info": "",
+        "x": 160,
+        "y": 990,
+        "wires": []
+    },
+    {
+        "id": "3a5132e.53e05ce",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/1/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 90,
+        "wires": [
+            [
+                "b499b4b7.775a48"
+            ]
+        ]
+    },
+    {
+        "id": "eca92a20.a9ba68",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/1/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 125,
+        "wires": [
+            [
+                "b499b4b7.775a48"
+            ]
+        ]
+    },
+    {
+        "id": "b499b4b7.775a48",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "fe86e74d.6e24e8",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Terrazzino 1",
+        "info": "",
+        "x": 150,
+        "y": 90,
+        "wires": []
+    },
+    {
+        "id": "7f797a38.2c26a4",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/2/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 165,
+        "wires": [
+            [
+                "ca765209.0bac2"
+            ]
+        ]
+    },
+    {
+        "id": "b1645e22.32ab2",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/2/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 200,
+        "wires": [
+            [
+                "ca765209.0bac2"
+            ]
+        ]
+    },
+    {
+        "id": "ca765209.0bac2",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 165,
+        "wires": []
+    },
+    {
+        "id": "bb9bc981.585458",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Terrazzone 2",
+        "info": "",
+        "x": 150,
+        "y": 165,
+        "wires": []
+    },
+    {
+        "id": "a675e7f1.3d7ac8",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/3/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 240,
+        "wires": [
+            [
+                "76cf4858.1c3298"
+            ]
+        ]
+    },
+    {
+        "id": "fb7301eb.17ef",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/3/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 275,
+        "wires": [
+            [
+                "76cf4858.1c3298"
+            ]
+        ]
+    },
+    {
+        "id": "76cf4858.1c3298",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "aa31484f.705d18",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Scala 3",
+        "info": "",
+        "x": 170,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c43a4590.cbc538",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/4/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 315,
+        "wires": [
+            [
+                "e6c4f1d8.57174"
+            ]
+        ]
+    },
+    {
+        "id": "cee05f0c.3775",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/4/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 350,
+        "wires": [
+            [
+                "e6c4f1d8.57174"
+            ]
+        ]
+    },
+    {
+        "id": "e6c4f1d8.57174",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 315,
+        "wires": []
+    },
+    {
+        "id": "e7e41f9f.9966a",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Bar 4",
+        "info": "",
+        "x": 170,
+        "y": 315,
+        "wires": []
+    },
+    {
+        "id": "aad6e1da.1f484",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/5/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 390,
+        "wires": [
+            [
+                "249ce012.89255"
+            ]
+        ]
+    },
+    {
+        "id": "869cf6d4.504af8",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/5/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 425,
+        "wires": [
+            [
+                "249ce012.89255"
+            ]
+        ]
+    },
+    {
+        "id": "249ce012.89255",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "59e0bbf8.6817b4",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Pensile 5",
+        "info": "",
+        "x": 160,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "a5f8a1a0.eefc",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/6/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 465,
+        "wires": [
+            [
+                "547aace9.a09654"
+            ]
+        ]
+    },
+    {
+        "id": "85f895ec.657d38",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/6/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 500,
+        "wires": [
+            [
+                "547aace9.a09654"
+            ]
+        ]
+    },
+    {
+        "id": "547aace9.a09654",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 465,
+        "wires": []
+    },
+    {
+        "id": "270643ed.e11e2c",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Bagno uomini 6",
+        "info": "",
+        "x": 140,
+        "y": 465,
+        "wires": []
+    },
+    {
+        "id": "74cf51fb.57742",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/7/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 540,
+        "wires": [
+            [
+                "bfa7c981.62b368"
+            ]
+        ]
+    },
+    {
+        "id": "bf98a7c.a9fd158",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/7/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 575,
+        "wires": [
+            [
+                "bfa7c981.62b368"
+            ]
+        ]
+    },
+    {
+        "id": "bfa7c981.62b368",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f9b1889b.e57138",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Bagno donne 7",
+        "info": "",
+        "x": 140,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d1b521cd.ede11",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/8/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 615,
+        "wires": [
+            [
+                "132f19ea.4aca26"
+            ]
+        ]
+    },
+    {
+        "id": "3634b749.cc3188",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/8/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 650,
+        "wires": [
+            [
+                "132f19ea.4aca26"
+            ]
+        ]
+    },
+    {
+        "id": "132f19ea.4aca26",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 615,
+        "wires": []
+    },
+    {
+        "id": "44099ac2.e04434",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Specchio uomini 8",
+        "info": "",
+        "x": 130,
+        "y": 615,
+        "wires": []
+    },
+    {
+        "id": "af9b2bf1.cb6b88",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/9/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 690,
+        "wires": [
+            [
+                "c89c1660.29d788"
+            ]
+        ]
+    },
+    {
+        "id": "de88f06a.55e08",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/9/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 725,
+        "wires": [
+            [
+                "c89c1660.29d788"
+            ]
+        ]
+    },
+    {
+        "id": "c89c1660.29d788",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "75850c04.b62e04",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Specchio donne 9",
+        "info": "",
+        "x": 130,
+        "y": 690,
+        "wires": []
+    },
+    {
+        "id": "46285514.89a9ec",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/11/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 840,
+        "wires": [
+            [
+                "ffecf8c9.ca21d8"
+            ]
+        ]
+    },
+    {
+        "id": "dd21e705.3155f8",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/11/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 875,
+        "wires": [
+            [
+                "ffecf8c9.ca21d8"
+            ]
+        ]
+    },
+    {
+        "id": "ffecf8c9.ca21d8",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1dba887f.d15348",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Cucina 11",
+        "info": "",
+        "x": 160,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "22e17d1f.5b3042",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/12/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 915,
+        "wires": [
+            [
+                "467279f1.91cce8"
+            ]
+        ]
+    },
+    {
+        "id": "9cff4474.addf58",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/12/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 950,
+        "wires": [
+            [
+                "467279f1.91cce8"
+            ]
+        ]
+    },
+    {
+        "id": "467279f1.91cce8",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 915,
+        "wires": []
+    },
+    {
+        "id": "2976dbe8.cd9f84",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Uffici 12",
+        "info": "",
+        "x": 160,
+        "y": 915,
+        "wires": []
+    },
+    {
+        "id": "94ba6382.93583",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/14/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1065,
+        "wires": [
+            [
+                "f9eafcc8.5e15e"
+            ]
+        ]
+    },
+    {
+        "id": "97cd1db.7dfdee",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/14/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1100,
+        "wires": [
+            [
+                "f9eafcc8.5e15e"
+            ]
+        ]
+    },
+    {
+        "id": "f9eafcc8.5e15e",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 1065,
+        "wires": []
+    },
+    {
+        "id": "f7152e0f.0fe1a",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "14",
+        "info": "",
+        "x": 165,
+        "y": 1065,
+        "wires": []
+    },
+    {
+        "id": "ad8ef15e.be8d4",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/15/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1140,
+        "wires": [
+            [
+                "8d723377.717f2"
+            ]
+        ]
+    },
+    {
+        "id": "9b83a1a3.55e7c",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/15/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1175,
+        "wires": [
+            [
+                "8d723377.717f2"
+            ]
+        ]
+    },
+    {
+        "id": "8d723377.717f2",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "990d3120.6043f",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "15",
+        "info": "",
+        "x": 165,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "d0afb268.73809",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/16/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1220,
+        "wires": [
+            [
+                "80bb1f3c.9bb31"
+            ]
+        ]
+    },
+    {
+        "id": "ce1a9527.5fcd68",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/16/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1255,
+        "wires": [
+            [
+                "80bb1f3c.9bb31"
+            ]
+        ]
+    },
+    {
+        "id": "80bb1f3c.9bb31",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "Sala 10",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 440,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "fe675761.8f8cb8",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Verde 16",
+        "info": "",
+        "x": 150,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "1cee977a.f202d9",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Sergio 17",
+        "info": "",
+        "x": 150,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "ba266ed9.01274",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/26/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1380,
+        "wires": [
+            [
+                "e1cd2941.b90e08"
+            ]
+        ]
+    },
+    {
+        "id": "fb260ab9.2c5588",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/26/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1415,
+        "wires": [
+            [
+                "e1cd2941.b90e08"
+            ]
+        ]
+    },
+    {
+        "id": "e1cd2941.b90e08",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 445,
+        "y": 1395,
+        "wires": []
+    },
+    {
+        "id": "563e769a.5471d8",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Sergio 1 26",
+        "info": "",
+        "x": 140,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "9db36c33.7239d",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "ON",
+        "topic": "toa/lights/27/set_value",
+        "payload": "255",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1460,
+        "wires": [
+            [
+                "da965d04.73313"
+            ]
+        ]
+    },
+    {
+        "id": "c503fe90.882c5",
+        "type": "inject",
+        "z": "b9aee244.570dc",
+        "name": "OFF",
+        "topic": "toa/lights/27/set_value",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 305,
+        "y": 1495,
+        "wires": [
+            [
+                "da965d04.73313"
+            ]
+        ]
+    },
+    {
+        "id": "da965d04.73313",
+        "type": "link out",
+        "z": "b9aee244.570dc",
+        "name": "",
+        "links": [
+            "9e968d97.df504"
+        ],
+        "x": 445,
+        "y": 1475,
+        "wires": []
+    },
+    {
+        "id": "7358632.391f29c",
+        "type": "comment",
+        "z": "b9aee244.570dc",
+        "name": "Sergio 2 27",
+        "info": "",
+        "x": 140,
+        "y": 1460,
         "wires": []
     }
 ]
