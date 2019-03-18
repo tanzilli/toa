@@ -1,3 +1,16 @@
+// tanzoClock
+
+class tanzoClock {
+	constructor(domElementId,topline,bottomline) {
+		$('#' + domElementId).thooClock({
+				size: 300,
+				showNumerals:true,
+				brandText: topline,
+				brandText2: bottomline
+		});
+	}
+}
+
 // thooClock, a jQuery Clock with alarm function
 // by Thomas Haaf aka thooyork, http://www.smart-sign.com
 // Twitter: @thooyork
@@ -444,3 +457,4 @@
   };     
 
 }(jQuery));
+

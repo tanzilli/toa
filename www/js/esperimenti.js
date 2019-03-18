@@ -80,34 +80,6 @@ function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
 	});
 	
 	
-// Gestione degli switch
-
-class TanzoSwitch {
-	constructor(target,address,caption) {
-		this.target = target;
-		this.address = address;
-		
-		$("#" + this.target).html(`
-			<div style="border: 2px solid black; background-color: grey; background-color:rgba(0, 0, 0, 0.5); border-color: light-grey; width: 380px; margin-bottom: 20px;">
-				<table><tr><td>
-					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="` + address + `">
-					    <label class="onoffswitch-label" for="` + address + `">
-					        <span class="onoffswitch-inner"></span>
-					        <span class="onoffswitch-switch"></span>
-					    </label>
-					</div>
-				</td>
-				<td style="font-size: 30px; color: white; padding-left: 10px;">
-			    	` + caption + `
-			    </td>
-			    </tr>
-			    </table>
-			</div>
-		`)
-	}
-}
-	
 <div id="openweathermap-widget-19"></div>
 <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 19,cityid: '6541616',appid: '8863b1667122acbd6dd44a65813adb13',units: 'metric',containerid: 'openweathermap-widget-19',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 

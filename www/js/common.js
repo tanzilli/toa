@@ -82,23 +82,26 @@ function onMessageArrived(message) {
 }	
 
 $(document).ready(function() {
-	//*****************************************************************************
-	// Interpretazione messaggi MQTT in arrivo
-	//*****************************************************************************
+
+	// Aggiorna la data
+	var days = ["Domenica","Lunedi","Martedi","Mercoledi","Giovedi","Venerdi","Sabato"];
+	var months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 	
+	function updateDate() {
+		var d = new Date();
+		$("#date").html(days[d.getDay()] + " " +  d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear())
+	}
+
+	// Interpretazione messaggi MQTT in arrivo
 	mqtt_mainpage_client = new Paho.MQTT.Client(mqtt_broker, Number(mqtt_port), "/ws",randomString(20));
 	mqtt_mainpage_client.onMessageArrived=onMessageArrived;
 	mqtt_mainpage_client.connect({
 		onSuccess:onConnect
 	});
 
-	//*****************************************************************************
 	// Carica il video di background se specificato sulla url
 	// video=videofile
-	//*****************************************************************************
-	
 	if ($.QueryString["video"]!==undefined) {
 		loadVideo($.QueryString["video"]);
 	}
-	
 });

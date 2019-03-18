@@ -1,75 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Acme CM3-Panel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
 
-
-	<script src="js/paho-mqtt-min.js"     type="text/javascript"></script>
+	<script src="js/paho-mqtt-min.js"    type="text/javascript"></script>
 	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-	<script src="js/jquery.thooClock.js" type="text/javascript"></script>	
+	<script src="js/tanzo_clock.js"      type="text/javascript"></script>	
+	<script src="js/tanzo_date.js"       type="text/javascript"></script>	
 	<script src="js/tanzo_switch.js"     type="text/javascript"></script>	
 	<script src="js/tanzo_message.js"    type="text/javascript"></script>	
 	<script src="js/common.js"           type="text/javascript"></script>	
-
-	<style>
-		body { 
-			background-color: black;
-			background-image: url("images/bg_001_800.jpg");
-		}
-		
-		/* html { cursor: none; } */
-	</style>
-
-	<script>
-
-		//*****************************************************************************
-		// Aggiorna la data
-		//*****************************************************************************
-		
-		var days = ["Domenica","Lunedi","Martedi","Mercoledi","Giovedi","Venerdi","Sabato"];
-		var months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
-		
-		function updateDate() {
-			var d = new Date();
-			$("#date").html(days[d.getDay()] + " " +  d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear())
-		}
-		
-		$(document).ready(function() {
-			//*****************************************************************************
-			// Creazione linea messaggi CM3-Panel
-			//*****************************************************************************
-			message_line = new tanzoMessage("message_line");
-			//message_line.message("benvenuti in Acme Systems srl");
-		
-			//*****************************************************************************
-			// Creazione switch su CM3-Panel
-			//*****************************************************************************
-			new tanzoSwitch("Sala","10","p0");
-			new tanzoSwitch("Cucina","11","p1");
-			new tanzoSwitch("Uffici","12","p2");
-		
-			//*****************************************************************************
-			// Creazione orologio su CM3-Panel
-			//*****************************************************************************
-
-			$('#clock').thooClock({
-					size: 300,
-					showNumerals:true,
-					brandText:'ACME SYSTEMS',
-					brandText2:'Italy',
-					onEverySecond:function(){
-						updateDate();
-				}
-			});
-		});
-
-		
-	</script>
 	
-	<title>Acme CM3-Panel</title>
+	<link href="js/panel.css" 		 type="text/css" rel="stylesheet">
+
+	<script>		
+		$(document).ready(function() {
+			message_line = new tanzoMessage("message_line");
+			
+			new tanzoSwitch("Bagno","6","p0");
+			
+			new tanzoClock("clock","ACME SYSTEMS","Italy");
+			new tanzoDate("date");
+		});
+	</script>
 </head>
 
 <body>
@@ -79,11 +36,13 @@
 	</video>
 
 	<!-- Tasti -->
-	<div style="position: fixed; top: 50px; right:50px;">
+	<div style="position: fixed; top: 5px; right:5px;">
 		<div id="p0"></div>
 		<div id="p1"></div>
 		<div id="p2"></div>
 		<div id="p3"></div>
+		<div id="p4"></div>
+		<div id="p5"></div>
 	</div>
 	
 	<!-- Orologio -->

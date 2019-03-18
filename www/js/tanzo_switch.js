@@ -14,11 +14,11 @@ class tanzoSwitch {
 				//border-color: red; 
 				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 				width: 260px; 
-				height: 60px;
-				line-height: 60px;
+				height: 55px;
+				line-height: 55px;
 				padding-top: 4px;
 				padding-bottom: 4px;
-				margin-bottom: 20px;
+				margin-bottom: 5px;
 				font-family: arial;
 				font-size: 28px; 
 				color: white; 
