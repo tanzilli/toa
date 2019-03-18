@@ -52,7 +52,7 @@ function onConnect() {
 }	
 
 function onMessageArrived(message) {
-	console.log(message.destinationName + " " + message.payloadString);
+	//console.log(message.destinationName + " " + message.payloadString);
 
 	json_data = JSON.parse(message.payloadString);
 
@@ -73,12 +73,29 @@ function onMessageArrived(message) {
 
 	// Gestione orologio
 	if (json_data.cmd=="clock_off") {
-		$("#clockdatewidget").animate({opacity: 0.0,top: '480px'}, "slow");
+		//$("#clock").animate({opacity: 0.0,top: '480px'}, "slow");
+		clock.off();	
 	}    
 	
 	if (json_data.cmd=="clock_on") {
-		$("#clockdatewidget").animate({opacity: 1.0,top: '65px'}, "slow");
+		//$("#clock").animate({opacity: 1.0,top: '65px'}, "slow");
+		clock.on();	
 	}
+
+	// Gestione solar gauge
+	if (json_data.cmd=="solar_gauge_off") {
+		gauge.off();	
+	}    
+	
+	if (json_data.cmd=="solar_gauge_on") {
+		gauge.on();	
+	}
+
+	// Potenza solare
+	if (json_data.cmd=="solar_value") {
+		gauge.setValue(json_data.value);
+	}    
+
 }	
 
 $(document).ready(function() {

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Acme CM3-Panel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<script src="js/paho-mqtt-min.js"    type="text/javascript"></script>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/twidgets1.js"         type="text/javascript"></script>	
+	<script src="js/raphael-2.1.4.min.js"></script>
+	<script src="js/justgage.js"></script>
+	<script src="js/common.js"           type="text/javascript"></script>	
+	
+	<link href="js/panel.css" 		 type="text/css" rel="stylesheet">
+
+	<script>
+		$(document).ready(function() {
+			message_line = new tanzoMessage("message_line");
+
+			// Carica il gruppo di tasti sulla base del parametro sulla url
+			// id=id
+
+			//Cucina
+			if ($.QueryString["id"]!==undefined) {
+
+				// CM2 - Sala
+				if ($.QueryString["id"]=="2") {
+					new tanzoSwitch("Sala",       10,"p1");
+					new tanzoSwitch("Scala",       3,"p0");
+					new tanzoSwitch("Cucina",     11,"p2");
+					new tanzoSwitch("Uffici",     12,"p3");
+					new tanzoSwitch("Terrazzo",    2,"p4");
+				}
+
+				// CM8 - Scala primo piano
+				if ($.QueryString["id"]=="8") {
+					new tanzoSwitch("Scala",   3,"p0");
+					new tanzoSwitch("Uffici", 12,"p1");
+					new tanzoSwitch("Sala",   10,"p2");
+				}
+
+				// CM11 - Daniela
+				if ($.QueryString["id"]=="11") {
+					new tanzoSwitch("Packaging", 20,"p0");
+					new tanzoSwitch("Benito",    19,"p1");
+					new tanzoSwitch("Daniela",   22,"p2");
+					new tanzoSwitch("Tiziana",   21,"p3");
+					new tanzoSwitch("Uffici",    12,"p4");
+					new tanzoSwitch("Scala",      3,"p5");
+				}
+
+				// CM12 - Roberto
+				if ($.QueryString["id"]=="12") {
+					new tanzoSwitch("Roberto",   18,"p0");
+					new tanzoSwitch("Uffici",    12,"p1");
+					new tanzoSwitch("Cucina",    11,"p2");
+					new tanzoSwitch("Sala",      10,"p3");
+					new tanzoSwitch("Terrazzo",   1,"p4");
+					new tanzoSwitch("Scala",      3,"p5");
+				}
+
+				// CM14 - Ingresso stanza gialla
+				if ($.QueryString["id"]=="14") {
+					new tanzoSwitch("Sergio",    17,"p0");
+					new tanzoSwitch("Piantana 1",26,"p1");
+					new tanzoSwitch("Piantana 2",27,"p2");
+					new tanzoSwitch("Uffici",    12,"p3");
+					new tanzoSwitch("Cucina",    11,"p4");
+					new tanzoSwitch("Sala",      10,"p5");
+				}
+
+				// CM15 - Stanza gialla
+				if ($.QueryString["id"]=="15") {
+					new tanzoSwitch("Stanza",    13,"p0");
+					new tanzoSwitch("Uffici",    12,"p1");
+					new tanzoSwitch("Terrazzo",   1,"p2");
+				}
+
+				// CM20 - Stanza stanza verde
+				if ($.QueryString["id"]=="20") {
+					new tanzoSwitch("Stanza",    16,"p0");
+					new tanzoSwitch("Uffici",    12,"p1");
+				}
+
+				// CM23 - Uscita terrazzone
+				if ($.QueryString["id"]=="23") {
+					new tanzoSwitch("Terrazzo",   2,"p0");
+					new tanzoSwitch("Sala",      10,"p1");
+				}
+
+				// CM25 - Piano terra
+				if ($.QueryString["id"]=="25") {
+					new tanzoSwitch("Scala",      3,"p0");
+					new tanzoSwitch("Piantana 1",23,"p1");
+					new tanzoSwitch("Piantana 2",24,"p2");
+					new tanzoSwitch("Magazzino", 25,"p3");
+				}
+
+				// CM28 - Cucina
+				if ($.QueryString["id"]=="28") {
+					new tanzoSwitch("Cucina",    11,"p0");
+					new tanzoSwitch("Sala",      10,"p1");
+					new tanzoSwitch("Uffici",    12,"p2");
+					new tanzoSwitch("Terrazzone", 2,"p3");
+					new tanzoSwitch("Terrazzino", 1,"p4");
+				}
+
+				// CM3 - Test2
+				if ($.QueryString["id"]=="3") {
+					new tanzoSwitch("Sergio",    17,"p0");
+					new tanzoSwitch("Piantana 1",26,"p1");
+					new tanzoSwitch("Piantana 2",27,"p2");
+					new tanzoSwitch("Uffici",    12,"p3");
+					new tanzoSwitch("Cucina",    11,"p4");
+					new tanzoSwitch("Sala",      10,"p5");
+				}
+
+				// CM100 - Test1
+				if ($.QueryString["id"]=="100") {
+					new tanzoSwitch("Sergio",    17,"p0");
+					new tanzoSwitch("Piantana 1",26,"p1");
+					new tanzoSwitch("Piantana 2",27,"p2");
+					new tanzoSwitch("Uffici",    12,"p3");
+					new tanzoSwitch("Cucina",    11,"p4");
+					new tanzoSwitch("Sala",      10,"p5");
+				}
+				
+				if ($.QueryString["id"]=="test1") {
+					new tanzoSwitch("Bagno",6,"p0");
+				}
+
+				if ($.QueryString["id"]=="test2") {
+					new tanzoSwitch("Bagno",6,"p0");
+				}
+			}
+			
+			clock = new tanzoClock("clock","ACME SYSTEMS","Italy");
+			clock.off();
+
+			gauge = new tanzoGauge("gauge","SOLAR KW");
+			
+		});	
+	</script>
+</head>
+
+<body>
+	<!-- Video sullo sfondo -->
+	<video autoplay muted loop id="videoclip" style="position: fixed; right: 0px; bottom: 0px; min-width: 100%; min-height: 100%;">
+	  <source id="mp4video" type="video/mp4">
+	</video>
+
+	<!-- Tasti -->
+	<div style="position: fixed; top: 5px; right:5px;">
+		<div id="p0"></div>
+		<div id="p1"></div>
+		<div id="p2"></div>
+		<div id="p3"></div>
+		<div id="p4"></div>
+		<div id="p5"></div>
+	</div>
+
+	<div id="gauge" style="position: fixed; top: 480px; left: 30px; width:400px; height:400px;)"></div>
+	
+	<!-- Orologio e data -->
+	<div id="clock" style="position: fixed; top: 480px; left: 30px;)"></div>
+	
+	<!-- Linea di messaggi in basso -->
+	<div id="message_line"></div>
+</body>
+</html>
