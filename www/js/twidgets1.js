@@ -28,7 +28,8 @@ class tanzoGauge {
 						  "#FF0000",
 						  "#00FF00"
 						],
-				valueFontColor: "#FFFFFF",			  
+				valueFontColor: "#FFFFFF",		
+				hideMinMax: true,	  
 			});
 			
 			this.g=g;
@@ -39,13 +40,49 @@ class tanzoGauge {
 	}
 	
 	on() {
-		$("#" + this.domElementId).animate({opacity: 1.0,top: '50px'}, "slow");
+		//$("#" + this.domElementId).animate({opacity: 1.0}, "fast");
+		$("#" + this.domElementId).show();
 	}
 
 	off() {
-		$("#" + this.domElementId).animate({opacity: 0.0,top: '480px'}, "slow");
+		//$("#" + this.domElementId).animate({opacity: 0.0}, "fast");
+		$("#" + this.domElementId).hide();
 	}
 }	
+
+
+// **************
+// tanzoIcon
+// **************
+// https://www.w3schools.com/icons/icons_reference.asp
+
+class tanzoIcon {
+	constructor(domElementId) {
+		this.domElementId = domElementId;
+		this.state = 0;
+
+		$("#" + this.domElementId).click(this.click_handler.bind(this));
+		
+		$("#" + this.domElementId).html("<i style='font-size: 50px; color: white; padding: 10px; color:lightblue;text-shadow:4px 4px 8px #000000;' class='fas fa-redo'></i>")
+		
+	}
+
+	click_handler() {
+		var message;
+		if (this.state===0) {
+			solar.on();
+			enel.on();
+			clock.off();
+			this.state=1;
+		} else {
+			solar.off();
+			enel.off();
+			clock.on();
+			this.state=0;
+		}	
+	}
+}
+
 
 // **************
 // tanzoSwitch
@@ -160,11 +197,14 @@ class tanzoClock {
 	}
 	
 	on() {
-		$("#" + this.domElementId).animate({opacity: 1.0,top: '65px'}, "slow");
+		//$("#" + this.domElementId).animate({opacity: 1.0}, "fast");
+		$("#" + this.domElementId).show();
+
 	}
 
 	off() {
-		$("#" + this.domElementId).animate({opacity: 0.0,top: '480px'}, "slow");
+		//$("#" + this.domElementId).animate({opacity: 0.0}, "fast");
+		$("#" + this.domElementId).hide();
 	}
 
 }
@@ -177,10 +217,10 @@ class tanzoClock {
 // https://stackoverflow.com/questions/42233090/access-class-properties-outside-of-mqtt-callback-scope
 
 class tanzoMessage {
-	constructor(target) {
-		this.target = target;
+	constructor(domElementId) {
+		this.domElementId = domElementId;
 		
-		$("#" + this.target).attr("style",`
+		$("#" + this.domElementId).attr("style",`
 		    position: fixed;
 		    color: white;
 		    width: 100%;
@@ -195,8 +235,8 @@ class tanzoMessage {
 		    font-size: 20px;
 		`);
 		
-		$("#" + this.target).html(`
-			<span id="` + this.target + "_span" + `" style="position: relative;"></span>
+		$("#" + this.domElementId).html(`
+			<span id="` + this.domElementId + "_span" + `" style="position: relative;"></span>
 		`);
 
 		//*****************************************************************************
@@ -213,10 +253,8 @@ class tanzoMessage {
 	
 	message(text) {
 		this.text=text;
-		$("#" + this.target + "_span").animate({opacity: 0.0,bottom: '+=10px'}, "fast");
-		setTimeout(this.tickerIn, 500,this.target,this.text)
-		
-		//$("#" + this.target + "_span").html(text);
+		$("#" + this.domElementId + "_span").animate({opacity: 0.0,bottom: '+=10px'}, "fast");
+		setTimeout(this.tickerIn, 500,this.domElementId,this.text)
 	}
 
 	tickerIn(target,text) {

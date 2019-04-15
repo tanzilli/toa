@@ -7,32 +7,40 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
 
-	<script src="js/paho-mqtt-min.js"    type="text/javascript"></script>
-	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/paho-mqtt-min.js"     type="text/javascript"></script>
+	<script src="js/jquery-3.3.1.min.js"  type="text/javascript"></script>
 	<script src="js/twidgets1.js"         type="text/javascript"></script>	
-	<script src="js/raphael-2.1.4.min.js"></script>
-	<script src="js/justgage.js"></script>
-	<script src="js/common.js"           type="text/javascript"></script>	
+	<script src="js/raphael-2.1.4.min.js" type="text/javascript"></script>
+	<script src="js/justgage.js"          type="text/javascript"></script>
+	<script src="js/main.js"              type="text/javascript"></script>	
 	
-	<link href="js/panel.css" 		 type="text/css" rel="stylesheet">
+	<link href="js/panel.css" 		      type="text/css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" rel="stylesheet"  crossorigin="anonymous">
 
 	<script>
 		$(document).ready(function() {
-			message_line = new tanzoMessage("message_line");
-
 			// Carica il gruppo di tasti sulla base del parametro sulla url
 			// id=id
 
-			//Cucina
 			if ($.QueryString["id"]!==undefined) {
 
-				// CM2 - Sala
+				// CM2 - Sala proiettore SX
 				if ($.QueryString["id"]=="2") {
-					new tanzoSwitch("Sala",       10,"p1");
-					new tanzoSwitch("Scala",       3,"p0");
-					new tanzoSwitch("Cucina",     11,"p2");
-					new tanzoSwitch("Uffici",     12,"p3");
-					new tanzoSwitch("Terrazzo",    2,"p4");
+					new tanzoSwitch("Sala (Luci)",      10,"p0");
+					new tanzoSwitch("Sala (Piantane)",  100,"p1");
+					new tanzoSwitch("Scala",       		3,"p2");
+					new tanzoSwitch("Cucina",     		11,"p3");
+					new tanzoSwitch("Uffici",     		12,"p4");
+					new tanzoSwitch("Disco light",      28,"p5");
+				}
+
+				// CM3 - Sala proietto DS
+				if ($.QueryString["id"]=="3") {
+					new tanzoSwitch("Sala (Luci)",      10,"p0");
+					new tanzoSwitch("Disco light",      28,"p1");
+					new tanzoSwitch("Cucina",     		11,"p2");
+					new tanzoSwitch("Uffici",     		12,"p3");
+					new tanzoSwitch("Non toccare !",   200,"p4");
 				}
 
 				// CM8 - Scala primo piano
@@ -83,6 +91,13 @@
 				if ($.QueryString["id"]=="20") {
 					new tanzoSwitch("Stanza",    16,"p0");
 					new tanzoSwitch("Uffici",    12,"p1");
+					new tanzoSwitch("Disco light", 28,"p2");					
+				}
+
+				// CM22 - Sala
+				if ($.QueryString["id"]=="22") {
+					new tanzoSwitch("Terrazzo",   2,"p0");
+					new tanzoSwitch("Sala",      10,"p1");
 				}
 
 				// CM23 - Uscita terrazzone
@@ -108,16 +123,6 @@
 					new tanzoSwitch("Terrazzino", 1,"p4");
 				}
 
-				// CM3 - Test2
-				if ($.QueryString["id"]=="3") {
-					new tanzoSwitch("Sergio",    17,"p0");
-					new tanzoSwitch("Piantana 1",26,"p1");
-					new tanzoSwitch("Piantana 2",27,"p2");
-					new tanzoSwitch("Uffici",    12,"p3");
-					new tanzoSwitch("Cucina",    11,"p4");
-					new tanzoSwitch("Sala",      10,"p5");
-				}
-
 				// CM100 - Test1
 				if ($.QueryString["id"]=="100") {
 					new tanzoSwitch("Sergio",    17,"p0");
@@ -137,11 +142,49 @@
 				}
 			}
 			
-			clock = new tanzoClock("clock","ACME SYSTEMS","Italy");
-			clock.off();
-
-			gauge = new tanzoGauge("gauge","SOLAR KW");
 			
+			clock = new tanzoClock("clock","ACME SYSTEMS","Italy");
+			
+			solar = new tanzoGauge("solar","SOLAR KW");
+			solar.g.levelColors=["#00FF00"];
+			
+			enel  = new tanzoGauge("enel" ,"ENEL KW");
+			enel.g.config.min=-30;
+			enel.g.config.max=30;
+			enel.g.config["levelColors"]=["grey"];
+			
+			solar.g.config.min=0;
+			solar.g.config.max=30;
+			solar.g.config["levelColors"]=["#FFFF00","#FF0000"];
+
+			if ($.QueryString["id"]=="2" ||
+				$.QueryString["id"]=="3" || 
+				$.QueryString["id"]=="8" || 
+				$.QueryString["id"]=="11" || 
+				$.QueryString["id"]=="14" || 
+				$.QueryString["id"]=="15" ||
+				$.QueryString["id"]=="22" || 
+				$.QueryString["id"]=="23" || 
+				$.QueryString["id"]=="28"  
+			) {
+				new tanzoIcon("t0")
+				clock.on();
+				enel.off();	
+				solar.off();	
+			}
+
+			if ($.QueryString["id"]=="12" ||
+				$.QueryString["id"]=="20" || 
+				$.QueryString["id"]=="25"  
+			) {
+				new tanzoIcon("t0")
+				clock.off();
+				enel.on();	
+				solar.on();	
+			}
+			
+			message_line = new tanzoMessage("messages");
+			message_line.message("Benvenuti in Acme Systems srl");
 		});	
 	</script>
 </head>
@@ -152,7 +195,17 @@
 	  <source id="mp4video" type="video/mp4">
 	</video>
 
-	<!-- Tasti -->
+	<!-- Commutatori -->
+	<div style="position: fixed; top: 5px; left:5px;">
+		<div id="t0"></div>
+		<div id="t1"></div>
+		<div id="t2"></div>
+		<div id="t3"></div>
+		<div id="t4"></div>
+		<div id="t5"></div>
+	</div>
+
+	<!-- Switch -->
 	<div style="position: fixed; top: 5px; right:5px;">
 		<div id="p0"></div>
 		<div id="p1"></div>
@@ -162,12 +215,13 @@
 		<div id="p5"></div>
 	</div>
 
-	<div id="gauge" style="position: fixed; top: 480px; left: 30px; width:400px; height:400px;)"></div>
+	<div id="solar" style="position: fixed; top: -30px; left: 100px; width:300px; height:300px;)"></div>
+	<div id="enel"  style="position: fixed; top: 180px; left: 100px; width:300px; height:300px;)"></div>
 	
 	<!-- Orologio e data -->
-	<div id="clock" style="position: fixed; top: 480px; left: 30px;)"></div>
+	<div id="clock" style="position: fixed; top: 45px; left: 100px;)"></div>
 	
 	<!-- Linea di messaggi in basso -->
-	<div id="message_line"></div>
+	<div id="messages"></div>
 </body>
 </html>

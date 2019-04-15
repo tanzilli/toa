@@ -84,16 +84,23 @@ function onMessageArrived(message) {
 
 	// Gestione solar gauge
 	if (json_data.cmd=="solar_gauge_off") {
-		gauge.off();	
+		solar.off();	
+		enel.off();	
 	}    
 	
 	if (json_data.cmd=="solar_gauge_on") {
-		gauge.on();	
+		solar.on("-30px");	
+		enel.on("180px");	
 	}
 
 	// Potenza solare
 	if (json_data.cmd=="solar_value") {
-		gauge.setValue(json_data.value);
+		solar.setValue(json_data.value);
+	}    
+
+	// Potenza enel
+	if (json_data.cmd=="enel_value") {
+		enel.setValue(json_data.value);
 	}    
 
 }	
