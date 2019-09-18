@@ -26,28 +26,29 @@
 
 				// CM2 - Sala proiettore SX
 				if ($.QueryString["id"]=="2") {
-					new tanzoSwitch("Sala (Luci)",      10,"p0");
-					new tanzoSwitch("Sala (Piantane)",  100,"p1");
-					new tanzoSwitch("Scala",       		3,"p2");
-					new tanzoSwitch("Cucina",     		11,"p3");
-					new tanzoSwitch("Uffici",     		12,"p4");
-					new tanzoSwitch("Disco light",      28,"p5");
+					new tanzoSwitch("Sala",      		10,"p0");
+					new tanzoSwitch("Scala",       		 3,"p1");
+					new tanzoSwitch("Cucina",     		11,"p2");
+					new tanzoSwitch("Uffici",     		12,"p3");
+					new tanzoSwitch("Disco light",      28,"p4");
 				}
 
-				// CM3 - Sala proietto DS
+				// CM3 - Sala proiettore DS
 				if ($.QueryString["id"]=="3") {
-					new tanzoSwitch("Sala (Luci)",      10,"p0");
+					new tanzoSwitch("Sala",             10,"p0");
 					new tanzoSwitch("Disco light",      28,"p1");
 					new tanzoSwitch("Cucina",     		11,"p2");
 					new tanzoSwitch("Uffici",     		12,"p3");
-					new tanzoSwitch("Non toccare !",   200,"p4");
+					new tanzoSwitch("Cine cena",       201,"p4");
+					new tanzoSwitch("Non toccare !",   200,"p5");
 				}
 
 				// CM8 - Scala primo piano
 				if ($.QueryString["id"]=="8") {
-					new tanzoSwitch("Scala",   3,"p0");
-					new tanzoSwitch("Uffici", 12,"p1");
-					new tanzoSwitch("Sala",   10,"p2");
+					new tanzoSwitch("Scala",       3,"p0");
+					new tanzoSwitch("Uffici",     12,"p1");
+					new tanzoSwitch("Sala",       10,"p2");
+					new tanzoSwitch("Spiderman",  29,"p2");
 				}
 
 				// CM11 - Daniela
@@ -70,14 +71,14 @@
 					new tanzoSwitch("Scala",      3,"p5");
 				}
 
-				// CM14 - Ingresso stanza gialla
+				// CM14 - Sergio
 				if ($.QueryString["id"]=="14") {
-					new tanzoSwitch("Sergio",    17,"p0");
-					new tanzoSwitch("Piantana 1",26,"p1");
-					new tanzoSwitch("Piantana 2",27,"p2");
-					new tanzoSwitch("Uffici",    12,"p3");
-					new tanzoSwitch("Cucina",    11,"p4");
-					new tanzoSwitch("Sala",      10,"p5");
+					new tanzoSwitch("Sergio",            17,"p0");
+					new tanzoSwitch("Piantana Sergio",   27,"p1");
+					new tanzoSwitch("Stanza gialla",     13,"p2");
+					new tanzoSwitch("Uffici",            12,"p3");
+					new tanzoSwitch("Cucina",            11,"p4");
+					new tanzoSwitch("Sala",              10,"p5");
 				}
 
 				// CM15 - Stanza gialla
@@ -89,8 +90,8 @@
 
 				// CM20 - Stanza stanza verde
 				if ($.QueryString["id"]=="20") {
-					new tanzoSwitch("Stanza",    16,"p0");
-					new tanzoSwitch("Uffici",    12,"p1");
+					new tanzoSwitch("Stanza",      16,"p0");
+					new tanzoSwitch("Uffici",      12,"p1");
 					new tanzoSwitch("Disco light", 28,"p2");					
 				}
 
@@ -111,7 +112,7 @@
 					new tanzoSwitch("Scala",      3,"p0");
 					new tanzoSwitch("Piantana 1",23,"p1");
 					new tanzoSwitch("Piantana 2",24,"p2");
-					new tanzoSwitch("Magazzino", 25,"p3");
+					new tanzoSwitch("Spiderman", 29,"p3");
 				}
 
 				// CM28 - Cucina
@@ -119,8 +120,6 @@
 					new tanzoSwitch("Cucina",    11,"p0");
 					new tanzoSwitch("Sala",      10,"p1");
 					new tanzoSwitch("Uffici",    12,"p2");
-					new tanzoSwitch("Terrazzone", 2,"p3");
-					new tanzoSwitch("Terrazzino", 1,"p4");
 				}
 
 				// CM100 - Test1
