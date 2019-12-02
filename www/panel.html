@@ -43,6 +43,14 @@
 					new tanzoSwitch("Non toccare !",   200,"p5");
 				}
 
+				// CM4 - Cucina sotto Jimi Hendrix
+				if ($.QueryString["id"]=="4") {
+					new tanzoSwitch("Cucina",     		11,"p0");
+					new tanzoSwitch("Sala",             10,"p1");
+					new tanzoSwitch("Uffici",     		12,"p2");
+					new tanzoSwitch("Disco light",      28,"p3");
+				}
+
 				// CM8 - Scala primo piano
 				if ($.QueryString["id"]=="8") {
 					new tanzoSwitch("Scala",       3,"p0");
@@ -158,6 +166,7 @@
 
 			if ($.QueryString["id"]=="2" ||
 				$.QueryString["id"]=="3" || 
+				$.QueryString["id"]=="4" || 
 				$.QueryString["id"]=="8" || 
 				$.QueryString["id"]=="11" || 
 				$.QueryString["id"]=="14" || 
